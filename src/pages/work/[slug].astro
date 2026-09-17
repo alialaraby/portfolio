@@ -22,7 +22,7 @@ const { entry } = Astro.props;
 <BaseLayout title={`${entry.data.title} — Ali Alaraby`} description={entry.data.description}>
   <article class="case-shell">
     <ActionLink href="/#selected-work">← Back to selected work</ActionLink>
-    <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Phase 5 route preview</p>
+    <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Case study preview</p>
     <h1>{entry.data.title}</h1>
     <p class="case-shell__lede">{entry.data.description}</p>
     <div class="notice-panel">

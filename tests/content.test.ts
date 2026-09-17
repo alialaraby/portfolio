@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { caseStudySchema } from "../src/content/schema";
+import { caseStudySchema, homepageSchema } from "../src/content/schema";
 
 describe("content foundation", () => {
   it("contains every approved case-study source", () => {
@@ -33,5 +33,12 @@ describe("content foundation", () => {
       order: 0,
     };
     expect(caseStudySchema.safeParse(invalid).success).toBe(false);
+  });
+
+  it("rejects incomplete homepage content", () => {
+    expect(
+      homepageSchema.safeParse({ kind: "homepage", headline: "Incomplete" })
+        .success,
+    ).toBe(false);
   });
 });

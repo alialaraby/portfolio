@@ -20,7 +20,7 @@ Implementation and technical validation belong to Phase 9. These entries supply 
 ## `/work/logistics-platform`
 
 - **Browser title:** Madar Logistics Platform Case Study — Ali Alaraby
-- **Meta description:** How Ali improved PostgreSQL workloads, export capacity, SLA processing, and
+- **Meta description:** I improved PostgreSQL workloads, export capacity, SLA processing, and
   integration boundaries as part of the team behind a growing logistics platform.
 - **Open Graph title:** Improving Performance and Workflows at Madar
 - **Open Graph description:** A collaborator-aware backend case study covering more than 90% lower
@@ -32,8 +32,8 @@ Implementation and technical validation belong to Phase 9. These entries supply 
 ## `/work/fintech-product`
 
 - **Browser title:** DebtBox Backend Case Study — Ali Alaraby
-- **Meta description:** How Ali shaped DebtBox's backend from technical feasibility through soft
-  launch and production readiness using pragmatic architecture and explicit provider boundaries.
+- **Meta description:** I shaped DebtBox's backend from technical feasibility through soft launch
+  and production readiness using pragmatic architecture and explicit provider boundaries.
 - **Open Graph title:** Building the DebtBox Backend Foundation
 - **Open Graph description:** A fintech backend case study covering modular-monolith design,
   correctness-sensitive workflows, provider adapters, and MVP infrastructure.
@@ -54,5 +54,7 @@ Implementation and technical validation belong to Phase 9. These entries supply 
 
 ## CV asset
 
-The approved CV uses a versioned asset path selected during implementation. It is a downloadable
-file, not an indexable content route, and does not require standalone social metadata.
+The approved CV is served from `/cv/ali-alaraby-senior-backend-engineer-2026.pdf`. It is a
+downloadable file, not an indexable content route, and does not require standalone social metadata.
+The homepage, contact, and footer links reference the validated `cv` field in `home.md`, which must
+be updated whenever the approved version or public filename changes.

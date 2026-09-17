@@ -124,3 +124,11 @@ library or browser runtime. Global CSS owns documented design tokens, self-hoste
 responsive grids, focus states, and reduced-motion behavior. The generated pages contain no authored
 client JavaScript; later phases should preserve that baseline unless a concrete interaction requires
 progressive enhancement.
+
+## Phase 6 homepage composition
+
+The homepage entry now holds validated structured fields for positioning, proof points, about copy,
+selected-work framing, contact copy, and approved profile destinations. The route renders those
+fields directly and renders the dedicated capabilities, experience, and open-source Markdown entries
+through Astro's content renderer. This keeps each section authoritative in one content file while
+allowing the responsive shell to control page hierarchy and presentation.

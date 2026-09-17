@@ -2,9 +2,7 @@
 kind: open-source
 ---
 
-# Open Source
-
-## `saudi-utils`
+### `saudi-utils`
 
 Saudi applications often need to check structured values before sending them to another system or
 accepting them into a workflow. `saudi-utils` is an MIT-licensed TypeScript toolkit for deterministic

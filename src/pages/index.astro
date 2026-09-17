@@ -1,37 +1,100 @@
 ---
-import { getCollection } from 'astro:content';
-import CaseStudyList from '../components/CaseStudyList.astro';
+import { getCollection, getEntry, render } from 'astro:content';
 import ActionLink from '../components/ActionLink.astro';
+import CaseStudyList from '../components/CaseStudyList.astro';
 import SectionShell from '../components/SectionShell.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const caseStudies = (await getCollection('caseStudies')).sort(
   (left, right) => left.data.order - right.data.order,
 );
-const requiredPages = ['capabilities', 'experience', 'home', 'open-source', 'page-metadata'];
-const pageIds = new Set((await getCollection('pages')).map((entry) => entry.id));
 
-for (const requiredPage of requiredPages) {
-  if (!pageIds.has(requiredPage)) {
-    throw new Error(`Missing required approved content: ${requiredPage}.md`);
-  }
+const [home, capabilities, experience, openSource] = await Promise.all([
+  getEntry('pages', 'home'),
+  getEntry('pages', 'capabilities'),
+  getEntry('pages', 'experience'),
+  getEntry('pages', 'open-source'),
+]);
+
+if (!home || home.data.kind !== 'homepage' || !capabilities || !experience || !openSource) {
+  throw new Error('Required approved homepage content is missing or malformed.');
 }
+
+const { Content: CapabilitiesContent } = await render(capabilities);
+const { Content: ExperienceContent } = await render(experience);
+const { Content: OpenSourceContent } = await render(openSource);
 ---
 
 <BaseLayout>
   <section class="hero-shell" aria-labelledby="page-title">
-    <p class="eyebrow">Phase 5 · Visual system preview</p>
-    <h1 id="page-title">A clear shell for evidence-led engineering work.</h1>
-    <p class="hero-shell__lede">
-      This page demonstrates the portfolio’s typography, spacing, responsive structure, and
-      interaction states. Approved homepage composition remains intentionally deferred to Phase 6.
-    </p>
-    <div class="action-group">
-      <ActionLink href="#selected-work" variant="primary">View selected work</ActionLink>
-      <ActionLink href="mailto:alisakralaraby@gmail.com" variant="secondary">Contact Ali</ActionLink>
+    <div class="hero-shell__content">
+      <p class="eyebrow">{home.data.eyebrow}</p>
+      <h1 id="page-title">{home.data.headline}</h1>
+      <div class="hero-shell__lede">
+        {home.data.introduction.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <p class="location-line">{home.data.location}</p>
+      <div class="action-group">
+        <ActionLink href="#selected-work" variant="primary">View selected work</ActionLink>
+        <ActionLink href={`mailto:${home.data.email}`} variant="secondary">Contact me</ActionLink>
+        <ActionLink href={home.data.cv} variant="secondary">Download CV</ActionLink>
+      </div>
     </div>
   </section>
-  <SectionShell id="selected-work" eyebrow="Content-driven routes" title="Selected work">
+
+  <section class="proof-strip" aria-label="Selected evidence">
+    <ul role="list">
+      {
+        home.data.proof.map((item) => (
+          <li>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <SectionShell id="about" eyebrow="How I work" title="I stay close to the real constraint.">
+    <div class="prose prose--lead">
+      {home.data.about.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </SectionShell>
+
+  <SectionShell id="selected-work" eyebrow="Evidence in context" title="Selected work">
+    <p class="section-introduction">{home.data.selectedWorkIntroduction}</p>
     <CaseStudyList entries={caseStudies} />
+  </SectionShell>
+
+  <SectionShell id="capabilities" eyebrow="Problems I solve" title="Engineering capabilities">
+    <div class="prose content-grid"><CapabilitiesContent /></div>
+  </SectionShell>
+
+  <SectionShell id="experience" eyebrow="Career progression" title="Experience">
+    <div class="prose timeline"><ExperienceContent /></div>
+    <div class="section-note" role="note">
+      <p>
+        <strong>Curriculum vitae:</strong>
+        <a href={home.data.cv}>Download the approved PDF</a> for the full professional record.
+      </p>
+    </div>
+  </SectionShell>
+
+  <SectionShell id="open-source" eyebrow="Inspectable engineering" title="Open source">
+    <div class="prose feature-panel"><OpenSourceContent /></div>
+  </SectionShell>
+
+  <SectionShell id="contact" eyebrow="Start a conversation" title="Let’s talk about the system.">
+    <div class="contact-panel">
+      <div class="prose prose--lead">
+        {home.data.contact.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div class="action-group">
+        <ActionLink href={`mailto:${home.data.email}`} variant="primary">Email me</ActionLink>
+        <ActionLink href={home.data.linkedin} variant="secondary" external>LinkedIn</ActionLink>
+        <ActionLink href={home.data.github} external>GitHub</ActionLink>
+        <ActionLink href={home.data.cv} variant="secondary">Download CV</ActionLink>
+      </div>
+    </div>
   </SectionShell>
 </BaseLayout>

@@ -1,5 +1,9 @@
 ---
+import { getEntry } from 'astro:content';
 import ActionLink from './ActionLink.astro';
+
+const home = await getEntry('pages', 'home');
+const cv = home?.data.kind === 'homepage' ? home.data.cv : undefined;
 ---
 
 <footer class="site-footer">
@@ -12,7 +16,8 @@ import ActionLink from './ActionLink.astro';
       <ActionLink href="mailto:alisakralaraby@gmail.com">Email</ActionLink>
       <ActionLink href="https://www.linkedin.com/in/ali-sakr-alarby" external>LinkedIn</ActionLink>
       <ActionLink href="https://github.com/alialaraby" external>GitHub</ActionLink>
+      {cv && <ActionLink href={cv}>CV</ActionLink>}
     </nav>
-    <p class="site-footer__note">Phase 5 visual-system preview. Full portfolio content follows.</p>
+    <p class="site-footer__note">Based in Egypt and open to relocation opportunities in Saudi Arabia.</p>
   </div>
 </footer>

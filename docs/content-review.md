@@ -127,3 +127,18 @@ Review date: 17 September 2026
 - [x] No private code, secret, internal URL, customer data, or infrastructure identifier appears.
 - [x] No raw placeholder, phone number, unsupported availability, or unapproved claim appears.
 - [x] Copy received a consistency and human-quality editing pass.
+
+## Phase 6 voice and implementation review
+
+The public homepage voice was revised on 17 September 2026 from detached third-person descriptions
+to direct first-person ownership. The revision changes presentation, not evidence scope:
+
+- project metadata now uses “I improved” and “I shaped” instead of “How Ali”;
+- the hero leads with the kind of systems and constraints Ali owns, not a generic biography;
+- proof points remain scoped to the approved workloads and preserve team attribution;
+- capabilities, experience, open-source evidence, location, and contact facts remain unchanged;
+- structured homepage fields are the single source for implemented hero, proof, about, selected-work,
+  and contact copy.
+
+The approved versioned CV (`/cv/ali-alaraby-senior-backend-engineer-2026.pdf`) was supplied and is
+now linked from the hero, experience, contact, and footer. No placeholder download remains.
