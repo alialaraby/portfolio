@@ -15,6 +15,7 @@
     "preview": "astro preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "prelint": "astro sync",
     "lint": "eslint .",
     "typecheck": "astro check",
     "test": "vitest run",

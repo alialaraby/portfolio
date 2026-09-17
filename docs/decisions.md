@@ -236,17 +236,18 @@
 ## D015 — Performance budgets and output hygiene in CI
 
 - **Context:** Phase 10 must measure the production artifact and prove no secrets, placeholders, or
-  internal references ship. The performance targets call for Lighthouse 95+ and good Core Web Vitals,
-  which need a real browser that is not available in this environment or in the current CI image.
+  internal references ship. Lighthouse and field Core Web Vitals need browser or deployment
+  infrastructure that is intentionally absent from the current CI image.
 - **Selected:** Enforce artifact budgets and an inventory check in `tests/performance.test.ts`
   (zero client JS, no source maps, CSS/HTML/font/page-weight caps, single font preload,
   `font-display: swap`, sized images) and a forbidden-pattern scan plus approved-email allowlist in
   `tests/hygiene.test.ts`. Run both as post-build CI steps. Document Lighthouse, Core Web Vitals, and
   responsive smoke testing as explicit owner actions against the Phase 11 preview deployment.
-- **Alternatives:** Adding Lighthouse CI with a headless Chrome dependency would be heavy, could not
-  be validated here, and mostly re-measures a tiny static site; a one-off manual Lighthouse run with
-  no regression guard was rejected; relying on the earlier `@astrojs`/framework defaults was rejected
-  because budgets must fail the build, not be observed.
+- **Alternatives:** Adding Lighthouse CI with a headless Chrome dependency would be heavy and mostly
+  re-measure a tiny static site. Artifact budgets remain the regression guard; local Lighthouse is
+  useful supporting evidence but is not presented as a production measurement. Relying on
+  `@astrojs`/framework defaults was rejected because budgets must fail the build, not be observed.
 - **Consequences:** Regressions in bundle size, asset inventory, or accidental secret/placeholder
-  leakage now fail CI. Lighthouse and Core Web Vitals remain documented targets verified manually at
-  launch rather than automated claims. No new dependency was added for this phase.
+  leakage now fail CI. A later local Chromium review measured Lighthouse 100 in every category on the
+  homepage and a representative case study without adding a dependency. Deployment behavior,
+  WebKit, and field Core Web Vitals remain launch checks rather than automated claims.

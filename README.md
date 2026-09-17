@@ -1,8 +1,9 @@
 # Ali Alaraby Portfolio
 
-A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–7
-established the static architecture, visual system, content-driven homepage, and complete case-study
-experience, including the approved downloadable CV.
+A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–10
+established the static architecture, visual system, content-driven homepage, complete case studies,
+accessibility and discovery checks, and production-quality budgets, including the approved
+downloadable CV.
 
 ## Prerequisites
 
@@ -26,7 +27,7 @@ npm ci
 | `npm run preview`       | Preview the generated artifact locally      |
 | `npm run format`        | Format supported repository files           |
 | `npm run format:check`  | Check formatting without changing files     |
-| `npm run lint`          | Lint JavaScript and TypeScript              |
+| `npm run lint`          | Sync Astro types, then lint source files    |
 | `npm run typecheck`     | Run strict Astro and TypeScript diagnostics |
 | `npm test`              | Run the focused Vitest suite                |
 | `npm run test:a11y`     | Audit the built HTML for accessibility      |
@@ -59,7 +60,7 @@ remain in `docs/` and must not be imported into the public application.
 ## Current non-goals
 
 This release excludes dark mode, analytics, forms, CMS/backend infrastructure, deployment, and
-production performance claims. Accessibility coverage and known limitations are in
+field performance claims. Accessibility coverage and known limitations are in
 [accessibility](docs/accessibility.md); SEO and link verification are in [seo](docs/seo.md). See the
 [visual system](docs/visual-system.md),
 [technical architecture](docs/technical-architecture.md), and [roadmap](docs/roadmap.md).

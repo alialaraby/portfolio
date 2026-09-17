@@ -1,7 +1,8 @@
 # Production QA
 
-Phase 10 verification of the static artifact. Everything below was measured on the committed build
-on 17 September 2026; unverifiable browser checks are listed as owner actions rather than claims.
+Phase 10 verification of the static artifact, followed by a Phase 6–10 quality review on
+17 September 2026. Local Chromium results are recorded separately from checks that still require a
+deployed production environment or WebKit.
 
 ## Clean install and full check
 
@@ -64,6 +65,21 @@ decision/doc references, cloud keys, private keys, provider tokens, credential a
 tokens, local development hosts, and phone numbers. All checks pass, and only approved email
 addresses may appear.
 
+## Local browser verification
+
+A local production build was served over HTTP and checked in Chromium 140 (Playwright 1.55). The
+homepage was visually reviewed at 320×900, 390×844, 768×1024, and 1440×1000; the representative
+logistics case study was reviewed at 390×844 and 1440×1000. Navigation wrapped without clipping,
+cards and diagrams reflowed into one column, reading measures remained usable, and no visible
+horizontal overflow or layout failure was found.
+
+Lighthouse 12.8.2 desktop runs against `/` and `/work/logistics-platform/` each scored **100** for
+Performance, Accessibility, Best Practices, and SEO. Both reported FCP 0.3 s, LCP 0.4 s, CLS 0,
+and TBT 0 ms. These are repeatable local-lab results, not production or field-performance claims.
+
+The generated sitemap also passed `xmllint`, and the local server returned successful responses for
+the homepage and versioned CV asset.
+
 ## Manual checks before launch
 
 These require a real browser and cannot run in CI. They are owner actions for Phase 11, performed
@@ -75,17 +91,17 @@ against the preview deployment once it exists.
 - **Core Web Vitals:** confirm LCP, INP, and CLS are in the "good" range on a throttled profile;
   LCP should be the text hero, and CLS should be near zero because fonts use `swap` and no images
   lack dimensions.
-- **Responsive smoke:** at 320, 480, 768, 1024, and 1440 px, confirm the header wraps without
-  overflow, reading width stays comfortable, no horizontal scrollbar appears, and the CV and contact
-  actions work.
+- **Responsive smoke:** repeat the local responsive review against the deployed preview at 320, 480,
+  768, 1024, and 1440 px and exercise the CV and contact actions.
 - **Browser smoke:** load `/`, all three case studies, `/404/`, `sitemap.xml`, `robots.txt`, and the
-  CV download in at least one Chromium and one WebKit browser.
+  CV download on the deployed preview in Chromium and WebKit. Local Chromium rendering is already
+  covered; WebKit and deployment behavior remain outstanding.
 
 ## Known limitations and blockers
 
-- Lighthouse scores and Core Web Vitals are targets, not measured results, until the preview
-  deployment exists; no browser is available in this environment.
-- Browser and responsive smoke testing is likewise deferred to Phase 11 against a live preview.
+- Local Lighthouse scores are measured lab results only. Production Lighthouse and field Core Web
+  Vitals remain unmeasured until a preview or production deployment exists.
+- WebKit, live-link, and deployed responsive checks remain Phase 11 launch work.
 - The production domain is not serving until Phase 11; canonical and sitemap URLs are correct but
   will only resolve after deployment.
 - No code-side launch blockers remain from Phase 10.

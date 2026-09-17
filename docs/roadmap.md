@@ -21,13 +21,14 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 | Phase 10 — Performance, security, and production QA | Complete\*  |
 | Phase 11 — Deployment and launch readiness          | Not started |
 
-\* Phase 10 artifact checks are complete; browser-dependent smoke testing is deferred to Phase 11,
-which has a live preview.
+\* Phase 10 artifact and local Chromium checks are complete; deployed and WebKit smoke testing is
+deferred to Phase 11, which has a live preview.
 
 ## Progress summary
 
-- **Current phase:** Phase 10 is complete; the production artifact passes clean-install, budget, and
-  hygiene checks, and browser-only checks are documented as launch actions.
+- **Current phase:** Phase 10 is complete; the production artifact passes clean-install, budget,
+  hygiene, local Chromium, and Lighthouse checks. Deployment-specific and WebKit checks are launch
+  actions.
 - **Completed:** Phases 1 through 10.
 - **Next phase:** Phase 11 — deployment and launch readiness.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
@@ -295,7 +296,7 @@ Evidence of completion:
 
 ## Phase 10 — Performance, security, and production QA
 
-**Status:** Complete (browser-dependent checks deferred to Phase 11)
+**Status:** Complete (deployment and WebKit checks deferred to Phase 11)
 
 Test the production artifact and close launch blockers.
 
@@ -304,9 +305,9 @@ Acceptance criteria:
 - [x] clean install and full check suite pass
 - [x] dependency/security review passes with no unexplained finding
 - [x] asset, bundle, and route behavior are inspected
-- [x] performance is measured via enforced artifact budgets; Lighthouse/Core Web Vitals are
-      documented launch checks because no browser is available in this environment
-- [ ] browser/responsive smoke testing passes — deferred to Phase 11, which has a live preview
+- [x] performance is measured via enforced artifact budgets and local Lighthouse; production field
+      Core Web Vitals remain a launch check
+- [x] local Chromium/responsive smoke testing passes; deployed and WebKit coverage remains Phase 11
 - [x] no secrets, internal references, or placeholders are present
 
 Evidence of completion:
@@ -321,6 +322,8 @@ Evidence of completion:
 - `tests/hygiene.test.ts` (16 tests) scans the output for secrets, credentials, placeholders,
   internal references, dev hosts, and non-approved emails
 - `npm run test:perf` and `npm run test:hygiene` added and wired into CI after the build
+- Local Chromium visual review at 320, 390, 768, and 1440 px plus Lighthouse desktop runs on the
+  homepage and a representative case study; both Lighthouse runs scored 100 in every category
 
 ## Phase 11 — Deployment and launch readiness
 
@@ -424,3 +427,10 @@ Potential work only after launch evidence justifies it:
   launch checklist in `docs/production-qa.md`; recorded decision D015. Lighthouse/Core Web Vitals and
   browser/responsive smoke testing are documented as Phase 11 owner actions because no browser is
   available here. Phase 10 artifact work is `Complete`; Phase 11 is next.
+- **17 September 2026 — Phases 6–10 quality review:** fixed clean-checkout sitemap linting by running
+  `astro sync` automatically before ESLint; re-ran all 38 tests and the built-output accessibility,
+  SEO, performance, and hygiene suites; reviewed the homepage and representative case study in local
+  Chromium at mobile, tablet, and desktop widths; and validated the sitemap XML and CV response.
+  Lighthouse desktop runs on the homepage and logistics case study scored 100 for Performance,
+  Accessibility, Best Practices, and SEO. Updated Phase 10 records to distinguish this local lab
+  evidence from the remaining deployed, WebKit, live-link, and field-performance checks.
