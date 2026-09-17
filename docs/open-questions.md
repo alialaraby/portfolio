@@ -6,9 +6,23 @@ Priorities are `blocking`, `important but non-blocking`, and `optional`. A quest
 when the current phase cannot responsibly select positioning, audiences, information architecture,
 or portfolio stories without its answer.
 
-There are **no blocking Phase 2 questions**. The strategy uses conservative titles, generalized
-private-system identities, qualitative evidence, and explicit approval gates. The questions below
-remain important for Phase 3 copy and publication or optional for later enrichment.
+There are **no blocking Phase 2 questions**. Phase 3 is blocked by the expected owner content and
+publication approval gate described below. The remaining questions are important for final copy or
+optional for later enrichment.
+
+## Blocking for Phase 3
+
+Ali must provide the latest approved CV or confirm that the audited `CV-01` baseline remains
+current, then answer only these minimum publication questions:
+
+1. Are `Senior Backend Engineer` and `6+ years` approved as the public title and experience wording?
+2. Which collaborator-aware Madar and DebtBox statements in `C004`–`C018` may be published in
+   generalized case studies, or should either story be excluded? Exact metrics may remain omitted.
+3. Which direct contact path may be published: an approved email address, LinkedIn URL, or both?
+
+After these answers are recorded in the evidence register, Phase 3 can resume. Location,
+availability, metrics, screenshots, diagrams, logos, and the additional ArabDT story are not
+required to unblock drafting.
 
 ## Important but non-blocking
 
