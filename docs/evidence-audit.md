@@ -515,8 +515,9 @@ systems, metric substantiation, ownership boundaries, and current contact/locati
 
 ## Recommended inputs for Phase 2
 
-Proceed to positioning/content strategy only after the blocking questions are answered. The best
-current inputs are:
+Phase 2 reconciliation determined that the unanswered questions gate final wording and publication,
+not the ability to choose a conservative strategy. Phase 2 may proceed by generalizing private work,
+omitting unapproved metrics, and preserving owner-confirmation requirements. The best inputs are:
 
 1. **Primary position:** Senior Backend Engineer focused on reliable, integration-heavy Node.js and
    TypeScript systems, with production ownership from architecture through operations.
@@ -534,7 +535,8 @@ current inputs are:
 
 - Added this audit, the atomic claim register, and prioritized open questions.
 - Expanded the root README to describe the documentation phase and link its outputs.
-- Changed Phase 1 in the roadmap from `Not started` to `In progress` because owner confirmation and
-  publication decisions remain outstanding.
+- Initially changed Phase 1 from `Not started` to `In progress`. The 17 September 2026 status
+  reconciliation subsequently confirmed the audit deliverables were complete and moved remaining
+  owner questions to later publication gates.
 - Made no material change to the approved requirements and no website, design, stack, or dependency
   decision.

@@ -10,6 +10,11 @@ Source keys such as `CV-01`, `GH-SU-01`, and `RUN-SU-01` are defined in the
 
 Status values: `candidate`, `supported`, `needs-owner-confirmation`, `approved`, `rejected`.
 
+Phase 2 may use `supported` and `needs-owner-confirmation` items to choose strategy when it applies
+the publication constraints below. This does not change those items to `approved` and does not
+authorize final copy. Private-system names, exact metrics, ownership titles, contact details, and
+confidential implementation details remain gated for Phase 3 publication review.
+
 | ID | Candidate claim | Source | Evidence type | Confidence | Publication risk | Status | Approved wording/notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | C001 | Ali is a Senior Backend Engineer. | `CV-01` role/title history | CV baseline | High | Low | needs-owner-confirmation | Confirm preferred public title. |

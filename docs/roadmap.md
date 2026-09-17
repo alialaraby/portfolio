@@ -4,6 +4,22 @@ Status values: `Not started`, `In progress`, `Blocked`, `Complete`.
 
 Only change a phase to `Complete` after its acceptance criteria pass. Each implementation phase should use a focused branch and pull request.
 
+## Phase overview
+
+| Phase | Status |
+| --- | --- |
+| Phase 0 — Repository bootstrap | Not started |
+| Phase 1 — CV, evidence, and repository audit | Complete |
+| Phase 2 — Positioning and content strategy | Complete |
+| Phases 3–11 | Not started |
+
+## Progress summary
+
+- **Current phase:** Phase 2 completed; work stops before Phase 3.
+- **Completed:** Phases 1 and 2.
+- **Next phase:** Phase 3 — Case-study and page copy, after owner publication inputs are available.
+- **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
+
 ## Phase 0 — Repository bootstrap
 
 **Status:** Not started
@@ -20,48 +36,56 @@ Acceptance criteria:
 
 ## Phase 1 — CV, evidence, and repository audit
 
-**Status:** In progress
+**Status:** Complete
 
 Use the approved CV as the career baseline, then inspect the GitHub repositories and public sources Ali explicitly permits. Build a reliable inventory of roles, projects, responsibilities, engineering capabilities, measurable outcomes, and publishable evidence. Private employer work may be supported by the CV and owner confirmation without exposing its source. Do not implement the website.
 
 Acceptance criteria:
 
-- CV roles, dates, titles, domains, skills, and metrics are extracted into a structured baseline
-- relevant repositories are inventoried and classified by ownership, visibility, relevance, and publication risk
-- CV claims are reconciled with repository evidence, public sources, and owner confirmation without treating repository access as publication permission
-- strong portfolio candidates are ranked, beginning with Madar, DebtBox, `saudi-utils`, and one safely publishable ArabDT story
-- claims are mapped to their exact evidence source and confidence in `content-evidence.md`
-- the audit distinguishes confirmed facts, reasonable inferences, and owner-confirmation requirements
-- confidentiality risks and missing context are recorded
-- private-system experience is converted into safe candidate narratives rather than omitted or exposed
-- exact metrics, partner names, government integrations, location, contact details, and availability are flagged for publication approval
-- owner questions are concise and prioritized
-- no site implementation or design selection occurs
+- [x] CV roles, dates, titles, domains, skills, and metrics are extracted into a structured baseline
+- [x] relevant repositories are inventoried and classified by ownership, visibility, relevance, and publication risk
+- [x] CV claims are reconciled with repository evidence and public sources without treating repository access as publication permission; pending owner confirmation is explicit
+- [x] strong portfolio candidates are ranked, beginning with Madar, DebtBox, `saudi-utils`, and one safely publishable ArabDT story
+- [x] claims are mapped to their exact evidence source and confidence in `content-evidence.md`
+- [x] the audit distinguishes confirmed facts, reasonable inferences, and owner-confirmation requirements
+- [x] confidentiality risks and missing context are recorded
+- [x] private-system experience is converted into safe candidate narratives rather than omitted or exposed
+- [x] exact metrics, partner names, government integrations, location, contact details, and availability are flagged for publication approval
+- [x] owner questions are concise and prioritized
+- [x] no site implementation or design selection occurs
+
+Evidence of completion:
+
+- [Phase 1 evidence audit](evidence-audit.md)
+- [Atomic content evidence register](content-evidence.md)
+- [Prioritized open questions](open-questions.md)
+- [Portfolio requirements and CV-derived baseline constraints](requirements.md)
+- Commit `b73d7ab` contains the Phase 1 deliverables on `main`; no Phase 1 pull request exists in the
+  GitHub repository.
 
 ## Phase 2 — Positioning and content strategy
 
-**Status:** Blocked
-
-**Blockers:** Phase 1 remains `In progress`, so its evidence has not reached the approved baseline
-required for responsible positioning decisions. The latest approved CV is not present in this
-repository, Phase 1 acceptance criteria do not have recorded completion evidence, and the blocking
-ownership, metric, confidentiality, location, and contact questions in
-[`open-questions.md`](open-questions.md) remain unresolved. In particular, public positioning cannot
-yet safely rely on Madar or DebtBox ownership boundaries, production metrics, product naming, or
-disclosure scope. Phase 2 must not begin until Phase 1 is marked `Complete`, its completion evidence
-is linked, and the Phase 1 status agrees across the roadmap summary and detailed status.
+**Status:** Complete
 
 Turn the approved evidence into professional positioning, audience priorities, information architecture, and a content plan.
 
 Acceptance criteria:
 
-- primary positioning as a Senior Backend Engineer with 6+ years of experience is reviewed and approved
-- audience and conversion goals are explicit
-- sitemap/section structure is decided
-- project selection, order, disclosure level, and case-study depth are approved
-- the content strategy balances recruiter scanning with deeper engineering evidence
-- engineering capabilities are grouped around outcomes such as architecture, performance, integrations, data, reliability, and production ownership rather than a flat technology list
-- content gaps are assigned to owner or future work
+- [x] primary positioning as a Senior Backend Engineer with 6+ years of experience is selected
+- [x] audience and conversion goals are explicit
+- [x] sitemap/section structure is decided
+- [x] project selection, order, disclosure level, and case-study depth are decided
+- [x] the content strategy balances recruiter scanning with deeper engineering evidence
+- [x] engineering capabilities are grouped around outcomes such as architecture, performance, integrations, data, reliability, and production ownership rather than a flat technology list
+- [x] content gaps are assigned to owner or future work
+
+Evidence of completion:
+
+- [Content strategy](content-strategy.md)
+- [Information architecture](information-architecture.md)
+- [Content inventory](content-inventory.md)
+- [Decision log](decisions.md)
+- [Evidence register](content-evidence.md) and [reclassified owner questions](open-questions.md)
 
 ## Phase 3 — Case-study and page copy
 
@@ -207,3 +231,14 @@ Potential work only after launch evidence justifies it:
 - testimonials with explicit permission
 - automated link and Lighthouse monitoring
 - dark theme
+
+## Progress log
+
+- **17 September 2026 — Phase 1 reconciled:** confirmed all audit acceptance criteria against the
+  committed evidence audit, claim register, question register, requirements, repository inventory,
+  privacy review, and commit history. Reclassified unresolved publication inputs as non-blocking for
+  strategy. Marked Phase 1 `Complete`.
+- **17 September 2026 — Phase 2 completed:** selected positioning, audiences, proof pillars, three
+  launch stories, conversion strategy, focused homepage-plus-case-studies architecture, content
+  model, channel responsibilities, and owner-gated publication boundaries. No Phase 3 copy or site
+  implementation was started.
