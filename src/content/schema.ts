@@ -47,3 +47,28 @@ export const homepageSchema = z.object({
   github: z.url(),
   cv: z.string().regex(/^\/cv\/[a-z0-9._-]+\.pdf$/),
 });
+
+export const experienceSchema = z.object({
+  kind: z.literal("experience"),
+  introduction: z.string().min(1),
+  roles: z
+    .array(
+      z.object({
+        company: z.string().min(1),
+        positions: z
+          .array(
+            z.object({
+              title: z.string().min(1),
+              timeline: z.string().min(1),
+            }),
+          )
+          .min(1),
+        summary: z.string().min(1),
+        highlights: z.array(z.string().min(1)).min(1),
+        note: z.string().min(1).optional(),
+      }),
+    )
+    .min(1),
+  closingTitle: z.string().min(1),
+  closing: z.string().min(1),
+});

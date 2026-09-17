@@ -7,10 +7,10 @@ import { describe, expect, it } from "vitest";
 
 const distDir = resolve("dist");
 
-const MAX_HTML_BYTES = 24 * 1024;
-const MAX_HTML_GZIP_BYTES = 7 * 1024;
-const MAX_CSS_BYTES = 16 * 1024;
-const MAX_CSS_GZIP_BYTES = 5 * 1024;
+const MAX_HTML_BYTES = 28 * 1024;
+const MAX_HTML_GZIP_BYTES = 9 * 1024;
+const MAX_CSS_BYTES = 20 * 1024;
+const MAX_CSS_GZIP_BYTES = 6 * 1024;
 const MAX_FONT_BYTES = 80 * 1024;
 const MAX_PAGE_GZIP_BYTES = 140 * 1024;
 
@@ -44,7 +44,7 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
   const css = byExt(".css");
   const fonts = byExt(".woff2");
 
-  it("ships no client JavaScript or source maps", () => {
+  it("ships only the reviewed inline enhancement and no script bundles or source maps", () => {
     expect(
       files.filter((file) => /\.(m?js|cjs|map)$/.test(file)),
       "unexpected script assets",
@@ -55,8 +55,15 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
       const executable = scripts.filter(
         (script) => script.getAttribute("type") !== "application/ld+json",
       );
-      expect(executable, `${rel(file)} contains an executable script`).toEqual(
-        [],
+      expect(
+        executable,
+        `${rel(file)} has unexpected executable scripts`,
+      ).toHaveLength(1);
+      expect(executable[0]?.textContent, rel(file)).toContain(
+        "portfolio-theme",
+      );
+      expect(executable[0]?.textContent, rel(file)).toContain(
+        "IntersectionObserver",
       );
       expect(
         documentOf(file).querySelector("script[src]"),
@@ -131,6 +138,7 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
       /^fonts\/ibm-plex\/LICENSE\.txt$/,
       /^cv\/[\w.-]+\.pdf$/,
       /^og\/[\w.-]+\.(png|svg)$/,
+      /^favicon\.svg$/,
       /^robots\.txt$/,
       /^sitemap\.xml$/,
     ];

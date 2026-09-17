@@ -271,3 +271,20 @@
   run, WebKit, and live endpoint checks remain owner-controlled external steps. A later review found
   that the proposed custom domain was unregistered, so the initial launch uses
   `https://alialaraby.github.io/portfolio/` with explicit base-path handling and no `CNAME`.
+
+## D017 — Progressive visual refinement without a runtime framework
+
+- **Context:** The evidence-led layout is sound but feels more formal than intended. The refresh
+  needs personality, dark mode, a persistent header, a future portrait slot, and subtle motion while
+  preserving accessibility, static delivery, and the GitHub Pages base path.
+- **Selected:** Extend semantic color tokens for light and dark themes; follow the system until a
+  visitor stores an explicit choice; add a sticky compact header, monogram favicon and portrait,
+  ambient CSS background, and one-time observer-driven reveals. Use one defensive inline script for
+  theme, header, and reveal behavior and no runtime package or emitted bundle.
+- **Alternatives:** A light-only refresh would not meet the requested theme behavior; CSS-only theme
+  switching cannot persist a choice cleanly; an animation library, canvas background, parallax, and
+  hide-on-scroll header add weight or distraction without improving the portfolio narrative.
+- **Consequences:** The performance test now permits exactly one recognized inline enhancement while
+  preserving zero script files and source maps. Content remains visible without JavaScript, system
+  theming remains available, and reduced motion removes animation and transforms. The portrait API
+  is ready for an owner-supplied image with meaningful alt text and intrinsic dimensions.

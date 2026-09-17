@@ -60,8 +60,8 @@ remain in `docs/` and must not be imported into the public application.
 
 ## Current non-goals
 
-This release excludes dark mode, analytics, forms, CMS/backend infrastructure, and field
-performance claims. Deployment and rollback instructions are in
+This release excludes analytics, forms, CMS/backend infrastructure, and field performance claims.
+Deployment and rollback instructions are in
 [deployment](docs/deployment.md). Accessibility coverage and known limitations are in
 [accessibility](docs/accessibility.md); SEO and link verification are in [seo](docs/seo.md). See the
 [visual system](docs/visual-system.md),

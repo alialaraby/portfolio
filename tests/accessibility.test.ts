@@ -84,7 +84,41 @@ describe.skipIf(!buildExists())("built accessibility", () => {
         "MAIN",
       );
 
+      const themeToggle = document.querySelector("button.theme-toggle");
+      expect(themeToggle?.getAttribute("type"), file).toBe("button");
+      expect(themeToggle?.getAttribute("aria-label"), file).toBe(
+        "Switch to dark mode",
+      );
+      expect(themeToggle?.getAttribute("aria-pressed"), file).toBe("false");
+
       dom.window.close();
     }
+  });
+
+  it("uses a decorative monogram until a real portrait is supplied", () => {
+    const document = new JSDOM(
+      readFileSync(join(distDir, "index.html"), "utf8"),
+    ).window.document;
+    const placeholder = document.querySelector(".portrait__placeholder");
+
+    expect(placeholder).not.toBeNull();
+    expect(placeholder?.getAttribute("aria-hidden")).toBe("true");
+    expect(document.querySelector(".portrait img")).toBeNull();
+  });
+
+  it("presents experience as an ordered history and keeps contact actions consistent", () => {
+    const document = new JSDOM(
+      readFileSync(join(distDir, "index.html"), "utf8"),
+    ).window.document;
+
+    const timeline = document.querySelector("ol.timeline");
+    expect(
+      timeline?.querySelectorAll(":scope > li.timeline__entry"),
+    ).toHaveLength(5);
+
+    const github = document.querySelector(
+      '.contact-panel a[href="https://github.com/alialaraby"]',
+    );
+    expect(github?.classList.contains("action-link--secondary")).toBe(true);
   });
 });

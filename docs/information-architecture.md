@@ -220,6 +220,6 @@ or legal claims that are not required.
 ## Future expansion boundaries
 
 Add a work index only after the portfolio has more than four approved stories. Add articles only
-when Ali commits to maintaining them. Arabic, analytics, testimonials, dark mode, a CMS, and other
+when Ali commits to maintaining them. Arabic, analytics, testimonials, a CMS, and other
 post-launch items remain outside this architecture until separately justified. Do not add
 authentication, a database, API routes, or a contact backend to serve the approved content model.
