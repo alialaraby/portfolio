@@ -138,3 +138,23 @@
   point. Phases 6–7 compose approved Markdown into complete pages. Phases 8–10 add browser,
   accessibility, SEO, visual, and performance verification. Phase 11 owns Vercel configuration and
   deployment review.
+
+## D010 — Editorial-technical visual system
+
+- **Context:** The portfolio needs a distinctive but restrained presentation for technical evidence,
+  strong reading hierarchy, responsive behavior, accessibility fundamentals, and minimal client
+  code without implementing Phase 6–7 content early.
+- **Selected:** A light editorial-technical system using warm neutral surfaces, dark ink, a
+  restrained blue accent, IBM Plex Sans for reading and interface text, and IBM Plex Mono for short
+  technical labels. Navigation wraps and remains visible at every width without JavaScript.
+- **Alternatives:** A minimal monochrome system was less distinctive; a rounded product-dashboard
+  direction overemphasized cards; a custom mobile toggle added unnecessary state and hydration;
+  remote fonts added privacy and availability costs; system fonts reduced visual identity.
+- **Benefits:** Strong hierarchy, local predictable assets, no third-party requests, no authored
+  client JavaScript, reusable primitives, and a clear path for the approved content.
+- **Trade-offs:** Three font files add approximately 104 KiB before transfer compression; IBM Plex
+  Mono is static because IBM does not publish a variable webfont; light-only presentation postpones
+  dark-mode decisions.
+- **Constraints and implications:** Phase 5 previews only approved titles and descriptions. Phase 6
+  composes the homepage, Phase 7 completes case studies, and Phase 8 performs deeper accessibility
+  and browser verification. Tokens and component variants should expand only for demonstrated needs.

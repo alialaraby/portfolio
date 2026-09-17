@@ -13,13 +13,14 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 | Phase 2 — Positioning and content strategy      | Complete    |
 | Phase 3 — Case-study and page copy              | Complete    |
 | Phase 4 — Technical architecture and foundation | Complete    |
-| Phases 5–11                                     | Not started |
+| Phase 5 — Visual system and responsive shell    | Complete    |
+| Phases 6–11                                     | Not started |
 
 ## Progress summary
 
-- **Current phase:** Phase 4 completed; work stops before Phase 5.
-- **Completed:** Phases 1, 2, 3, and 4.
-- **Next phase:** Phase 5 — Visual system and responsive shell.
+- **Current phase:** Phase 5 completed; work stops before Phase 6.
+- **Completed:** Phases 1, 2, 3, 4, and 5.
+- **Next phase:** Phase 6 — Core portfolio experience.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -152,17 +153,30 @@ Evidence of completion:
 
 ## Phase 5 — Visual system and responsive shell
 
-**Status:** Not started
+**Status:** Complete
 
 Create the restrained visual language and reusable responsive page shell.
 
 Acceptance criteria:
 
-- typography, color, spacing, layout, and component tokens are documented
-- navigation, footer, buttons, links, cards, and content widths are consistent
-- shell works at mobile, tablet, and desktop widths
-- keyboard and reduced-motion basics pass
-- visual review artifacts are included in the PR
+- [x] typography, color, spacing, layout, and component tokens are documented
+- [x] navigation, footer, buttons, links, cards, and content widths are consistent
+- [x] shell works at mobile, tablet, and desktop widths
+- [x] keyboard and reduced-motion basics pass
+- [x] visual review artifacts are included for owner review
+
+Evidence of completion:
+
+- [Visual-system specification](visual-system.md) and [decision D010](decisions.md#d010--editorial-technical-visual-system)
+- Shared shell and primitives in `src/layouts/BaseLayout.astro` and `src/components/`
+- Design tokens, responsive layouts, focus treatment, and reduced-motion behavior in
+  `src/styles/global.css`
+- Self-hosted IBM Plex assets and license in `public/fonts/ibm-plex/`
+- [Viewport review notes and screenshots](visual-review/phase-5/README.md)
+- Clean install, formatting, lint, strict typecheck, tests, content validation, production build,
+  output inspection, and dependency audit passed locally on the declared Node.js/npm versions.
+- Remote CI and pull-request review remain owner actions because this phase is left uncommitted and
+  unpushed.
 
 ## Phase 6 — Core portfolio experience
 
@@ -288,3 +302,8 @@ Potential work only after launch evidence justifies it:
   installs, pinned read-only CI, and architecture documentation. Local clean-install, validation,
   build, audit, output inspection, workflow, link, and Git checks passed. Phase 5 remains
   `Not started`.
+- **17 September 2026 — Phase 5 completed:** established the light editorial-technical visual
+  system, self-hosted IBM Plex typography, responsive zero-JavaScript navigation and shell,
+  documented tokens and component conventions, accessible focus/reduced-motion foundations, and
+  mobile/tablet/desktop review artifacts. Full homepage and case-study composition remain deferred;
+  Phase 6 is next.

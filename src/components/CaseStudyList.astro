@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import SurfaceCard from './SurfaceCard.astro';
 
 interface Props {
   entries: CollectionEntry<'caseStudies'>[];
@@ -8,6 +9,15 @@ interface Props {
 const { entries } = Astro.props;
 ---
 
-<ul>
-  {entries.map((entry) => <li><a href={entry.data.route}>{entry.data.title}</a></li>)}
+<ul class="card-grid" role="list">
+  {
+    entries.map((entry) => (
+      <li>
+        <SurfaceCard href={entry.data.route} label={entry.data.classification.replace('-', ' ')}>
+          <h3>{entry.data.title}</h3>
+          <p>{entry.data.description}</p>
+        </SurfaceCard>
+      </li>
+    ))
+  }
 </ul>
