@@ -697,6 +697,10 @@ main {
   color: #fff;
 }
 
+.site-footer :focus-visible {
+  outline-color: #f4a259;
+}
+
 .site-footer__note {
   max-width: 32rem;
   margin-block-end: 0;

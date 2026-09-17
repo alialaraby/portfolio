@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ActionLink from '../../components/ActionLink.astro';
 import FlowDiagram from '../../components/FlowDiagram.astro';
+import { site } from '../../config/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -31,9 +32,62 @@ const next = currentIndex >= 0 && currentIndex < sorted.length - 1 ? sorted[curr
 const { Content: CaseStudyContent } = await render(entry);
 
 const hasLinks = Boolean(entry.data.repository || entry.data.package);
+
+const canonical = new URL(`${entry.data.route}/`, site.url).href;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: entry.data.title,
+    description: entry.data.description,
+    url: canonical,
+    mainEntityOfPage: canonical,
+    inLanguage: site.locale,
+    author: {
+      '@type': 'Person',
+      name: site.name,
+      url: new URL('/', site.url).href,
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: site.name,
+      url: new URL('/', site.url).href,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: new URL('/', site.url).href,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Selected work',
+        item: `${new URL('/', site.url).href}#selected-work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: entry.data.title,
+        item: canonical,
+      },
+    ],
+  },
+];
 ---
 
-<BaseLayout title={`${entry.data.title} — Ali Alaraby`} description={entry.data.description}>
+<BaseLayout
+  title={`${entry.data.title} — Ali Alaraby`}
+  description={entry.data.description}
+  type="article"
+  structuredData={structuredData}
+>
   <article class="case-shell">
     <ActionLink href="/#selected-work">← Back to selected work</ActionLink>
 

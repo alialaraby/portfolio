@@ -25,19 +25,22 @@ glass effects, oversized rounding, technology-logo walls, and interaction that h
 
 ## Color and contrast
 
-| Token         | Value     | Use                               |
-| ------------- | --------- | --------------------------------- |
-| Canvas        | `#f5f2eb` | Warm page background              |
-| Surface       | `#fffdf8` | Cards and elevated reading areas  |
-| Ink           | `#152029` | Primary text and dark footer      |
-| Muted ink     | `#52616c` | Supporting text and metadata      |
-| Accent        | `#0b57a4` | Links and informational borders   |
-| Accent strong | `#073b70` | Primary actions and hover states  |
-| Accent soft   | `#dceafb` | Low-emphasis information surfaces |
-| Focus         | `#b44600` | High-visibility keyboard outline  |
+| Token         | Value     | Use                                 |
+| ------------- | --------- | ----------------------------------- |
+| Canvas        | `#f5f2eb` | Warm page background                |
+| Surface       | `#fffdf8` | Cards and elevated reading areas    |
+| Ink           | `#152029` | Primary text and dark footer        |
+| Muted ink     | `#52616c` | Supporting text and metadata        |
+| Accent        | `#0b57a4` | Links and informational borders     |
+| Accent strong | `#073b70` | Primary actions and hover states    |
+| Accent soft   | `#dceafb` | Low-emphasis information surfaces   |
+| Focus         | `#b44600` | High-visibility keyboard outline    |
+| Focus (dark)  | `#f4a259` | Keyboard outline on the dark footer |
 
-The selected text, link, button, and focus combinations target WCAG 2.2 AA. Phase 8 owns formal
-automated and assistive-technology verification.
+The selected text, link, button, and focus combinations target WCAG 2.2 AA. Phase 8 verified them:
+the automated axe audit passes and the measured token contrast ratios are recorded in
+[accessibility.md](accessibility.md). The dark footer uses a lighter focus color because `#b44600`
+only reaches 3.00:1 on ink; `#f4a259` reaches 8.00:1.
 
 ## Spacing, layout, and surfaces
 
