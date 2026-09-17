@@ -61,7 +61,7 @@ const stringsOf = (value: unknown): string[] =>
 describe.skipIf(!buildExists())("built SEO and discovery", () => {
   const files = buildExists() ? htmlFiles(distDir).sort() : [];
   const contentPages = files.filter((file) => !file.endsWith("404.html"));
-  const casePages = files.filter((file) => file.includes(`${sep}work${sep}`));
+  const casePages = files.filter((file) => toRoute(file).startsWith("/work/"));
 
   it("has unique, non-empty titles and descriptions", () => {
     const titles = new Set<string>();
