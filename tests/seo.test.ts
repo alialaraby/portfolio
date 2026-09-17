@@ -122,6 +122,10 @@ describe.skipIf(!buildExists())("built SEO and discovery", () => {
         file,
       ).toBe(imageUrl);
       expect(
+        document.querySelector('link[rel="icon"]')?.getAttribute("href"),
+        file,
+      ).toBe(`${site.basePath}/favicon.svg`);
+      expect(
         document
           .querySelector('meta[name="twitter:card"]')
           ?.getAttribute("content"),
@@ -136,6 +140,7 @@ describe.skipIf(!buildExists())("built SEO and discovery", () => {
     }
 
     expect(statSync(join(distDir, site.ogImage.path)).isFile()).toBe(true);
+    expect(statSync(join(distDir, "favicon.svg")).isFile()).toBe(true);
   });
 
   it("publishes valid, honest structured data", () => {

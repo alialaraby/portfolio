@@ -9,7 +9,7 @@ const { id, eyebrow, title } = Astro.props;
 const headingId = id ? `${id}-heading` : undefined;
 ---
 
-<section class="section-shell" id={id} aria-labelledby={headingId}>
+<section class="section-shell" id={id} aria-labelledby={headingId} data-reveal="section">
   <header class="section-shell__header">
     {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h2 id={headingId}>{title}</h2>

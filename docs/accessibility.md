@@ -1,8 +1,8 @@
 # Accessibility
 
 Verification for the static portfolio. Phase 8 covers automated checks, keyboard flow, focus,
-motion, zoom, and responsive behavior. The site ships no client JavaScript and every interactive
-element is a native anchor, which keeps the accessibility surface small and predictable.
+motion, zoom, and responsive behavior. The site ships one small inline progressive-enhancement
+script and no script bundle. Navigation remains native, and the theme control is a native button.
 
 ## Method
 
@@ -24,6 +24,8 @@ All five generated routes (`/`, `/404`, and the three `/work/*` case studies) pa
 - no unexpected "incomplete" results (the two page-level rules are asserted directly instead);
 - exactly one `<main>` and one `<h1>` per page;
 - a skip link whose `#main-content` target is that `<main>`.
+- an accessible theme button with a name, pressed state, and native button semantics;
+- a decorative portrait placeholder that is excluded from the accessibility tree.
 
 The two `color-contrast` rules are disabled because jsdom has no layout engine and can only return
 false inconclusive results; contrast is verified from the ratios below.
@@ -48,6 +50,11 @@ large text and non-text UI.
 | Focus `#b44600`         | Canvas                | 4.92  | Pass (non-text) |
 | Focus `#f4a259`         | Ink footer            | 8.00  | Pass (non-text) |
 
+Dark-theme pairs also pass: ink/canvas 16.03:1, muted/canvas 9.10:1, muted/surface 8.23:1,
+accent/canvas 8.62:1, accent/surface 7.79:1, strong accent/canvas 11.40:1, strong accent/soft accent
+7.27:1, button ink/strong accent 11.40:1, focus/canvas 9.84:1, footer ink/footer 17.07:1, and footer
+muted/footer 9.18:1.
+
 The footer focus outline uses `#f4a259` instead of the global `#b44600`, which only reached 3.00:1
 on the dark footer. Decorative card and divider borders (e.g. `#c9c5bb` on canvas, 1.54:1) are
 non-informational and intentionally exempt from non-text contrast.
@@ -58,8 +65,8 @@ Verified in the production build with the mouse unused. Every stop is a native `
 values exist.
 
 1. First Tab reveals the "Skip to main content" link, which jumps to `#main-content`.
-2. Tab order follows DOM order: primary navigation, then the current page's content links, then
-   footer profile and CV links.
+2. Tab order follows DOM order: primary navigation, theme button, the current page's content links,
+   then footer profile and CV links.
 3. `:focus-visible` draws a 0.2rem outline with a 0.2rem offset on every interactive element; the
    outline is visible against both light surfaces and the dark footer.
 4. In-page section anchors and external `saudi-utils` links are reachable and activate with Enter.
@@ -68,8 +75,10 @@ values exist.
 ## Focus and reduced motion
 
 - Focus styling is defined once via `:focus-visible` and inherits to all anchors.
-- `@media (prefers-reduced-motion: reduce)` disables smooth scrolling and transitions and forces
-  them off with `!important`, so no motion plays when the OS requests reduced motion.
+- `@media (prefers-reduced-motion: reduce)` disables smooth scrolling, transitions, ambient
+  animation, reveal movement, and hover transforms with `!important`.
+- The theme follows `prefers-color-scheme` until the visitor selects light or dark. Storage access is
+  guarded, the visible label reflects the action, and system theming still works without JavaScript.
 
 ## Zoom and responsive behavior
 

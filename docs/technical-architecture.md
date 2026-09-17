@@ -88,8 +88,9 @@ verification are in [seo.md](seo.md).
 
 ## Security, dependencies, and deployment
 
-All direct packages are build/development tools; the project has no runtime dependency and ships no
-authored client JavaScript. Versions are exact and locked. Node 24 and npm 11 are declared. Secrets,
+All direct packages are build/development tools; the project has no runtime dependency or emitted
+JavaScript bundle. One reviewed inline enhancement handles theme persistence, compact-header state,
+and progressive reveals. Versions are exact and locked. Node 24 and npm 11 are declared. Secrets,
 environment files, output, caches, coverage, and logs are ignored. Dependency changes require a
 purpose review, clean install, test/build, and `npm audit`; forced audit fixes are prohibited. A
 clean `npm ci` and `npm audit` were re-verified in Phase 10, and `tests/hygiene.test.ts` fails the
@@ -140,8 +141,8 @@ production QA; and Phase 11 deployment and launch verification.
 ## Phase 5 visual layer
 
 The shared layout now composes semantic header, main, and footer components around each static page.
-Small Astro primitives provide action-link, surface-card, and section-shell behavior without a UI
-library or browser runtime. Global CSS owns documented design tokens, self-hosted font declarations,
+Small Astro primitives provide action-link, surface-card, section-shell, and portrait behavior
+without a UI library. Global CSS owns documented design tokens, self-hosted font declarations,
 responsive grids, focus states, and reduced-motion behavior. The generated pages contain no authored
 client JavaScript; later phases should preserve that baseline unless a concrete interaction requires
 progressive enhancement.

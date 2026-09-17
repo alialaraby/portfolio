@@ -315,10 +315,11 @@ Evidence of completion:
 - [Production QA decision D015](decisions.md#d015--performance-budgets-and-output-hygiene-in-ci)
 - [Production QA record](production-qa.md) with clean-install results, dependency review, measured
   artifact sizes, enforced budgets, hygiene results, and the manual launch checklist
-- `rm -rf node_modules && npm ci`, `npm run build`, and `npm run check` (38 tests across 6 files)
+- `rm -rf node_modules && npm ci`, `npm run build`, and `npm run check` (40 tests across 6 files)
   pass with `npm audit` reporting no vulnerabilities
-- `tests/performance.test.ts` (6 tests) enforces zero JS, no source maps, CSS/HTML/font/page-weight
-  budgets, one font preload, `font-display: swap`, a fixed asset inventory, and sized images
+- `tests/performance.test.ts` (6 tests) enforces no JS bundle or source maps, exactly one reviewed
+  inline enhancement, CSS/HTML/font/page-weight budgets, one font preload, `font-display: swap`, a
+  fixed asset inventory, and sized images
 - `tests/hygiene.test.ts` (16 tests) scans the output for secrets, credentials, placeholders,
   internal references, dev hosts, and non-approved emails
 - `npm run test:perf` and `npm run test:hygiene` added and wired into CI after the build
@@ -452,3 +453,9 @@ Potential work only after launch evidence justifies it:
   are required. After confirming the proposed custom domain was unavailable, retargeted the complete
   site to `https://alialaraby.github.io/portfolio/` and removed the DNS/custom-domain artifact.
   Repository Pages settings and the first deployment remain explicit owner actions.
+- **17 September 2026 — Phase 11 visual refinement:** added an accessible system-aware dark theme
+  with a remembered override, sticky compact header, base-path-safe monogram favicon, intentional
+  hero portrait placeholder, subtle ambient background, and progressive section/card reveals. The
+  enhancement uses one defensive inline script and no runtime dependency or emitted bundle; reduced
+  motion leaves all content visible and stationary. Updated accessibility and performance guards;
+  the real portrait and live GitHub Pages verification remain pending.

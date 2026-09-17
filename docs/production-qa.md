@@ -8,13 +8,13 @@ deployed production environment or WebKit.
 
 - `rm -rf node_modules && npm ci` completes with `found 0 vulnerabilities`.
 - `npm run build` emits 5 routes plus `sitemap.xml`, `robots.txt`, the CV, fonts, and the OG card.
-- `npm run check` passes: formatting, lint, strict typecheck, and **38 tests across 6 files**, then
+- `npm run check` passes: formatting, lint, strict typecheck, and **40 tests across 6 files**, then
   post-build accessibility, SEO, performance, and hygiene suites pass.
 
 ## Dependency and security review
 
 - All direct packages are development-only; `dependencies` is empty and no package adds browser
-  JavaScript. Versions are exact and locked with a committed `package-lock.json`.
+  JavaScript. A reviewed inline enhancement replaces any runtime package or emitted bundle.
 - `npm audit` reports no known vulnerabilities; `npm ci` refuses unexpected lockfile drift.
 - No secrets, environment files, tokens, or private keys exist in the repository or the output.
   Ignored: `node_modules`, `dist`, `.astro`, coverage, logs, and env files.
@@ -23,21 +23,21 @@ deployed production environment or WebKit.
 
 ## Artifact inspection
 
-| Asset           | Files | Raw          | Gzip    | Notes                                    |
-| --------------- | ----- | ------------ | ------- | ---------------------------------------- |
-| Client JS       | 0     | 0            | 0       | No scripts except JSON-LD                |
-| Source maps     | 0     | 0            | 0       | None emitted                             |
-| CSS             | 1     | 12,044 B     | 3,105 B | Single hashed stylesheet                 |
-| Homepage HTML   | 1     | 20,355 B     | 6,269 B | Largest page                             |
-| Case-study HTML | 3     | 15.5–16.2 KB | ~5.0 KB | Full body + metadata                     |
-| 404 HTML        | 1     | 3,318 B      | 1,135 B | `noindex`                                |
-| Web fonts       | 3     | 103,968 B    | n/a     | `woff2`, `font-display: swap`, 1 preload |
-| CV PDF          | 1     | 188,124 B    | n/a     | Served only on download                  |
-| OG card (PNG)   | 1     | 69,392 B     | n/a     | Referenced from meta, not loaded on page |
+| Asset           | Files | Raw          | Gzip       | Notes                                    |
+| --------------- | ----- | ------------ | ---------- | ---------------------------------------- |
+| Client JS files | 0     | 0            | 0          | One inline enhancement; no bundle        |
+| Source maps     | 0     | 0            | 0          | None emitted                             |
+| CSS             | 1     | 18,228 B     | 4,454 B    | Themes, layout, and restrained motion    |
+| Homepage HTML   | 1     | 25,271 B     | 7,776 B    | Largest page; inline enhancement         |
+| Case-study HTML | 3     | 20.0–20.7 KB | 6.3–6.5 KB | Full body + metadata                     |
+| 404 HTML        | 1     | 7,680 B      | 2,494 B    | `noindex` plus shared enhancement        |
+| Web fonts       | 3     | 103,968 B    | n/a        | `woff2`, `font-display: swap`, 1 preload |
+| CV PDF          | 1     | 188,124 B    | n/a        | Served only on download                  |
+| OG card (PNG)   | 1     | 69,392 B     | n/a        | Referenced from meta, not loaded on page |
 
-Worst-case homepage transfer (HTML + CSS + all fonts) is ~110.7 KB gzip. There are no on-page
-images, so no unsized-media layout shift is possible; `tests/performance.test.ts` fails if an
-`<img>` is ever added without `width` and `height`.
+Worst-case homepage transfer (HTML + CSS + all fonts) is ~113.5 KB gzip. There are no on-page
+content images yet; the portrait placeholder is CSS-rendered. `tests/performance.test.ts` fails if a
+future `<img>` is added without intrinsic `width` and `height`.
 
 ### Enforced budgets
 
@@ -46,11 +46,11 @@ regress:
 
 | Budget                     | Limit        | Actual (worst)   |
 | -------------------------- | ------------ | ---------------- |
-| Client JS / source maps    | 0            | 0                |
-| CSS raw / gzip             | 16 KB / 5 KB | 12.0 KB / 3.1 KB |
-| HTML raw / gzip (per page) | 24 KB / 7 KB | 20.4 KB / 6.3 KB |
+| JS files / source maps     | 0            | 0                |
+| CSS raw / gzip             | 20 KB / 6 KB | 18.2 KB / 4.5 KB |
+| HTML raw / gzip (per page) | 28 KB / 9 KB | 25.3 KB / 7.8 KB |
 | Font (per file)            | 80 KB        | 69.0 KB          |
-| Page weight gzip           | 140 KB       | 110.7 KB         |
+| Page weight gzip           | 140 KB       | 113.5 KB         |
 | Font preloads per page     | exactly 1    | 1                |
 | `@font-face` with `swap`   | all          | 3 of 3           |
 
@@ -73,9 +73,16 @@ logistics case study was reviewed at 390×844 and 1440×1000. Navigation wrapped
 cards and diagrams reflowed into one column, reading measures remained usable, and no visible
 horizontal overflow or layout failure was found.
 
+The Phase 11 visual refresh repeated the homepage pass in light and dark modes at 320, 390, 768, and
+1440 px. The sticky header, wrapping navigation, 44px theme control, immediate hero rendering,
+responsive portrait placement, and dark surfaces remained legible without horizontal overflow. The
+initial observer-based hero fade was removed after review so above-the-fold content never waits for
+JavaScript or intersection timing.
+
 Lighthouse 12.8.2 desktop runs against `/` and `/work/logistics-platform/` each scored **100** for
 Performance, Accessibility, Best Practices, and SEO. Both reported FCP 0.3 s, LCP 0.4 s, CLS 0,
-and TBT 0 ms. These are repeatable local-lab results, not production or field-performance claims.
+and TBT 0 ms; these results were repeated after the Phase 11 visual refresh. They are repeatable
+local-lab results, not production or field-performance claims.
 
 The generated sitemap also passed `xmllint`, and the local server returned successful responses for
 the homepage and versioned CV asset.

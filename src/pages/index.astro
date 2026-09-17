@@ -2,6 +2,8 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import ActionLink from '../components/ActionLink.astro';
 import CaseStudyList from '../components/CaseStudyList.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import Portrait from '../components/Portrait.astro';
 import SectionShell from '../components/SectionShell.astro';
 import { absoluteUrl, site, withBasePath } from '../config/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -22,7 +24,6 @@ if (!home || home.data.kind !== 'homepage' || !capabilities || !experience || !o
 }
 
 const { Content: CapabilitiesContent } = await render(capabilities);
-const { Content: ExperienceContent } = await render(experience);
 const { Content: OpenSourceContent } = await render(openSource);
 
 const canonical = absoluteUrl();
@@ -63,6 +64,7 @@ const structuredData = [
         <ActionLink href={cv} variant="secondary">Download CV</ActionLink>
       </div>
     </div>
+    <Portrait />
   </section>
 
   <section class="proof-strip" aria-label="Selected evidence">
@@ -94,7 +96,16 @@ const structuredData = [
   </SectionShell>
 
   <SectionShell id="experience" eyebrow="Career progression" title="Experience">
-    <div class="prose timeline"><ExperienceContent /></div>
+    {
+      experience.data.kind === 'experience' && (
+        <ExperienceTimeline
+          introduction={experience.data.introduction}
+          roles={experience.data.roles}
+          closingTitle={experience.data.closingTitle}
+          closing={experience.data.closing}
+        />
+      )
+    }
     <div class="section-note" role="note">
       <p>
         <strong>Curriculum vitae:</strong>
@@ -115,7 +126,7 @@ const structuredData = [
       <div class="action-group">
         <ActionLink href={`mailto:${home.data.email}`} variant="primary">Email me</ActionLink>
         <ActionLink href={home.data.linkedin} variant="secondary" external>LinkedIn</ActionLink>
-        <ActionLink href={home.data.github} external>GitHub</ActionLink>
+        <ActionLink href={home.data.github} variant="secondary" external>GitHub</ActionLink>
         <ActionLink href={cv} variant="secondary">Download CV</ActionLink>
       </div>
     </div>

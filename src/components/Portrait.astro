@@ -1,0 +1,44 @@
+---
+import { withBasePath } from '../config/site';
+
+type Props =
+  | {
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+      focalPosition?: string;
+    }
+  | {
+      src?: undefined;
+      alt?: undefined;
+      width?: number;
+      height?: number;
+      focalPosition?: string;
+    };
+
+const { src, alt, width = 720, height = 880, focalPosition = '50% 35%' } = Astro.props;
+const imageSrc = src?.startsWith('/') ? withBasePath(src) : src;
+---
+
+<figure class="portrait">
+  {
+    imageSrc ? (
+      <img
+        src={imageSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        decoding="async"
+        fetchpriority="high"
+        style={`object-position: ${focalPosition}`}
+      />
+    ) : (
+      <div class="portrait__placeholder" aria-hidden="true">
+        <span class="portrait__grid" />
+        <span class="portrait__monogram">AA</span>
+        <span class="portrait__caption">Backend · systems · delivery</span>
+      </div>
+    )
+  }
+</figure>
