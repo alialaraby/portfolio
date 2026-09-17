@@ -1,87 +1,76 @@
 # Open Questions
 
-These are the unanswered questions that materially affect positioning, evidence quality, safety, or
-publication. Priorities are `blocking`, `important`, and `optional`.
+Reviewed: 17 September 2026
 
-## Professional positioning
+Priorities are `blocking`, `important but non-blocking`, and `optional`. A question is blocking only
+when the current phase cannot responsibly select positioning, audiences, information architecture,
+or portfolio stories without its answer.
 
-- **Important:** Should the launch title remain `Senior Backend Engineer`, and should the subtitle
-  explicitly emphasize Saudi-market integrations, production ownership, or backend-leaning
-  founding work?
-- **Important:** Is `6+ years` the approved public experience wording, or should it be updated to a
-  date-qualified `7+ years` based on the July 2019–present timeline?
-- **Optional:** Should freelance/part-time availability be stated publicly? If yes, for which types
-  of engagements and from what date?
+There are **no blocking Phase 2 questions**. The strategy uses conservative titles, generalized
+private-system identities, qualitative evidence, and explicit approval gates. The questions below
+remain important for Phase 3 copy and publication or optional for later enrichment.
 
-## Project ownership
+## Important but non-blocking
 
-- **Blocking:** For Madar, which backend areas did Ali personally lead, co-own, or contribute to,
-  and what team/collaborator wording prevents an implication of sole system ownership?
-- **Blocking:** Does DebtBox authorize the wording `Founding Backend Engineer`, and what were Ali's
-  exact ownership boundaries, team composition, and soft-launch/production-readiness dates?
-- **Important:** Does the freelance transportation work in the CV refer to Nile Taxi, and does Ali
-  have client permission to name and link it after security remediation?
-- **Important:** Which single ArabDT story can Ali discuss publicly, and what exact problem,
-  decision, contribution, and outcome did he own?
+### Ownership and story detail
 
-## Metrics
+- For Madar, which backend areas did Ali lead, co-own, or contribute to, and what collaborator
+  wording is accurate? Until confirmed, describe contribution without implying sole ownership.
+- Does DebtBox authorize `Founding Backend Engineer`, and what ownership boundaries, team context,
+  and launch/readiness dates may be stated? Until confirmed, use `Senior Backend Engineer` and a
+  generalized product story.
+- Which single ArabDT problem, decision, contribution, and outcome may be described publicly? Until
+  supplied, keep ArabDT in the experience timeline rather than selected case studies.
+- Does the CV's freelance transportation work refer to Nile Taxi, and is there client permission to
+  name or link it after security remediation? It is excluded from launch meanwhile.
 
-- **Blocking:** For 8,000–10,000 daily shipments, what date range and source produced the range,
-  and does it mean typical, average, or peak daily volume?
-- **Blocking:** For approximately 2.5 million shipments, what was the cutoff date and which shipment
-  statuses were included?
-- **Blocking:** For approximately 30 fleet integrations, does the figure mean active, completed, or
-  historical integrations, and how many did Ali directly evaluate/onboard?
-- **Blocking:** For the more-than-90% latency reduction, what statistic was compared, on which
-  filters/environment/time window, and what were the before/after values?
-- **Blocking:** For the 10× export-capacity increase, what were the old/new record limits and the
-  success criteria (completion, memory, timeout, or user impact)?
-- **Blocking:** For growth from hundreds to thousands of daily orders, what were the date ranges,
-  actual bounds, source, and reliability outcome? Are `orders` and `shipments` distinct here?
-- **Important:** Which internal artifacts can Ali privately use to substantiate each metric without
-  copying customer data or confidential screenshots into this repository?
+### Metrics and substantiation
 
-## Confidentiality
+- For 8,000–10,000 daily shipments, what date range and source produced the range, and does it mean
+  typical, average, or peak volume?
+- For approximately 2.5 million shipments, what was the cutoff date and what statuses were included?
+- For approximately 30 fleet integrations, does the figure mean active, completed, or historical,
+  and how many did Ali directly evaluate or onboard?
+- For the more-than-90% latency reduction, what statistic, environment, time window, comparable
+  workload, before/after values, and team attribution apply?
+- For the 10× export-capacity increase, what were the old/new limits and success criteria?
+- For growth from hundreds to thousands of daily orders, what dates, bounds, source, reliability
+  outcome, and distinction between `orders` and `shipments` apply?
+- Which sanitized internal artifacts can privately substantiate the metrics without entering this
+  repository or exposing customer data?
 
-- **Blocking:** Have all potentially sensitive values historically committed to the legacy public
-  backend repositories been revoked/rotated, and has an appropriate private history-remediation
-  review been completed? Do not provide any secret values in the answer.
-- **Blocking:** May the portfolio name ODS/Madar and DebtBox in detailed case studies, or must one or
-  both be generalized?
-- **Blocking:** Which Madar metrics, operational details, fleet counts, and integration stories have
-  employer approval for public use?
-- **Blocking:** Which DebtBox architecture details, financial workflows, launch status, cloud
-  details, and provider/government-service names have product-owner approval?
-- **Important:** May Moddakir, Babel Marts, and any other ArabDT client/product be named, linked, or
-  shown in screenshots?
-- **Important:** Are employer/client logos permitted? If permission is not explicit, the default is
-  text-only naming or generalization.
+All six metrics remain omitted from public copy until answered and approved. Their absence does not
+change the selected performance-and-data proof pillar.
 
-## Contact and location
+### Confidentiality and security
 
-- **Blocking:** Is Riyadh, Saudi Arabia still the correct public location, and should the site say
-  resident, based in, or available in Riyadh/KSA?
-- **Blocking:** Which contact paths are approved for publication: CV email, phone, LinkedIn, GitHub,
-  or another address? The phone number should remain private unless explicitly requested.
-- **Important:** What is the approved LinkedIn URL spelling, and should the downloadable CV retain
-  the phone number?
+- Have sensitive values historically committed to legacy public backend repositories been revoked
+  or rotated, and has private history remediation been reviewed? Do not provide secret values in
+  the answer. The affected repositories remain unlinked and excluded.
+- May detailed case studies name ODS/Madar and DebtBox, or must their generalized labels remain?
+- Which Madar metrics, operational details, fleet counts, and integration stories have employer
+  approval for public use?
+- Which DebtBox architecture details, financial workflows, launch status, cloud details, and
+  provider or government-service names have product-owner approval?
+- May ArabDT client or product names be used? The default is a generalized employer-level summary.
 
-## Case-study selection
+### Contact, location, and opportunity wording
 
-- **Important:** After reviewing the risk trade-offs, does Ali approve the proposed order: Madar,
-  DebtBox, `saudi-utils`, then one ArabDT story?
-- **Important:** If ArabDT permission or detail is unavailable, should a remediated Nile Taxi entry
-  replace it, or should launch use only three case studies?
-- **Optional:** Should `saudi-utils` be framed primarily around API correctness, Saudi-domain source
-  research, or secure package/release engineering?
+- Is Riyadh, Saudi Arabia current and approved for publication, and which wording is accurate?
+- Which contact paths are approved: email, LinkedIn, GitHub, or another address? Phone remains
+  excluded by default.
+- What is the canonical LinkedIn URL, and should the downloadable CV retain a phone number?
+- Is freelance or part-time availability public, and for which engagement types and start date?
+- Can Ali provide an approved, versioned public CV asset?
 
-## Missing assets
+## Optional
 
-- **Important:** Can Ali provide sanitized evidence for Madar's metrics, such as approved benchmark
-  notes or aggregate dashboards with all identifiers/customer data removed?
-- **Important:** Can Ali provide a safe, simplified Madar or DebtBox architecture sketch that omits
-  internal names, endpoints, infrastructure identifiers, and security-sensitive boundaries?
-- **Optional:** Are there approved public product screenshots for Madar, DebtBox, or the selected
-  ArabDT story, with written permission to use them?
-- **Optional:** Is there a current professional headshot and an owner-approved, versioned CV for the
-  eventual launch?
+- Should the launch experience wording stay at the conservative `6+ years`, or change to a
+  date-qualified `7+ years` after owner review?
+- Can Ali provide a safe architecture sketch for either private case study that omits internal
+  names, endpoints, infrastructure identifiers, and security-sensitive boundaries?
+- Are product screenshots or employer/client logos available with written permission? The default
+  is text-only presentation.
+- Is a current professional headshot available and desired? It is not required for launch.
+- After remediation and permission, is there a compelling outcome that would justify adding Nile
+  Taxi in a future expansion?
