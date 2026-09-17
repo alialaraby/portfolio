@@ -1,3 +1,7 @@
+---
+kind: page-metadata
+---
+
 # Page Metadata Copy
 
 Implementation and technical validation belong to Phase 9. These entries supply approved copy only.

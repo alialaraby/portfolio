@@ -6,19 +6,20 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 
 ## Phase overview
 
-| Phase | Status |
-| --- | --- |
-| Phase 0 — Repository bootstrap | Not started |
-| Phase 1 — CV, evidence, and repository audit | Complete |
-| Phase 2 — Positioning and content strategy | Complete |
-| Phase 3 — Case-study and page copy | Complete |
-| Phases 4–11 | Not started |
+| Phase                                           | Status      |
+| ----------------------------------------------- | ----------- |
+| Phase 0 — Repository bootstrap                  | Not started |
+| Phase 1 — CV, evidence, and repository audit    | Complete    |
+| Phase 2 — Positioning and content strategy      | Complete    |
+| Phase 3 — Case-study and page copy              | Complete    |
+| Phase 4 — Technical architecture and foundation | Complete    |
+| Phases 5–11                                     | Not started |
 
 ## Progress summary
 
-- **Current phase:** Phase 3 completed; work stops before Phase 4.
-- **Completed:** Phases 1, 2, and 3.
-- **Next phase:** Phase 4 — Technical architecture and project foundation.
+- **Current phase:** Phase 4 completed; work stops before Phase 5.
+- **Completed:** Phases 1, 2, 3, and 4.
+- **Next phase:** Phase 5 — Visual system and responsive shell.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -107,29 +108,47 @@ Acceptance criteria:
 
 Evidence of completion:
 
-- [Homepage copy](../content/home.md)
-- [Experience copy](../content/experience.md)
-- [Capabilities copy](../content/capabilities.md)
-- [Open-source copy](../content/open-source.md)
-- [Madar case study](../content/case-studies/logistics-platform.md)
-- [DebtBox case study](../content/case-studies/fintech-product.md)
-- [`saudi-utils` case study](../content/case-studies/saudi-utils.md)
-- [Page metadata copy](../content/page-metadata.md)
+- [Homepage copy](../src/content/pages/home.md)
+- [Experience copy](../src/content/pages/experience.md)
+- [Capabilities copy](../src/content/pages/capabilities.md)
+- [Open-source copy](../src/content/pages/open-source.md)
+- [Madar case study](../src/content/case-studies/logistics-platform.md)
+- [DebtBox case study](../src/content/case-studies/fintech-product.md)
+- [`saudi-utils` case study](../src/content/case-studies/saudi-utils.md)
+- [Page metadata copy](../src/content/pages/page-metadata.md)
 - [Phase 3 content review](content-review.md)
 
 ## Phase 4 — Technical architecture and project foundation
 
-**Status:** Not started
+**Status:** Complete
 
 Select the smallest suitable stack and establish the application, tooling, CI, content model, and deployment-compatible structure.
 
 Acceptance criteria:
 
-- architecture decision is recorded
-- clean install, lint, format, typecheck, test, and build scripts exist
-- CI covers supported runtime versions
-- content is maintainable without unnecessary infrastructure
-- dependency and security baseline passes
+- [x] architecture decision is recorded
+- [x] clean install, lint, format, typecheck, test, and build scripts exist
+- [x] CI covers supported runtime versions
+- [x] content is maintainable without unnecessary infrastructure
+- [x] dependency and security baseline passes
+
+Evidence of completion:
+
+- [Architecture decision D009](decisions.md#d009--static-application-architecture-and-project-foundation)
+- [Technical architecture](technical-architecture.md)
+- Application and content configuration: `astro.config.ts`, `tsconfig.json`, and
+  `src/content.config.ts`
+- Static shell and route generation: `src/pages/index.astro`, `src/pages/work/[slug].astro`, and
+  `src/pages/404.astro`
+- Quality and test configuration: `eslint.config.js`, `tests/content.test.ts`,
+  `tests/config.test.ts`, and `.github/workflows/quality.yml`
+- Clean `npm ci`; format, lint, strict typecheck, 5 tests, content validation, combined check, and
+  five-route production build passed locally on Node.js 24.20.0 and npm 11.19.0.
+- `npm audit` reported zero known vulnerabilities after the vulnerable optional Markdown linter was
+  removed. Production output inspection found no source maps, secrets, internal review notes, or
+  unexpected assets.
+- Remote GitHub Actions execution remains an owner verification action after later commit and push,
+  because this phase explicitly prohibited both.
 
 ## Phase 5 — Visual system and responsive shell
 
@@ -263,3 +282,9 @@ Potential work only after launch evidence justifies it:
   Madar, DebtBox, and metric approvals; produced final homepage, experience, capabilities,
   open-source, case-study, and metadata copy; completed claim traceability, privacy, consistency,
   and human-quality review. Phase 4 remains `Not started`.
+- **17 September 2026 — Phase 4 completed:** selected Astro static output after comparing Astro,
+  React/Vite, and Next.js; moved approved copy into typed local content collections; added the
+  minimal semantic route shell, strict TypeScript, formatting, linting, tests, deterministic npm
+  installs, pinned read-only CI, and architecture documentation. Local clean-install, validation,
+  build, audit, output inspection, workflow, link, and Git checks passed. Phase 5 remains
+  `Not started`.

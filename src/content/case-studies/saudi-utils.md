@@ -1,3 +1,13 @@
+---
+title: "saudi-utils: Designing Explicit Validation Contracts for Saudi Data"
+description: "The API, validation boundaries, testing, packaging, and guarded release decisions behind a zero-runtime-dependency TypeScript toolkit for Saudi data formats."
+classification: open-source
+route: /work/saudi-utils
+order: 3
+repository: https://github.com/alialaraby/saudi-utils
+package: https://www.npmjs.com/package/saudi-utils
+---
+
 # `saudi-utils`: Designing Explicit Validation Contracts for Saudi Data
 
 ## Summary

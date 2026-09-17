@@ -1,3 +1,7 @@
+---
+kind: experience
+---
+
 # Experience
 
 My experience spans more than six years of professional software delivery. The recent focus is

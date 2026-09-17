@@ -1,3 +1,11 @@
+---
+title: "DebtBox: Building a Fintech Backend from Feasibility to Production Readiness"
+description: "How Ali shaped DebtBox's backend from technical feasibility through soft launch and production readiness using pragmatic architecture and explicit provider boundaries."
+classification: professional-system
+route: /work/fintech-product
+order: 2
+---
+
 # DebtBox: Building a Fintech Backend from Feasibility to Production Readiness
 
 ## Summary

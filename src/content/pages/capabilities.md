@@ -1,3 +1,7 @@
+---
+kind: capabilities
+---
+
 # Engineering Capabilities
 
 ## Backend architecture and APIs

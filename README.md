@@ -1,25 +1,56 @@
 # Ali Alaraby Portfolio
 
-This repository contains the evidence, content, and implementation work for Ali Alaraby's
-professional portfolio.
+A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phase 4 establishes
+the static application architecture, typed content model, validation, and CI foundation. It does
+not implement the final visual system or complete public pages.
 
-Phases 1–3 are complete: the evidence audit, positioning, information architecture, and approved
-portfolio copy are documented. No website has been implemented or frontend stack selected.
+## Prerequisites
 
-## Documentation
+- Node.js 24.20.0 (the supported range is `>=24.16.0 <25`)
+- npm 11
 
-- [Requirements](docs/requirements.md)
-- [Roadmap](docs/roadmap.md)
-- [Evidence audit](docs/evidence-audit.md)
-- [Content evidence register](docs/content-evidence.md)
-- [Open questions](docs/open-questions.md)
-- [Content strategy](docs/content-strategy.md)
-- [Information architecture](docs/information-architecture.md)
-- [Content inventory](docs/content-inventory.md)
-- [Decision log](docs/decisions.md)
-- [Phase 3 content review](docs/content-review.md)
-- [Homepage copy](content/home.md)
-- [Experience copy](content/experience.md)
-- [Capabilities copy](content/capabilities.md)
-- [Open-source copy](content/open-source.md)
-- [Page metadata copy](content/page-metadata.md)
+Use `nvm use` when nvm is available. npm is the only supported package manager for this repository.
+
+## Installation
+
+```sh
+npm ci
+```
+
+## Commands
+
+| Command                 | Purpose                                     |
+| ----------------------- | ------------------------------------------- |
+| `npm run dev`           | Start Astro's local development server      |
+| `npm run build`         | Generate the static production artifact     |
+| `npm run preview`       | Preview the generated artifact locally      |
+| `npm run format`        | Format supported repository files           |
+| `npm run format:check`  | Check formatting without changing files     |
+| `npm run lint`          | Lint JavaScript and TypeScript              |
+| `npm run typecheck`     | Run strict Astro and TypeScript diagnostics |
+| `npm test`              | Run the focused Vitest suite                |
+| `npm run content:check` | Validate content-focused tests              |
+| `npm run check`         | Run formatting, lint, types, and tests      |
+
+For local work, run `npm run dev` and use the URL Astro reports. Before review, run
+`npm run check && npm run build`.
+
+## Structure
+
+- `src/content/pages/` — approved homepage, experience, capability, open-source, and metadata copy
+- `src/content/case-studies/` — approved case-study sources and validated route metadata
+- `src/pages/` — minimal static route shell
+- `src/layouts/` and `src/components/` — small semantic application boundaries
+- `tests/` — content and configuration foundation tests
+- `docs/` — product, evidence, content, architecture, and decision records
+- `.github/workflows/quality.yml` — clean-install validation; no deployment
+
+Edit public portfolio wording only in `src/content/`. Internal evidence and review documentation
+remain in `docs/` and must not be imported into the public application.
+
+## Current non-goals
+
+Phase 4 excludes final visual design, complete homepage and case-study rendering, client-side
+interactivity, analytics, forms, CMS/backend infrastructure, final SEO assets, deployment, and
+production performance claims. See [technical architecture](docs/technical-architecture.md) and
+the [roadmap](docs/roadmap.md).

@@ -4,45 +4,45 @@ Review date: 17 September 2026
 
 ## Content produced
 
-- [`content/home.md`](../content/home.md) — complete homepage copy.
-- [`content/experience.md`](../content/experience.md) — web-oriented career narrative.
-- [`content/capabilities.md`](../content/capabilities.md) — outcome-based engineering capabilities.
-- [`content/open-source.md`](../content/open-source.md) — final `saudi-utils` feature copy.
-- [`content/case-studies/logistics-platform.md`](../content/case-studies/logistics-platform.md) —
+- [`src/content/pages/home.md`](../src/content/pages/home.md) — complete homepage copy.
+- [`src/content/pages/experience.md`](../src/content/pages/experience.md) — web-oriented career narrative.
+- [`src/content/pages/capabilities.md`](../src/content/pages/capabilities.md) — outcome-based engineering capabilities.
+- [`src/content/pages/open-source.md`](../src/content/pages/open-source.md) — final `saudi-utils` feature copy.
+- [`src/content/case-studies/logistics-platform.md`](../src/content/case-studies/logistics-platform.md) —
   Madar case study.
-- [`content/case-studies/fintech-product.md`](../content/case-studies/fintech-product.md) —
+- [`src/content/case-studies/fintech-product.md`](../src/content/case-studies/fintech-product.md) —
   DebtBox case study.
-- [`content/case-studies/saudi-utils.md`](../content/case-studies/saudi-utils.md) — public
+- [`src/content/case-studies/saudi-utils.md`](../src/content/case-studies/saudi-utils.md) — public
   open-source case study.
-- [`content/page-metadata.md`](../content/page-metadata.md) — route metadata copy.
+- [`src/content/pages/page-metadata.md`](../src/content/pages/page-metadata.md) — route metadata copy.
 
 ## Claim-to-file traceability
 
-| Claims | Public use | Files |
-| --- | --- | --- |
-| `C001`, `C002`, `C043`, `C044`, `C047` | Title, experience, specialization, location, contact | `home.md`, `capabilities.md`, `page-metadata.md` |
-| `C004`–`C011` | Madar role, scale, decisions, metrics, and operations | `home.md`, `experience.md`, `capabilities.md`, `logistics-platform.md`, `page-metadata.md` |
-| `C012`–`C018` | DebtBox role, architecture, workflows, integrations, infrastructure, and collaboration | `home.md`, `experience.md`, `capabilities.md`, `fintech-product.md`, `page-metadata.md` |
-| `C022`–`C029` | `saudi-utils` scope, verification, CI, release, and limitations | `home.md`, `open-source.md`, `saudi-utils.md`, `page-metadata.md` |
-| `C038`, `C042`, `C046` | Docker delivery, supporting full-stack breadth, and chronology | `experience.md`, `capabilities.md` |
+| Claims                                 | Public use                                                                             | Files                                                                                      |
+| -------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `C001`, `C002`, `C043`, `C044`, `C047` | Title, experience, specialization, location, contact                                   | `home.md`, `capabilities.md`, `page-metadata.md`                                           |
+| `C004`–`C011`                          | Madar role, scale, decisions, metrics, and operations                                  | `home.md`, `experience.md`, `capabilities.md`, `logistics-platform.md`, `page-metadata.md` |
+| `C012`–`C018`                          | DebtBox role, architecture, workflows, integrations, infrastructure, and collaboration | `home.md`, `experience.md`, `capabilities.md`, `fintech-product.md`, `page-metadata.md`    |
+| `C022`–`C029`                          | `saudi-utils` scope, verification, CI, release, and limitations                        | `home.md`, `open-source.md`, `saudi-utils.md`, `page-metadata.md`                          |
+| `C038`, `C042`, `C046`                 | Docker delivery, supporting full-stack breadth, and chronology                         | `experience.md`, `capabilities.md`                                                         |
 
 ## Sensitive and quantitative claim review
 
-| Claim | File and section | Exact public wording | Status |
-| --- | --- | --- | --- |
-| `C005` | `home.md` / Madar; `logistics-platform.md` / Summary and Scale | “approximately 8,000–10,000 daily shipments” | approved |
-| `C006` | `home.md` / Madar; `logistics-platform.md` / Summary and Scale | “approximately 2.5 million total shipments” | approved |
-| `C007` | `home.md` / Madar; `logistics-platform.md` / Summary and Scale | “approximately 30 integrated fleets” | approved |
-| `C008` | `home.md` / Proof and Madar; `experience.md` / Madar; `logistics-platform.md` / Summary and Outcomes; metadata | “more than 90%” lower/reduced latency on critical shipment-list workloads | approved |
-| `C009` | `home.md` / Proof and Madar; `experience.md` / Madar; `logistics-platform.md` / Summary and Outcomes; metadata | “10×” more/increased supported export capacity | approved |
-| `C010` | `logistics-platform.md` / Summary, Problem, Decisions, Outcomes | daily order volume “grew from hundreds to thousands” | approved |
-| `C012` | `home.md`, `experience.md`, `fintech-product.md`, metadata | “Founding Backend Engineer” and “from technical feasibility through soft launch and production readiness” | approved |
-| `C016` | `experience.md`, `fintech-product.md` | Nafath was integrated; Nafith wording is limited to technical workflow collaboration | approved |
-| `C017` | `experience.md`, `fintech-product.md` | KSA-hosted MVP infrastructure using Docker, PostgreSQL, Redis, Nginx, and automated TLS | approved |
-| `C024` | `home.md`, `open-source.md`, `saudi-utils.md` | “1,503 tests” and “100% measured statement, branch, function, and line coverage” scoped to 17 September 2026 | supported public evidence |
-| `C026` | `saudi-utils.md` | Node.js “22, 24, and 26” and green CI on the audited commit | supported public evidence |
-| `C028` | `open-source.md`, `saudi-utils.md` | Version `0.1.0` published on 17 September 2026 with matching tag | supported public evidence |
-| `C029` | `saudi-utils.md` | point-in-time production-dependency audit reported zero vulnerabilities | supported public evidence |
+| Claim  | File and section                                                                                               | Exact public wording                                                                                         | Status                    |
+| ------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------- |
+| `C005` | `home.md` / Madar; `logistics-platform.md` / Summary and Scale                                                 | “approximately 8,000–10,000 daily shipments”                                                                 | approved                  |
+| `C006` | `home.md` / Madar; `logistics-platform.md` / Summary and Scale                                                 | “approximately 2.5 million total shipments”                                                                  | approved                  |
+| `C007` | `home.md` / Madar; `logistics-platform.md` / Summary and Scale                                                 | “approximately 30 integrated fleets”                                                                         | approved                  |
+| `C008` | `home.md` / Proof and Madar; `experience.md` / Madar; `logistics-platform.md` / Summary and Outcomes; metadata | “more than 90%” lower/reduced latency on critical shipment-list workloads                                    | approved                  |
+| `C009` | `home.md` / Proof and Madar; `experience.md` / Madar; `logistics-platform.md` / Summary and Outcomes; metadata | “10×” more/increased supported export capacity                                                               | approved                  |
+| `C010` | `logistics-platform.md` / Summary, Problem, Decisions, Outcomes                                                | daily order volume “grew from hundreds to thousands”                                                         | approved                  |
+| `C012` | `home.md`, `experience.md`, `fintech-product.md`, metadata                                                     | “Founding Backend Engineer” and “from technical feasibility through soft launch and production readiness”    | approved                  |
+| `C016` | `experience.md`, `fintech-product.md`                                                                          | Nafath was integrated; Nafith wording is limited to technical workflow collaboration                         | approved                  |
+| `C017` | `experience.md`, `fintech-product.md`                                                                          | KSA-hosted MVP infrastructure using Docker, PostgreSQL, Redis, Nginx, and automated TLS                      | approved                  |
+| `C024` | `home.md`, `open-source.md`, `saudi-utils.md`                                                                  | “1,503 tests” and “100% measured statement, branch, function, and line coverage” scoped to 17 September 2026 | supported public evidence |
+| `C026` | `saudi-utils.md`                                                                                               | Node.js “22, 24, and 26” and green CI on the audited commit                                                  | supported public evidence |
+| `C028` | `open-source.md`, `saudi-utils.md`                                                                             | Version `0.1.0` published on 17 September 2026 with matching tag                                             | supported public evidence |
+| `C029` | `saudi-utils.md`                                                                                               | point-in-time production-dependency audit reported zero vulnerabilities                                      | supported public evidence |
 
 ## Names used
 

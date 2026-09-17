@@ -98,3 +98,43 @@
 - **Consequences:** Do not publish phone, current Riyadh residence, broader availability, work
   authorization, private-system internals, or claims outside the recorded scope.
 - **Evidence:** `C001`, `C002`, `C004`–`C018`, `C043`, `C044`, `C046`, and `C047`.
+
+## D009 — Static application architecture and project foundation
+
+- **Context:** The approved product is a content-led homepage plus three case-study routes. It needs
+  strict TypeScript, Markdown authoring, static output, minimal browser JavaScript, SEO preparation,
+  Vercel compatibility, and owner-friendly maintenance. It does not require request-time data, API
+  routes, authentication, a database, or a CMS.
+- **Selected framework and rendering:** Astro 7.3.3 with static output. Astro content collections
+  validate route metadata during development and build, and `.astro` templates render HTML without
+  shipping a client framework by default.
+- **Package manager:** npm 11 with a committed `package-lock.json`, `npm ci` in CI, and Node.js 24
+  declared through `.nvmrc` and package engines.
+- **Content management:** Local Markdown under `src/content/`. Approved Phase 3 files were moved
+  from `content/` to prevent duplicate authorities. Case-study frontmatter supplies stable route and
+  metadata fields; narrative wording remains Markdown. Evidence and review records stay in `docs/`
+  and are never loaded by the application.
+- **Testing:** Astro's checker covers templates and strict TypeScript; Vitest covers content
+  invariants, invalid representative metadata, and importable configuration; a production build
+  proves route generation. Browser, accessibility, visual, and end-to-end testing belong to later
+  phases once the real experience exists.
+- **Deployment assumptions:** Static `dist/` output is compatible with Vercel's Astro support, but
+  no adapter or deployment workflow is needed and no deployment was attempted.
+- **Alternative — React with Vite:** Rejected because it requires choosing and maintaining routing
+  and Markdown/content plumbing and normally ships a client runtime for pages that need no browser
+  state. It can meet the requirements, but with more application decisions and JavaScript cost.
+- **Alternative — Next.js static generation:** Rejected because its server-capable application
+  model and React runtime add complexity without a current server, API, personalization, or dynamic
+  data requirement. Static export is possible but offers no compensating benefit here.
+- **Benefits:** Direct Markdown editing, schema-backed build failures, file-based static routes,
+  semantic HTML, zero authored client JavaScript, small component boundaries, and a low-friction
+  path to later metadata and image work.
+- **Trade-offs:** Astro conventions become a project dependency; rich interactive components would
+  require explicitly adding and hydrating an integration; content schema changes require migrations.
+- **Known constraints:** Canonical URLs await an approved production domain; the approved CV asset
+  is not supplied; shell metadata is basic; the complete approved bodies are intentionally not yet
+  rendered.
+- **Future implications:** Phase 5 may build the visual system on the existing layout and CSS entry
+  point. Phases 6–7 compose approved Markdown into complete pages. Phases 8–10 add browser,
+  accessibility, SEO, visual, and performance verification. Phase 11 owns Vercel configuration and
+  deployment review.
