@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import CaseStudyList from '../components/CaseStudyList.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const caseStudies = (await getCollection('caseStudies')).sort(
+  (left, right) => left.data.order - right.data.order,
+);
+const requiredPages = ['capabilities', 'experience', 'home', 'open-source', 'page-metadata'];
+const pageIds = new Set((await getCollection('pages')).map((entry) => entry.id));
+
+for (const requiredPage of requiredPages) {
+  if (!pageIds.has(requiredPage)) {
+    throw new Error(`Missing required approved content: ${requiredPage}.md`);
+  }
+}
+---
+
+<BaseLayout>
+  <h1>Ali Alaraby — Senior Backend Engineer</h1>
+  <p>
+    This temporary Phase 4 shell proves static routing and typed content loading. Approved homepage
+    copy will be composed in a later implementation phase.
+  </p>
+  <section id="selected-work" aria-labelledby="selected-work-heading">
+    <h2 id="selected-work-heading">Selected work routes</h2>
+    <CaseStudyList entries={caseStudies} />
+  </section>
+</BaseLayout>

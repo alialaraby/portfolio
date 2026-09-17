@@ -1,3 +1,7 @@
+---
+kind: open-source
+---
+
 # Open Source
 
 ## `saudi-utils`

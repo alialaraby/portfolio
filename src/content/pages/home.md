@@ -1,3 +1,7 @@
+---
+kind: homepage
+---
+
 # Homepage Copy
 
 ## Navigation

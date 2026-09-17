@@ -1,0 +1,36 @@
+---
+import { site } from '../config/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.title, description = site.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+      <nav aria-label="Primary">
+        <a href="/">Ali Alaraby</a>
+        <a href="/#selected-work">Selected work</a>
+      </nav>
+    </header>
+    <main id="main-content"><slot /></main>
+    <footer><p>Temporary Phase 4 application shell.</p></footer>
+  </body>
+</html>
