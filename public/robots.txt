@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alialaraby.com/sitemap.xml
+Sitemap: https://alialaraby.github.io/portfolio/sitemap.xml

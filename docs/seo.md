@@ -1,7 +1,7 @@
 # SEO and discovery
 
 Search and social metadata for the static portfolio, verified in Phase 9. The production domain is
-`https://alialaraby.com`, recorded once in `src/config/site.ts` and `astro.config.ts`.
+`https://alialaraby.github.io/portfolio/`, recorded in `src/config/site.ts` and `astro.config.ts`.
 
 ## Per-route metadata
 
@@ -59,7 +59,7 @@ case-study routes as absolute URLs in `order`, and deliberately excludes the 404
 User-agent: *
 Allow: /
 
-Sitemap: https://alialaraby.com/sitemap.xml
+Sitemap: https://alialaraby.github.io/portfolio/sitemap.xml
 ```
 
 ## Link verification
@@ -78,8 +78,8 @@ Re-confirm the two bot-protected links in a browser at launch.
 
 ## Known limitations
 
-- The production domain is not serving yet; deployment and DNS are Phase 11. Canonical, Open Graph,
-  and sitemap URLs use the approved domain and will resolve once it is live.
+- The GitHub Pages project URL is not serving yet; deployment is Phase 11. Canonical, Open Graph,
+  and sitemap URLs include the required `/portfolio` base path.
 - Structured data is validated structurally (types, URLs, headings, breadcrumb length); it is not
   submitted to or parsed by a search engine in this phase.
 - No `hreflang`, RSS, or localization metadata exists because the site is English-only.

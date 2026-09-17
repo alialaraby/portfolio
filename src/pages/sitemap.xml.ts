@@ -1,16 +1,15 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
-import { site } from "../config/site";
+import { absoluteUrl } from "../config/site";
 
-export const GET: APIRoute = async ({ site: siteUrl }) => {
-  const base = siteUrl ?? new URL(site.url);
+export const GET: APIRoute = async () => {
   const entries = (await getCollection("caseStudies")).sort(
     (left, right) => left.data.order - right.data.order,
   );
 
   const paths = ["/", ...entries.map((entry) => `${entry.data.route}/`)];
   const urls = paths
-    .map((path) => `  <url><loc>${new URL(path, base).href}</loc></url>`)
+    .map((path) => `  <url><loc>${absoluteUrl(path)}</loc></url>`)
     .join("\n");
 
   const body = [

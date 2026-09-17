@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { withBasePath } from '../config/site';
 import SurfaceCard from './SurfaceCard.astro';
 
 interface Props {
@@ -13,7 +14,7 @@ const { entries } = Astro.props;
   {
     entries.map((entry) => (
       <li>
-        <SurfaceCard href={entry.data.route} label={entry.data.classification.replace('-', ' ')}>
+        <SurfaceCard href={withBasePath(entry.data.route)} label={entry.data.classification.replace('-', ' ')}>
           <h3>{entry.data.title}</h3>
           <p>{entry.data.description}</p>
         </SurfaceCard>

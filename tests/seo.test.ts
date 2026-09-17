@@ -4,7 +4,7 @@ import { join, relative, resolve, sep } from "node:path";
 import { JSDOM } from "jsdom";
 import { describe, expect, it } from "vitest";
 
-import { site } from "../src/config/site";
+import { absoluteUrl, site } from "../src/config/site";
 
 const distDir = resolve("dist");
 const siteUrl = new URL(site.url);
@@ -97,7 +97,7 @@ describe.skipIf(!buildExists())("built SEO and discovery", () => {
 
     for (const file of contentPages) {
       const document = parseHtml(file);
-      const canonical = new URL(toRoute(file), siteUrl).href;
+      const canonical = absoluteUrl(toRoute(file));
 
       expect(
         document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
@@ -171,7 +171,7 @@ describe.skipIf(!buildExists())("built SEO and discovery", () => {
       const article = blocks.find((data) =>
         typesOf(data).includes("TechArticle"),
       );
-      expect(article?.url, file).toBe(new URL(toRoute(file), siteUrl).href);
+      expect(article?.url, file).toBe(absoluteUrl(toRoute(file)));
       expect(article?.headline, file).toBe(
         document.querySelector("h1")?.textContent,
       );
@@ -194,7 +194,7 @@ describe.skipIf(!buildExists())("built SEO and discovery", () => {
       (match) => match[1] ?? "",
     );
     const expected = contentPages
-      .map((file) => new URL(toRoute(file), siteUrl).href)
+      .map((file) => absoluteUrl(toRoute(file)))
       .sort();
     expect([...locs].sort()).toEqual(expected);
 

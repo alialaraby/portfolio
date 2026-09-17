@@ -1,15 +1,19 @@
+---
+import { withBasePath } from '../config/site';
+---
+
 <header class="site-header">
   <div class="shell site-header__inner">
-    <a class="wordmark" href="/" aria-label="Ali Alaraby, homepage">
+    <a class="wordmark" href={withBasePath()} aria-label="Ali Alaraby, homepage">
       <span class="wordmark__name">Ali Alaraby</span>
       <span class="wordmark__role">Backend Engineer</span>
     </a>
     <nav aria-label="Primary">
-      <a href="/">Home</a>
-      <a href="/#selected-work">Selected work</a>
-      <a href="/#capabilities">Capabilities</a>
-      <a href="/#experience">Experience</a>
-      <a href="/#contact">Contact</a>
+      <a href={withBasePath()}>Home</a>
+      <a href={withBasePath('/#selected-work')}>Selected work</a>
+      <a href={withBasePath('/#capabilities')}>Capabilities</a>
+      <a href={withBasePath('/#experience')}>Experience</a>
+      <a href={withBasePath('/#contact')}>Contact</a>
     </nav>
   </div>
 </header>
