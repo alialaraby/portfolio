@@ -2,7 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ActionLink from '../../components/ActionLink.astro';
 import FlowDiagram from '../../components/FlowDiagram.astro';
-import { site } from '../../config/site';
+import { absoluteUrl, site, withBasePath } from '../../config/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -33,7 +33,7 @@ const { Content: CaseStudyContent } = await render(entry);
 
 const hasLinks = Boolean(entry.data.repository || entry.data.package);
 
-const canonical = new URL(`${entry.data.route}/`, site.url).href;
+const canonical = absoluteUrl(`${entry.data.route}/`);
 
 const structuredData = [
   {
@@ -47,12 +47,12 @@ const structuredData = [
     author: {
       '@type': 'Person',
       name: site.name,
-      url: new URL('/', site.url).href,
+      url: absoluteUrl(),
     },
     isPartOf: {
       '@type': 'WebSite',
       name: site.name,
-      url: new URL('/', site.url).href,
+      url: absoluteUrl(),
     },
   },
   {
@@ -63,13 +63,13 @@ const structuredData = [
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: new URL('/', site.url).href,
+        item: absoluteUrl(),
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Selected work',
-        item: `${new URL('/', site.url).href}#selected-work`,
+        item: `${absoluteUrl()}#selected-work`,
       },
       {
         '@type': 'ListItem',
@@ -89,7 +89,7 @@ const structuredData = [
   structuredData={structuredData}
 >
   <article class="case-shell">
-    <ActionLink href="/#selected-work">← Back to selected work</ActionLink>
+    <ActionLink href={withBasePath('/#selected-work')}>← Back to selected work</ActionLink>
 
     <header class="case-shell__header">
       <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Case study</p>
@@ -148,13 +148,13 @@ const structuredData = [
 
     <nav class="case-nav" aria-label="Case study navigation">
       {previous && (
-        <a class="case-nav__link case-nav__link--previous" href={previous.data.route}>
+        <a class="case-nav__link case-nav__link--previous" href={withBasePath(previous.data.route)}>
           <span class="eyebrow">Previous</span>
           <strong>{previous.data.title}</strong>
         </a>
       )}
       {next && (
-        <a class="case-nav__link case-nav__link--next" href={next.data.route}>
+        <a class="case-nav__link case-nav__link--next" href={withBasePath(next.data.route)}>
           <span class="eyebrow">Next</span>
           <strong>{next.data.title}</strong>
         </a>

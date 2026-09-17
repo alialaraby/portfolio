@@ -3,7 +3,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import ActionLink from '../components/ActionLink.astro';
 import CaseStudyList from '../components/CaseStudyList.astro';
 import SectionShell from '../components/SectionShell.astro';
-import { site } from '../config/site';
+import { absoluteUrl, site, withBasePath } from '../config/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const caseStudies = (await getCollection('caseStudies')).sort(
@@ -25,7 +25,8 @@ const { Content: CapabilitiesContent } = await render(capabilities);
 const { Content: ExperienceContent } = await render(experience);
 const { Content: OpenSourceContent } = await render(openSource);
 
-const canonical = new URL('/', site.url).href;
+const canonical = absoluteUrl();
+const cv = withBasePath(home.data.cv);
 
 const structuredData = [
   {
@@ -59,7 +60,7 @@ const structuredData = [
       <div class="action-group">
         <ActionLink href="#selected-work" variant="primary">View selected work</ActionLink>
         <ActionLink href={`mailto:${home.data.email}`} variant="secondary">Contact me</ActionLink>
-        <ActionLink href={home.data.cv} variant="secondary">Download CV</ActionLink>
+        <ActionLink href={cv} variant="secondary">Download CV</ActionLink>
       </div>
     </div>
   </section>
@@ -97,7 +98,7 @@ const structuredData = [
     <div class="section-note" role="note">
       <p>
         <strong>Curriculum vitae:</strong>
-        <a href={home.data.cv}>Download the approved PDF</a> for the full professional record.
+        <a href={cv}>Download the approved PDF</a> for the full professional record.
       </p>
     </div>
   </SectionShell>
@@ -115,7 +116,7 @@ const structuredData = [
         <ActionLink href={`mailto:${home.data.email}`} variant="primary">Email me</ActionLink>
         <ActionLink href={home.data.linkedin} variant="secondary" external>LinkedIn</ActionLink>
         <ActionLink href={home.data.github} external>GitHub</ActionLink>
-        <ActionLink href={home.data.cv} variant="secondary">Download CV</ActionLink>
+        <ActionLink href={cv} variant="secondary">Download CV</ActionLink>
       </div>
     </div>
   </SectionShell>

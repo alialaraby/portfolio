@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import ActionLink from './ActionLink.astro';
+import { withBasePath } from '../config/site';
 
 const home = await getEntry('pages', 'home');
 const cv = home?.data.kind === 'homepage' ? home.data.cv : undefined;
@@ -16,7 +17,7 @@ const cv = home?.data.kind === 'homepage' ? home.data.cv : undefined;
       <ActionLink href="mailto:alisakralaraby@gmail.com">Email</ActionLink>
       <ActionLink href="https://www.linkedin.com/in/ali-sakr-alarby" external>LinkedIn</ActionLink>
       <ActionLink href="https://github.com/alialaraby" external>GitHub</ActionLink>
-      {cv && <ActionLink href={cv}>CV</ActionLink>}
+      {cv && <ActionLink href={withBasePath(cv)}>CV</ActionLink>}
     </nav>
     <p class="site-footer__note">Based in Egypt and open to relocation opportunities in Saudi Arabia.</p>
   </div>

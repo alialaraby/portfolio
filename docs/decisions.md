@@ -216,8 +216,9 @@
 
 - **Context:** Phase 9 requires unique metadata, canonical and social presentation, valid sitemap and
   robots behavior, and honest structured data. The approved production domain
-  (`https://alialaraby.com`) and a social card are now available, and the project still avoids
-  runtime dependencies and WordPress-style plugins.
+  (`https://alialaraby.com`) was initially proposed and a social card was available, and the project
+  still avoids runtime dependencies and WordPress-style plugins. D016 later records the GitHub Pages
+  URL selected when the proposed domain proved unavailable.
 - **Selected:** Record the domain once in `src/config/site.ts` and `astro.config.ts`. Emit canonical,
   Open Graph, and Twitter metadata from `BaseLayout.astro`. Add a dependency-free `sitemap.xml`
   endpoint driven by the case-study collection and a static `robots.txt`. Publish JSON-LD as
@@ -260,11 +261,13 @@
 - **Selected:** Use a dedicated, manually dispatched GitHub Actions workflow that can run only from
   `main` with an affirmative production input. It repeats all quality checks, builds `dist`, and uses
   immutable commits of GitHub's official configure, artifact, and deploy actions. Commit the approved
-  apex domain as `public/CNAME`; keep Pages settings, deployment, DNS, and HTTPS as owner steps.
+  GitHub project URL as the canonical base; keep Pages settings and deployment as owner steps.
 - **Alternatives:** Branch-based publishing was rejected because it needs generated output committed
   to the repository; automatic deployment on every push was rejected because production requires an
   explicit owner action; Vercel was started but abandoned before authentication or external changes.
 - **Consequences:** Deployment intent is reviewable and no long-lived credential is required. GitHub
   Pages offers no separate native preview URL for this repository, so green pull-request CI and the
   locally reviewed production artifact are the pre-deployment gate. Pages settings, the first manual
-  run, DNS, HTTPS, WebKit, and live endpoint checks remain owner-controlled external steps.
+  run, WebKit, and live endpoint checks remain owner-controlled external steps. A later review found
+  that the proposed custom domain was unregistered, so the initial launch uses
+  `https://alialaraby.github.io/portfolio/` with explicit base-path handling and no `CNAME`.

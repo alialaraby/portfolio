@@ -13,7 +13,8 @@
 
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url("/fonts/ibm-plex/ibm-plex-mono-regular-latin1.woff2") format("woff2");
+  src: url("/fonts/ibm-plex/ibm-plex-mono-regular-latin1.woff2")
+    format("woff2");
   font-display: swap;
   font-style: normal;
   font-weight: 400;

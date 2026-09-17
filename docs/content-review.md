@@ -184,7 +184,7 @@ Review date: 17 September 2026
 - [x] The approved destinations were checked: GitHub returned 200; npm and LinkedIn blocked scripted
       requests and are flagged for a browser re-check at launch in [seo.md](seo.md).
 - [x] Canonical, Open Graph, and sitemap URLs use the owner-approved domain
-      `https://alialaraby.com`, which goes live in Phase 11.
+      `https://alialaraby.github.io/portfolio/`, selected for the initial Phase 11 launch.
 
 ## Phase 10 production hygiene review
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ActionLink from '../components/ActionLink.astro';
+import { withBasePath } from '../config/site';
 ---
 
 <BaseLayout
@@ -12,6 +13,6 @@ import ActionLink from '../components/ActionLink.astro';
     <p class="eyebrow">Error 404</p>
     <h1>Page not found</h1>
     <p>The requested page does not exist or may have moved.</p>
-    <ActionLink href="/" variant="primary">Return to the homepage</ActionLink>
+    <ActionLink href={withBasePath()} variant="primary">Return to the homepage</ActionLink>
   </section>
 </BaseLayout>

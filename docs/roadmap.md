@@ -346,10 +346,11 @@ Evidence in progress:
 
 - Manually dispatched `.github/workflows/pages.yml` builds, revalidates, uploads, and deploys the
   site using immutable pins for GitHub's official Pages actions
-- `public/CNAME` carries the approved apex domain in the generated artifact
+- Astro, application links, fonts, metadata, sitemap, robots, and social artwork target the GitHub
+  project URL at `https://alialaraby.github.io/portfolio/`
 - [GitHub Pages setup, domain, launch-verification, and rollback runbook](deployment.md)
-- Current-state check confirmed that the production domain does not yet return public A or CNAME
-  records; repository settings and DNS remain owner actions
+- The unavailable custom domain was removed; clearing it in repository Pages settings and running
+  the first deployment remain owner actions
 
 ## Post-launch backlog
 
@@ -448,5 +449,6 @@ Potential work only after launch evidence justifies it:
 - **17 September 2026 — Phase 11 started:** created `feat/phase-11-deployment-launch` from current
   `main`; added a manually authorized GitHub Pages workflow, custom-domain artifact, and
   deployment/domain/rollback runbook. Confirmed that no environment variables or repository secrets
-  are required and the approved domain has no public A or CNAME response yet. Repository settings,
-  the first deployment, DNS, and HTTPS remain explicit owner actions.
+  are required. After confirming the proposed custom domain was unavailable, retargeted the complete
+  site to `https://alialaraby.github.io/portfolio/` and removed the DNS/custom-domain artifact.
+  Repository Pages settings and the first deployment remain explicit owner actions.
