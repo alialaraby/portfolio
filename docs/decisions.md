@@ -57,20 +57,21 @@
 - **Alternatives:** contact-first hero; CV as primary CTA; custom contact form.
 - **Rationale:** Proof-first conversion builds credibility, while direct contact paths are reliable
   and low maintenance.
-- **Consequences:** No backend contact form. Contact destination remains owner-gated.
+- **Consequences:** No backend contact form. Approved destinations are email and LinkedIn; GitHub is
+  a supporting profile link. Phone is excluded.
 - **Evidence:** Requirements sections 4, 8, and 14; audience needs in `content-strategy.md`.
 
 ## D006 — Private professional work
 
-- **Context:** Madar and DebtBox are the strongest stories, but naming, details, and metrics are not
-  publication-approved.
-- **Selected:** Keep both as launch case studies using generalized identities and qualitative,
-  collaborator-aware evidence until each detail is explicitly approved.
+- **Context:** Madar and DebtBox are the strongest stories and now have an explicit approved
+  publication scope.
+- **Selected:** Name both products and publish collaborator-aware case studies using only the
+  approved claims, metrics, and technical boundaries.
 - **Alternatives:** omit private work; wait for all approvals; publish CV details as supplied.
 - **Rationale:** Private work is legitimate professional evidence, and safe abstraction preserves
   its value without treating access or CV inclusion as publication permission.
-- **Consequences:** Safe slugs are used; exact metrics, names, providers, topology, and private
-  artifacts stay out of public content by default.
+- **Consequences:** Safe descriptive slugs remain. Approved metrics and the Nafath/Nafith distinction
+  may be used; topology, private artifacts, contracts, and other provider details remain excluded.
 - **Evidence:** `C004`–`C018`, confidentiality review, and requirements sections 5, 6, and 13.
 
 ## D007 — Excluded launch content
@@ -84,3 +85,16 @@
 - **Consequences:** Excluded material can return only after evidence, permission, and strategic need
   are established.
 - **Evidence:** Phase 1 weak/unsafe evidence review and requirements sections 6, 13, and 14.
+
+## D008 — Phase 3 public baseline and disclosure
+
+- **Context:** Final copy required explicit owner decisions for identity, contact, location, and the
+  two private-system stories.
+- **Selected:** Publish `Senior Backend Engineer`, `6+ years`, the approved backend specialization,
+  email, LinkedIn, GitHub, and “Based in Egypt and open to relocation opportunities in Saudi
+  Arabia.” Use the approved Madar and DebtBox wording recorded in `C004`–`C018`.
+- **Alternatives:** retain generalized unnamed stories; omit location; delay contact copy.
+- **Rationale:** The owner explicitly approved these facts and boundaries on 17 September 2026.
+- **Consequences:** Do not publish phone, current Riyadh residence, broader availability, work
+  authorization, private-system internals, or claims outside the recorded scope.
+- **Evidence:** `C001`, `C002`, `C004`–`C018`, `C043`, `C044`, `C046`, and `C047`.

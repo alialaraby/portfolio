@@ -11,13 +11,14 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 | Phase 0 — Repository bootstrap | Not started |
 | Phase 1 — CV, evidence, and repository audit | Complete |
 | Phase 2 — Positioning and content strategy | Complete |
-| Phases 3–11 | Not started |
+| Phase 3 — Case-study and page copy | Complete |
+| Phases 4–11 | Not started |
 
 ## Progress summary
 
-- **Current phase:** Phase 2 completed; work stops before Phase 3.
-- **Completed:** Phases 1 and 2.
-- **Next phase:** Phase 3 — Case-study and page copy, after owner publication inputs are available.
+- **Current phase:** Phase 3 completed; work stops before Phase 4.
+- **Completed:** Phases 1, 2, and 3.
+- **Next phase:** Phase 4 — Technical architecture and project foundation.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -89,20 +90,32 @@ Evidence of completion:
 
 ## Phase 3 — Case-study and page copy
 
-**Status:** Not started
+**Status:** Complete
 
 Write concise, human-sounding site copy and evidence-backed case studies before visual implementation.
 
 Acceptance criteria:
 
-- all launch-page copy is drafted
-- 3–5 case studies follow a consistent problem, ownership, constraints, decisions, implementation, and outcome structure
-- quantitative claims preserve their approved scope and attribution
-- Madar and DebtBox content passes an explicit confidentiality and publication review
-- `saudi-utils` links to public npm and GitHub evidence and explains what its engineering quality demonstrates
-- technical claims are understandable outside the original team
-- confidentiality review passes
-- Ali approves publishable content
+- [x] all launch-page copy is drafted
+- [x] three case studies follow a consistent problem, ownership, constraints, decisions, implementation, and outcome structure
+- [x] quantitative claims preserve their approved scope and attribution
+- [x] Madar and DebtBox content passes an explicit confidentiality and publication review
+- [x] `saudi-utils` links to public npm and GitHub evidence and explains what its engineering quality demonstrates
+- [x] technical claims are understandable outside the original team
+- [x] confidentiality review passes
+- [x] Ali's publication decisions are recorded and reflected in the copy
+
+Evidence of completion:
+
+- [Homepage copy](../content/home.md)
+- [Experience copy](../content/experience.md)
+- [Capabilities copy](../content/capabilities.md)
+- [Open-source copy](../content/open-source.md)
+- [Madar case study](../content/case-studies/logistics-platform.md)
+- [DebtBox case study](../content/case-studies/fintech-product.md)
+- [`saudi-utils` case study](../content/case-studies/saudi-utils.md)
+- [Page metadata copy](../content/page-metadata.md)
+- [Phase 3 content review](content-review.md)
 
 ## Phase 4 — Technical architecture and project foundation
 
@@ -242,3 +255,11 @@ Potential work only after launch evidence justifies it:
   launch stories, conversion strategy, focused homepage-plus-case-studies architecture, content
   model, channel responsibilities, and owner-gated publication boundaries. No Phase 3 copy or site
   implementation was started.
+- **17 September 2026 — Phase 3 blocked at prerequisite review:** confirmed Phases 1 and 2 and their
+  deliverables are complete, then stopped before drafting because required identity and private-work
+  claims remain unapproved and the latest approved CV is unavailable. The sole phase blocker is
+  owner content and publication approval.
+- **17 September 2026 — Phase 3 completed:** recorded the owner's CV, identity, contact, location,
+  Madar, DebtBox, and metric approvals; produced final homepage, experience, capabilities,
+  open-source, case-study, and metadata copy; completed claim traceability, privacy, consistency,
+  and human-quality review. Phase 4 remains `Not started`.
