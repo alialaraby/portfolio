@@ -6,23 +6,24 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 
 ## Phase overview
 
-| Phase                                           | Status      |
-| ----------------------------------------------- | ----------- |
-| Phase 0 — Repository bootstrap                  | Not started |
-| Phase 1 — CV, evidence, and repository audit    | Complete    |
-| Phase 2 — Positioning and content strategy      | Complete    |
-| Phase 3 — Case-study and page copy              | Complete    |
-| Phase 4 — Technical architecture and foundation | Complete    |
-| Phase 5 — Visual system and responsive shell    | Complete    |
-| Phase 6 — Core portfolio experience             | Complete    |
-| Phases 7–11                                     | Not started |
+| Phase                                             | Status      |
+| ------------------------------------------------- | ----------- |
+| Phase 0 — Repository bootstrap                    | Not started |
+| Phase 1 — CV, evidence, and repository audit      | Complete    |
+| Phase 2 — Positioning and content strategy        | Complete    |
+| Phase 3 — Case-study and page copy                | Complete    |
+| Phase 4 — Technical architecture and foundation   | Complete    |
+| Phase 5 — Visual system and responsive shell      | Complete    |
+| Phase 6 — Core portfolio experience               | Complete    |
+| Phase 7 — Case studies and technical storytelling | Complete    |
+| Phases 8–11                                       | Not started |
 
 ## Progress summary
 
-- **Current phase:** Phase 6 is complete; the core homepage, case-study metadata, and the approved
-  downloadable CV are implemented.
-- **Completed:** Phases 1, 2, 3, 4, 5, and 6.
-- **Next phase:** Phase 7 — case studies and technical storytelling.
+- **Current phase:** Phase 7 is complete; all three approved case studies render as full, navigable
+  pages with metadata and evidence-bounded diagrams.
+- **Completed:** Phases 1, 2, 3, 4, 5, 6, and 7.
+- **Next phase:** Phase 8 — accessibility and interaction hardening.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -209,17 +210,29 @@ Evidence of completion:
 
 ## Phase 7 — Case studies and technical storytelling
 
-**Status:** Not started
+**Status:** Complete
 
 Implement detailed case-study views and any necessary diagrams or sanitized visuals.
 
 Acceptance criteria:
 
-- selected case studies are complete and linkable
-- diagrams are accurate, legible, and non-confidential
-- code or screenshots are included only when useful and authorized
-- each case study has meaningful metadata and navigation
-- no inaccessible or misleading source links exist
+- [x] selected case studies are complete and linkable
+- [x] diagrams are accurate, legible, and non-confidential
+- [x] code or screenshots are included only when useful and authorized
+- [x] each case study has meaningful metadata and navigation
+- [x] no inaccessible or misleading source links exist
+
+Evidence of completion:
+
+- [Case-study presentation decision D012](decisions.md#d012--case-study-presentation-and-diagram-standard)
+- Full body rendering, metadata panel, previous/next navigation, and public-link actions in
+  `src/pages/work/[slug].astro`
+- Content-driven, evidence-bounded diagrams via `src/components/FlowDiagram.astro` and validated
+  `diagram` frontmatter
+- Validated `project`, `role`, `timeline`, and non-rendered `internalReview` fields in
+  `src/content/schema.ts` and the three case-study sources
+- Content tests covering metadata, unique routes and orders, diagram steps, and approved link hosts
+- Production build renders all three case studies with one `<h1>` each and no internal review notes
 
 ## Phase 8 — Accessibility and interaction hardening
 
@@ -330,3 +343,11 @@ Potential work only after launch evidence justifies it:
   footer. The pending-note placeholder was removed, metadata and roadmap records were updated, and
   format, lint, strict typecheck, tests, and the five-route production build passed. Phase 6 is
   `Complete`; Phase 7 is next.
+- **17 September 2026 — Phase 7 completed:** rendered all three approved case studies as full pages
+  with validated `project`, `role`, `timeline`, and evidence-bounded `diagram` metadata, previous/next
+  navigation, and public-link actions for `saudi-utils`. Internal review notes moved from HTML
+  comments (which the new Markdown processor emitted verbatim) into a validated, non-rendered
+  `internalReview` frontmatter field. Added content tests for metadata, unique routes and orders,
+  diagram steps, and approved link hosts. Format, lint, strict typecheck, tests, and the five-route
+  production build passed; the built output contains no internal review notes. Phase 7 is `Complete`;
+  Phase 8 is next.

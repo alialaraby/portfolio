@@ -4,11 +4,30 @@ description: "The API, validation boundaries, testing, packaging, and guarded re
 classification: open-source
 route: /work/saudi-utils
 order: 3
+project: saudi-utils
+role: Creator and publisher
+timeline: Published 17 September 2026
+diagram:
+  label: From typed API to guarded release
+  steps:
+    - label: Design the typed API
+      detail: One small root surface across several Saudi data categories
+    - label: Define validation contracts
+      detail: Deterministic errors and documented limits for every rule
+    - label: Verify behavior broadly
+      detail: Tests covering examples, edge cases, invariants, types, and clean consumers
+    - label: Package for consumers
+      detail: Typed ESM output with no runtime dependencies
+    - label: Publish through a guarded path
+      detail: Pinned CI, trusted publishing, staging, and protected approval
 repository: https://github.com/alialaraby/saudi-utils
 package: https://www.npmjs.com/package/saudi-utils
+internalReview: |
+  Evidence: C022-C029, GH-SU-01, NPM-SU-01, CI-SU-01, RUN-SU-01.
+  Point-in-time wording: all test, coverage, CI, compatibility, and vulnerability statements retain
+  the 17 Sep 2026 audit scope where needed. No adoption, community, long-term maintenance,
+  package-size, authoritative-verification, or defect-free claim is made.
 ---
-
-# `saudi-utils`: Designing Explicit Validation Contracts for Saudi Data
 
 ## Summary
 
@@ -154,10 +173,3 @@ release design.
 
 - [GitHub repository](https://github.com/alialaraby/saudi-utils)
 - [npm package](https://www.npmjs.com/package/saudi-utils)
-
-<!-- INTERNAL REVIEW — DO NOT RENDER
-Evidence: C022-C029, GH-SU-01, NPM-SU-01, CI-SU-01, RUN-SU-01.
-Point-in-time wording: all test, coverage, CI, compatibility, and vulnerability statements retain
-the 17 Sep 2026 audit scope where needed. No adoption, community, long-term maintenance, package-size,
-authoritative-verification, or defect-free claim is made.
--->

@@ -36,16 +36,17 @@ docs/                     Internal evidence and project documentation
 
 `output: "static"` is explicit. `/` and `/404.html` are file routes. `/work/[slug].astro` uses
 `getStaticPaths()` to generate `logistics-platform`, `fintech-product`, and `saudi-utils` from the
-validated collection IDs. The shell renders only enough metadata and content summaries to prove the
-flow; complete content composition is deferred.
+validated collection IDs, ordered by `order`, and renders each body through Astro's content renderer.
 
 ## Content flow and boundaries
 
 `src/content.config.ts` separates general approved page copy from case studies. Case studies require
-a title, useful description, classification, route, and positive order; public links are URL
-validated. File names are stable slugs. Tests confirm the expected sources and rejection of invalid
-representative metadata. HTML review comments remain in source and are omitted when Markdown is
-rendered; the current shell does not render case-study bodies at all.
+a title, useful description, classification, route, positive order, project, role, an
+evidence-bounded diagram, and an internal review note; public links are URL validated. File names are
+stable slugs. Tests confirm the expected sources, unique routes and orders, diagram steps, approved
+link hosts, and rejection of invalid representative metadata. Internal review notes live in a
+validated `internalReview` frontmatter field that is never rendered, because the current Markdown
+processor emits HTML comments verbatim into the static output.
 
 `BaseLayout.astro` owns document landmarks and baseline metadata. Page files own routing and data
 loading. `CaseStudyList.astro` proves a small typed presentational boundary. `site.ts` holds only
@@ -67,7 +68,8 @@ those tools now would test behavior that does not exist.
 
 Static assets will live in `public/` only when they must retain exact names; optimizable authored
 images should use Astro's source asset pipeline in later phases. No demo imagery or default assets
-exist. The approved CV remains absent until supplied.
+exist. The approved CV is served from `public/cv/ali-alaraby-senior-backend-engineer-2026.pdf` and
+linked from the validated homepage `cv` field.
 
 The base layout wires titles, descriptions, Open Graph type/title/description, language, charset,
 and viewport. Unique approved metadata, canonical URLs, robots, sitemap, structured data, and final
@@ -108,11 +110,10 @@ an overlapping vulnerable tool was not justified.
 
 ## Non-goals and later phases
 
-This foundation does not include final design tokens, responsive visual design, full approved copy
-composition, case-study presentation, animation, theme switching, analytics, forms, client state,
+This foundation does not include animation, theme switching, analytics, forms, client state,
 CMS/API/database infrastructure, final SEO artifacts, deployment, or performance claims.
 
-Phase 5 owns the visual system and responsive shell; Phase 6 the full homepage; Phase 7 complete
+Phase 5 owned the visual system and responsive shell; Phase 6 the full homepage; Phase 7 the complete
 case studies; Phase 8 accessibility and interaction hardening; Phase 9 SEO and sharing; Phase 10
 production QA; and Phase 11 deployment and launch verification.
 
@@ -132,3 +133,13 @@ selected-work framing, contact copy, and approved profile destinations. The rout
 fields directly and renders the dedicated capabilities, experience, and open-source Markdown entries
 through Astro's content renderer. This keeps each section authoritative in one content file while
 allowing the responsive shell to control page hierarchy and presentation.
+
+## Phase 7 case-study composition
+
+`src/pages/work/[slug].astro` renders each case study's full Markdown body inside the prose reading
+shell, above a validated metadata panel (classification, project, role, timeline), a content-driven
+`FlowDiagram`, optional public-link actions, and previous/next navigation derived from `order`.
+`FlowDiagram.astro` is a dependency-free presentational component: diagrams are authored as validated
+frontmatter steps drawn strictly from approved copy, so they stay accurate, legible, and
+non-confidential without screenshots or proprietary code. Internal review notes are validated but
+never rendered. `astro.config.ts` remains unchanged and dependency-free.

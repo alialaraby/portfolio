@@ -142,3 +142,17 @@ to direct first-person ownership. The revision changes presentation, not evidenc
 
 The approved versioned CV (`/cv/ali-alaraby-senior-backend-engineer-2026.pdf`) was supplied and is
 now linked from the hero, experience, contact, and footer. No placeholder download remains.
+
+## Phase 7 case-study implementation review
+
+Review date: 17 September 2026
+
+- [x] All three case studies render their full approved bodies with a single top-level heading each.
+- [x] Each study shows validated project, role, and timeline metadata and previous/next navigation.
+- [x] Diagrams are generated only from validated frontmatter steps drawn from approved copy; no
+      private schemas, providers, payloads, identifiers, or incident detail are introduced.
+- [x] No code, screenshots, or sanitized visuals are published; none were authorized or required.
+- [x] The only external links are the approved `saudi-utils` GitHub and npm destinations; a test
+      restricts case-study link hosts to approved domains.
+- [x] Internal review notes are stored in a validated, non-rendered frontmatter field, and the
+      production output contains none of them.

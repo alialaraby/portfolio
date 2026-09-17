@@ -1,0 +1,29 @@
+---
+interface Step {
+  label: string;
+  detail?: string | undefined;
+}
+
+interface Props {
+  steps: Step[];
+  ariaLabel: string;
+}
+
+const { steps, ariaLabel } = Astro.props;
+---
+
+<ol class="flow-diagram" aria-label={ariaLabel}>
+  {
+    steps.map((step, index) => (
+      <li>
+        <span class="flow-diagram__marker" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <div class="flow-diagram__body">
+          <p class="flow-diagram__label">{step.label}</p>
+          {step.detail && <p class="flow-diagram__detail">{step.detail}</p>}
+        </div>
+      </li>
+    ))
+  }
+</ol>

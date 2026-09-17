@@ -4,9 +4,29 @@ description: "I improved PostgreSQL workloads, export capacity, SLA processing, 
 classification: professional-system
 route: /work/logistics-platform
 order: 1
+project: Madar
+role: Senior Backend Engineer
+timeline: October 2024–present
+diagram:
+  label: From workload analysis to production operations
+  steps:
+    - label: Analyze the workload
+      detail: Generated queries and access patterns behind the slower operational paths
+    - label: Redesign data access
+      detail: Query redesign, targeted indexes, join simplification, and purpose-built SQL
+    - label: Move exports to background work
+      detail: Queued jobs with streaming and chunked processing outside the request lifecycle
+    - label: Narrow SLA processing
+      detail: Reminders and reassignments focused only on orders that require action
+    - label: Operate in production
+      detail: Deployment, monitoring, incident investigation, and targeted data correction
+internalReview: |
+  Evidence: C004-C011 and CV-01, approved 17 Sep 2026.
+  Disclosure: Madar name and listed metrics are approved. Fleet/vendor identities, schemas, payloads,
+  service names, incident details, internal URLs, proprietary code, and production data are excluded.
+  Attribution: Madar is explicitly described as team-built; outcomes are scoped to Ali's work.
+  Public links: none approved or required.
 ---
-
-# Madar: Improving Performance and Workflows in a Growing Logistics Platform
 
 ## Summary
 
@@ -169,11 +189,3 @@ incident details, internal tools, identifiers, and customer data.
 PostgreSQL, queued background processing, streaming, and chunked work supported the changes
 described here. The important decisions were how data was accessed, where long-running work
 executed, and how integration-specific behavior was isolated.
-
-<!-- INTERNAL REVIEW — DO NOT RENDER
-Evidence: C004-C011 and CV-01, approved 17 Sep 2026.
-Disclosure: Madar name and listed metrics are approved. Fleet/vendor identities, schemas, payloads,
-service names, incident details, internal URLs, proprietary code, and production data are excluded.
-Attribution: Madar is explicitly described as team-built; outcomes are scoped to Ali's work.
-Public links: none approved or required.
--->
