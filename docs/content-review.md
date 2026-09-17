@@ -156,3 +156,44 @@ Review date: 17 September 2026
       restricts case-study link hosts to approved domains.
 - [x] Internal review notes are stored in a validated, non-rendered frontmatter field, and the
       production output contains none of them.
+
+## Phase 8 accessibility review
+
+Review date: 17 September 2026
+
+- [x] No public copy changed; accessibility work is limited to markup, styles, and verification.
+- [x] Link purposes remain clear without surrounding context, including the footer CV download and
+      the external `saudi-utils` GitHub and npm destinations.
+- [x] Diagrams carry their step text as visible content, so no information is conveyed by color or
+      shape alone.
+- [x] The skip link, section anchors, and focus outline are verified against the production build.
+- [x] Method, contrast ratios, and known limitations are recorded in
+      [accessibility.md](accessibility.md).
+
+## Phase 9 metadata and discovery review
+
+Review date: 17 September 2026
+
+- [x] No public copy changed; work is limited to metadata, structured data, and discovery files.
+- [x] Page titles and descriptions are drawn from the approved content frontmatter and remain unique
+      per route; the case-study suffix only adds the owner name.
+- [x] Structured data restates only approved facts: job title, approved profile URLs, and case-study
+      headlines and descriptions already published on the page.
+- [x] The social card uses the approved name, role, and domain with no claims, metrics, or private
+      system detail.
+- [x] The approved destinations were checked: GitHub returned 200; npm and LinkedIn blocked scripted
+      requests and are flagged for a browser re-check at launch in [seo.md](seo.md).
+- [x] Canonical, Open Graph, and sitemap URLs use the owner-approved domain
+      `https://alialaraby.com`, which goes live in Phase 11.
+
+## Phase 10 production hygiene review
+
+Review date: 17 September 2026
+
+- [x] No public copy changed; work is limited to verification and automated checks.
+- [x] The built output contains no placeholder copy, unfinished markers, internal review notes, or
+      internal decision/doc references.
+- [x] The built output contains no credentials, keys, tokens, development hosts, or phone numbers.
+- [x] The only published email address is the owner-approved `alisakralaraby@gmail.com`.
+- [x] Full method, measured artifact sizes, budgets, and the browser-based launch checklist are in
+      [production-qa.md](production-qa.md).

@@ -191,3 +191,63 @@
   and `internalReview`. Diagrams stay abstract and evidence-bounded, no code or screenshots are
   published, and `astro.config.ts` remains dependency-free. Phase 8 owns accessibility verification
   and Phase 9 owns final SEO metadata.
+
+## D013 — Accessibility verification tooling
+
+- **Context:** Phase 8 requires automated accessibility checks plus verified keyboard, focus, motion,
+  and zoom behavior without introducing runtime dependencies or a browser test stack. The project
+  ships no client JavaScript and keeps `dependencies` empty.
+- **Selected:** Add the development-only `axe-core` rule engine and `jsdom` to run it against the
+  built `dist/**/*.html` pages inside the existing Vitest suite (`npm run test:a11y`), alongside
+  explicit assertions for the page-level landmarks axe cannot fully confirm outside a browser.
+  Disable the two color-contrast rules, which need a layout engine, and record measured token
+  contrast in `docs/accessibility.md`. Improve the dark-footer focus outline to a lighter orange so
+  it clears 3:1.
+- **Alternatives:** A hand-written rule set would be unreliable and incomplete; a real browser stack
+  (Playwright/pa11y) adds heavier binaries and configuration than a static site needs; enabling
+  `color-contrast` in jsdom returns only false inconclusive results; leaving `#b44600` on the footer
+  met 3.00:1 exactly, which is too close to rely on.
+- **Consequences:** Both new packages are dev-only and add no browser JavaScript. The a11y test skips
+  when `dist/` is absent, so `npm run check` stays build-free, and CI runs `npm run test:a11y` after
+  the production build. Contrast verification remains a documented, ratio-based manual check rather
+  than an automated browser assertion.
+
+## D014 — SEO, social metadata, and discovery strategy
+
+- **Context:** Phase 9 requires unique metadata, canonical and social presentation, valid sitemap and
+  robots behavior, and honest structured data. The approved production domain
+  (`https://alialaraby.com`) and a social card are now available, and the project still avoids
+  runtime dependencies and WordPress-style plugins.
+- **Selected:** Record the domain once in `src/config/site.ts` and `astro.config.ts`. Emit canonical,
+  Open Graph, and Twitter metadata from `BaseLayout.astro`. Add a dependency-free `sitemap.xml`
+  endpoint driven by the case-study collection and a static `robots.txt`. Publish JSON-LD as
+  `ProfilePage`/`Person` on the homepage and `TechArticle` plus `BreadcrumbList` on case studies,
+  sourced from validated content. Ship a committed 1200×630 PNG share card with an editable SVG
+  source.
+- **Alternatives:** The `@astrojs/sitemap` integration would add a dependency for output a
+  collection-driven endpoint produces; per-page metadata could have been hand-written but would drift
+  from content; `og:image` could have been deferred, but a text-only card was cheap to produce from
+  the existing tokens; richer schema types were rejected as claims the content does not support.
+- **Consequences:** Metadata tests read the built output and fail on duplicate titles/descriptions,
+  wrong canonical or OG URLs, missing or invalid JSON-LD, sitemap/robots drift, and missing approved
+  links. The 404 is `noindex` and excluded from the sitemap. Live URL reachability stays a manual
+  check because link hosts block scripted requests. The domain does not resolve until Phase 11.
+
+## D015 — Performance budgets and output hygiene in CI
+
+- **Context:** Phase 10 must measure the production artifact and prove no secrets, placeholders, or
+  internal references ship. Lighthouse and field Core Web Vitals need browser or deployment
+  infrastructure that is intentionally absent from the current CI image.
+- **Selected:** Enforce artifact budgets and an inventory check in `tests/performance.test.ts`
+  (zero client JS, no source maps, CSS/HTML/font/page-weight caps, single font preload,
+  `font-display: swap`, sized images) and a forbidden-pattern scan plus approved-email allowlist in
+  `tests/hygiene.test.ts`. Run both as post-build CI steps. Document Lighthouse, Core Web Vitals, and
+  responsive smoke testing as explicit owner actions against the Phase 11 preview deployment.
+- **Alternatives:** Adding Lighthouse CI with a headless Chrome dependency would be heavy and mostly
+  re-measure a tiny static site. Artifact budgets remain the regression guard; local Lighthouse is
+  useful supporting evidence but is not presented as a production measurement. Relying on
+  `@astrojs`/framework defaults was rejected because budgets must fail the build, not be observed.
+- **Consequences:** Regressions in bundle size, asset inventory, or accidental secret/placeholder
+  leakage now fail CI. A later local Chromium review measured Lighthouse 100 in every category on the
+  homepage and a representative case study without adding a dependency. Deployment behavior,
+  WebKit, and field Core Web Vitals remain launch checks rather than automated claims.

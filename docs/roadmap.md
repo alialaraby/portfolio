@@ -6,24 +6,31 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 
 ## Phase overview
 
-| Phase                                             | Status      |
-| ------------------------------------------------- | ----------- |
-| Phase 0 — Repository bootstrap                    | Not started |
-| Phase 1 — CV, evidence, and repository audit      | Complete    |
-| Phase 2 — Positioning and content strategy        | Complete    |
-| Phase 3 — Case-study and page copy                | Complete    |
-| Phase 4 — Technical architecture and foundation   | Complete    |
-| Phase 5 — Visual system and responsive shell      | Complete    |
-| Phase 6 — Core portfolio experience               | Complete    |
-| Phase 7 — Case studies and technical storytelling | Complete    |
-| Phases 8–11                                       | Not started |
+| Phase                                               | Status      |
+| --------------------------------------------------- | ----------- |
+| Phase 0 — Repository bootstrap                      | Not started |
+| Phase 1 — CV, evidence, and repository audit        | Complete    |
+| Phase 2 — Positioning and content strategy          | Complete    |
+| Phase 3 — Case-study and page copy                  | Complete    |
+| Phase 4 — Technical architecture and foundation     | Complete    |
+| Phase 5 — Visual system and responsive shell        | Complete    |
+| Phase 6 — Core portfolio experience                 | Complete    |
+| Phase 7 — Case studies and technical storytelling   | Complete    |
+| Phase 8 — Accessibility and interaction hardening   | Complete    |
+| Phase 9 — SEO, sharing, and professional discovery  | Complete    |
+| Phase 10 — Performance, security, and production QA | Complete\*  |
+| Phase 11 — Deployment and launch readiness          | Not started |
+
+\* Phase 10 artifact and local Chromium checks are complete; deployed and WebKit smoke testing is
+deferred to Phase 11, which has a live preview.
 
 ## Progress summary
 
-- **Current phase:** Phase 7 is complete; all three approved case studies render as full, navigable
-  pages with metadata and evidence-bounded diagrams.
-- **Completed:** Phases 1, 2, 3, 4, 5, 6, and 7.
-- **Next phase:** Phase 8 — accessibility and interaction hardening.
+- **Current phase:** Phase 10 is complete; the production artifact passes clean-install, budget,
+  hygiene, local Chromium, and Lighthouse checks. Deployment-specific and WebKit checks are launch
+  actions.
+- **Completed:** Phases 1 through 10.
+- **Next phase:** Phase 11 — deployment and launch readiness.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -236,46 +243,87 @@ Evidence of completion:
 
 ## Phase 8 — Accessibility and interaction hardening
 
-**Status:** Not started
+**Status:** Complete
 
 Test and improve semantics, keyboard behavior, focus, contrast, motion, zoom, and assistive-technology basics.
 
 Acceptance criteria:
 
-- automated accessibility checks pass
-- manual keyboard flow passes
-- 200% zoom and representative responsive widths remain usable
-- focus and reduced-motion behavior are verified
-- known limitations are documented
+- [x] automated accessibility checks pass
+- [x] manual keyboard flow passes
+- [x] 200% zoom and representative responsive widths remain usable
+- [x] focus and reduced-motion behavior are verified
+- [x] known limitations are documented
+
+Evidence of completion:
+
+- [Accessibility tooling decision D013](decisions.md#d013--accessibility-verification-tooling)
+- [Accessibility verification record](accessibility.md) with method, contrast ratios, keyboard flow,
+  focus and reduced-motion behavior, zoom, and known limitations
+- `tests/accessibility.test.ts` runs `axe-core` against every built page in `jsdom` with zero
+  violations and asserts a single `<main>`, a single `<h1>`, and a working skip link per page
+- `npm run test:a11y` added and wired into CI as a post-build step in `.github/workflows/quality.yml`
+- Dark-footer focus outline moved to `#f4a259` (8.00:1 on ink) because the global `#b44600` reached
+  only 3.00:1 there; all documented token contrast pairs meet WCAG 2.2 AA
+- `npm run check`, the production build, and `npm run test:a11y` pass with no new runtime dependency
 
 ## Phase 9 — SEO, sharing, and professional discovery
 
-**Status:** Not started
+**Status:** Complete
 
 Implement search metadata, social presentation, structured data, sitemap, robots policy, and discoverability checks.
 
 Acceptance criteria:
 
-- unique titles and descriptions exist
-- canonical, Open Graph, and social images are correct
-- sitemap and robots behavior are validated
-- structured data is valid and honest
-- GitHub, LinkedIn, CV, email, and project URLs are verified
+- [x] unique titles and descriptions exist
+- [x] canonical, Open Graph, and social images are correct
+- [x] sitemap and robots behavior are validated
+- [x] structured data is valid and honest
+- [x] GitHub, LinkedIn, CV, email, and project URLs are verified
+
+Evidence of completion:
+
+- [SEO and discovery decision D014](decisions.md#d014--seo-social-metadata-and-discovery-strategy)
+- [SEO verification record](seo.md) with the per-route metadata map, social card, structured data,
+  sitemap/robots behavior, link checks, and known limitations
+- Domain, locale, and OG image recorded once in `src/config/site.ts` and `astro.config.ts`
+- Canonical, Open Graph, and Twitter metadata emitted from `src/layouts/BaseLayout.astro`
+- Dependency-free `src/pages/sitemap.xml.ts` endpoint (homepage plus three case studies, no 404) and
+  `public/robots.txt`
+- Per-page JSON-LD validated by `tests/seo.test.ts`; committed 1200×630 share card with editable SVG
+  source in `public/og/`
+- `tests/seo.test.ts` (5 tests) and `npm run test:seo` added; wired into CI after the build
 
 ## Phase 10 — Performance, security, and production QA
 
-**Status:** Not started
+**Status:** Complete (deployment and WebKit checks deferred to Phase 11)
 
 Test the production artifact and close launch blockers.
 
 Acceptance criteria:
 
-- clean install and full check suite pass
-- dependency/security review passes with no unexplained finding
-- asset, bundle, and route behavior are inspected
-- performance targets are measured on representative pages
-- browser/responsive smoke testing passes
-- no secrets, internal references, or placeholders are present
+- [x] clean install and full check suite pass
+- [x] dependency/security review passes with no unexplained finding
+- [x] asset, bundle, and route behavior are inspected
+- [x] performance is measured via enforced artifact budgets and local Lighthouse; production field
+      Core Web Vitals remain a launch check
+- [x] local Chromium/responsive smoke testing passes; deployed and WebKit coverage remains Phase 11
+- [x] no secrets, internal references, or placeholders are present
+
+Evidence of completion:
+
+- [Production QA decision D015](decisions.md#d015--performance-budgets-and-output-hygiene-in-ci)
+- [Production QA record](production-qa.md) with clean-install results, dependency review, measured
+  artifact sizes, enforced budgets, hygiene results, and the manual launch checklist
+- `rm -rf node_modules && npm ci`, `npm run build`, and `npm run check` (38 tests across 6 files)
+  pass with `npm audit` reporting no vulnerabilities
+- `tests/performance.test.ts` (6 tests) enforces zero JS, no source maps, CSS/HTML/font/page-weight
+  budgets, one font preload, `font-display: swap`, a fixed asset inventory, and sized images
+- `tests/hygiene.test.ts` (16 tests) scans the output for secrets, credentials, placeholders,
+  internal references, dev hosts, and non-approved emails
+- `npm run test:perf` and `npm run test:hygiene` added and wired into CI after the build
+- Local Chromium visual review at 320, 390, 768, and 1440 px plus Lighthouse desktop runs on the
+  homepage and a representative case study; both Lighthouse runs scored 100 in every category
 
 ## Phase 11 — Deployment and launch readiness
 
@@ -351,3 +399,38 @@ Potential work only after launch evidence justifies it:
   diagram steps, and approved link hosts. Format, lint, strict typecheck, tests, and the five-route
   production build passed; the built output contains no internal review notes. Phase 7 is `Complete`;
   Phase 8 is next.
+- **17 September 2026 — Phase 8 completed:** added dev-only `axe-core` and `jsdom` and a new
+  `tests/accessibility.test.ts` that audits every built page with zero axe violations and asserts a
+  single `<main>`, single `<h1>`, and a skip link targeting that main. Added `npm run test:a11y` and
+  a post-build CI step; documented method, measured token contrast, keyboard flow, focus,
+  reduced-motion, zoom, and known limitations in `docs/accessibility.md`; recorded decision D013.
+  Moved the dark-footer focus outline to `#f4a259` for 8.00:1 (the global `#b44600` reached only
+  3.00:1 on ink). Format, lint, strict typecheck, tests, the five-route production build, and the
+  accessibility audit passed. Phase 8 is `Complete`; Phase 9 is next.
+- **17 September 2026 — Phase 9 completed:** recorded the approved domain and OG image in
+  `src/config/site.ts` and `astro.config.ts`; added canonical, Open Graph, and Twitter metadata plus
+  per-page JSON-LD (`ProfilePage`/`Person`, `TechArticle`, `BreadcrumbList`) to `BaseLayout.astro`;
+  added a dependency-free `sitemap.xml` endpoint and `robots.txt`; marked the 404 `noindex`; added a
+  committed 1200×630 share card with SVG source; and added `tests/seo.test.ts` (5 tests) plus
+  `npm run test:seo` as a post-build CI step. Documented method, link checks, and limitations in
+  `docs/seo.md`; recorded decision D014. Format, lint, strict typecheck, tests, the five-route
+  production build, the accessibility audit, and the SEO validation passed. Phase 9 is `Complete`;
+  Phase 10 is next.
+- **17 September 2026 — Phase 10 completed (browser checks deferred):** re-ran a clean
+  `rm -rf node_modules && npm ci` with zero vulnerabilities, then the build and the full 38-test
+  check suite. Added `tests/performance.test.ts` (6 tests) enforcing zero client JS, no source maps,
+  CSS/HTML/font/page-weight budgets, one font preload, `font-display: swap`, a fixed asset inventory,
+  and sized images; added `tests/hygiene.test.ts` (16 tests) scanning the output for secrets,
+  credentials, placeholders, internal references, dev hosts, and non-approved emails; added
+  `npm run test:perf` and `npm run test:hygiene` as post-build CI steps. Measured the artifact
+  (~110.7 KB worst-case gzip page, zero JS) and recorded the dependency review, budgets, and manual
+  launch checklist in `docs/production-qa.md`; recorded decision D015. Lighthouse/Core Web Vitals and
+  browser/responsive smoke testing are documented as Phase 11 owner actions because no browser is
+  available here. Phase 10 artifact work is `Complete`; Phase 11 is next.
+- **17 September 2026 — Phases 6–10 quality review:** fixed clean-checkout sitemap linting by running
+  `astro sync` automatically before ESLint; re-ran all 38 tests and the built-output accessibility,
+  SEO, performance, and hygiene suites; reviewed the homepage and representative case study in local
+  Chromium at mobile, tablet, and desktop widths; and validated the sitemap XML and CV response.
+  Lighthouse desktop runs on the homepage and logistics case study scored 100 for Performance,
+  Accessibility, Best Practices, and SEO. Updated Phase 10 records to distinguish this local lab
+  evidence from the remaining deployed, WebKit, live-link, and field-performance checks.

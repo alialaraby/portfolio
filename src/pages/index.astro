@@ -3,6 +3,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import ActionLink from '../components/ActionLink.astro';
 import CaseStudyList from '../components/CaseStudyList.astro';
 import SectionShell from '../components/SectionShell.astro';
+import { site } from '../config/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const caseStudies = (await getCollection('caseStudies')).sort(
@@ -23,9 +24,30 @@ if (!home || home.data.kind !== 'homepage' || !capabilities || !experience || !o
 const { Content: CapabilitiesContent } = await render(capabilities);
 const { Content: ExperienceContent } = await render(experience);
 const { Content: OpenSourceContent } = await render(openSource);
+
+const canonical = new URL('/', site.url).href;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: canonical,
+    name: site.title,
+    description: site.description,
+    mainEntity: {
+      '@type': 'Person',
+      name: site.name,
+      jobTitle: 'Senior Backend Engineer',
+      url: canonical,
+      email: `mailto:${home.data.email}`,
+      description: site.description,
+      sameAs: [home.data.github, home.data.linkedin],
+    },
+  },
+];
 ---
 
-<BaseLayout>
+<BaseLayout structuredData={structuredData}>
   <section class="hero-shell" aria-labelledby="page-title">
     <div class="hero-shell__content">
       <p class="eyebrow">{home.data.eyebrow}</p>
