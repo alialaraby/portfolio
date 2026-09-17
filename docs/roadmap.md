@@ -11,13 +11,15 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 | Phase 0 — Repository bootstrap | Not started |
 | Phase 1 — CV, evidence, and repository audit | Complete |
 | Phase 2 — Positioning and content strategy | Complete |
-| Phases 3–11 | Not started |
+| Phase 3 — Case-study and page copy | Blocked |
+| Phases 4–11 | Not started |
 
 ## Progress summary
 
-- **Current phase:** Phase 2 completed; work stops before Phase 3.
+- **Current phase:** Phase 3 — Case-study and page copy (`Blocked`).
 - **Completed:** Phases 1 and 2.
-- **Next phase:** Phase 3 — Case-study and page copy, after owner publication inputs are available.
+- **Next phase:** Resume Phase 3 after owner content and publication approval; Phase 4 must not
+  begin.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -89,7 +91,16 @@ Evidence of completion:
 
 ## Phase 3 — Case-study and page copy
 
-**Status:** Not started
+**Status:** Blocked
+
+**Blocker:** Owner content and publication approval. The latest approved CV is not available in the
+repository, and the evidence register still marks the required public identity (`C001`, `C002`) and
+the selected Madar and DebtBox case-study claims (`C004`–`C018`) as
+`needs-owner-confirmation`. Phase 3 source rules prohibit publishing those claims until approval is
+recorded. Ali must confirm the current CV baseline, approve the public title and experience wording,
+approve safe collaborator-aware wording for the two private-system stories (or direct their
+exclusion), and approve at least one public contact path. Exact metrics may remain omitted and are
+not part of this blocker.
 
 Write concise, human-sounding site copy and evidence-backed case studies before visual implementation.
 
@@ -242,3 +253,7 @@ Potential work only after launch evidence justifies it:
   launch stories, conversion strategy, focused homepage-plus-case-studies architecture, content
   model, channel responsibilities, and owner-gated publication boundaries. No Phase 3 copy or site
   implementation was started.
+- **17 September 2026 — Phase 3 blocked at prerequisite review:** confirmed Phases 1 and 2 and their
+  deliverables are complete, then stopped before drafting because required identity and private-work
+  claims remain unapproved and the latest approved CV is unavailable. The sole phase blocker is
+  owner content and publication approval.
