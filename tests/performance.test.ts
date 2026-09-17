@@ -133,6 +133,7 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
       /^og\/[\w.-]+\.(png|svg)$/,
       /^robots\.txt$/,
       /^sitemap\.xml$/,
+      /^CNAME$/,
     ];
 
     for (const file of files) {

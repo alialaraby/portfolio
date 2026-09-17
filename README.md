@@ -52,15 +52,17 @@ For local work, run `npm run dev` and use the URL Astro reports. Before review, 
 - `public/robots.txt` — crawl policy pointing to the sitemap
 - `tests/` — content, configuration, and built-output accessibility, SEO, performance, and hygiene tests
 - `docs/` — product, evidence, content, architecture, and decision records
-- `.github/workflows/quality.yml` — clean-install validation; no deployment
+- `.github/workflows/quality.yml` — clean-install validation
+- `.github/workflows/pages.yml` — manually authorized GitHub Pages deployment
 
 Edit public portfolio wording only in `src/content/`. Internal evidence and review documentation
 remain in `docs/` and must not be imported into the public application.
 
 ## Current non-goals
 
-This release excludes dark mode, analytics, forms, CMS/backend infrastructure, deployment, and
-field performance claims. Accessibility coverage and known limitations are in
+This release excludes dark mode, analytics, forms, CMS/backend infrastructure, and field
+performance claims. Deployment and rollback instructions are in
+[deployment](docs/deployment.md). Accessibility coverage and known limitations are in
 [accessibility](docs/accessibility.md); SEO and link verification are in [seo](docs/seo.md). See the
 [visual system](docs/visual-system.md),
 [technical architecture](docs/technical-architecture.md), and [roadmap](docs/roadmap.md).

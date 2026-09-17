@@ -101,8 +101,12 @@ The GitHub Actions workflow has read-only repository permission, pinned action S
 performance-budget, and hygiene validation of the generated HTML. Pin updates are reviewed manually
 against action release notes. It does not use secrets, write permissions, releases, or deployment.
 
-Static output is compatible with Vercel without an Astro server adapter. This phase does not verify
-a remote build, preview deployment, domain, headers, redirects, or production behavior.
+Static output is published by the manually dispatched `.github/workflows/pages.yml` workflow. It
+repeats the clean install and complete quality suite, builds `dist`, uploads the official Pages
+artifact, and deploys through GitHub's OIDC-backed Pages action. Only the deployment job receives
+`pages: write` and `id-token: write`; no long-lived secret is used. The workflow runs only from
+`main` with affirmative owner input. Repository Pages settings, DNS, HTTPS, and production
+verification remain external launch gates documented in [deployment.md](deployment.md).
 
 ### Direct dependency review
 

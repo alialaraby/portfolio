@@ -130,7 +130,7 @@ The final stack is chosen during the architecture phase after inspecting the new
 
 - strict TypeScript
 - static or pre-rendered output where practical
-- Vercel-compatible deployment
+- static-host-compatible deployment; GitHub Pages selected for launch in Phase 11
 - maintainable content structure
 - automated formatting, linting, typechecking, tests, and production build
 - optimized images and fonts

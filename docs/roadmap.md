@@ -19,18 +19,18 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 | Phase 8 — Accessibility and interaction hardening   | Complete    |
 | Phase 9 — SEO, sharing, and professional discovery  | Complete    |
 | Phase 10 — Performance, security, and production QA | Complete\*  |
-| Phase 11 — Deployment and launch readiness          | Not started |
+| Phase 11 — Deployment and launch readiness          | In progress |
 
 \* Phase 10 artifact and local Chromium checks are complete; deployed and WebKit smoke testing is
-deferred to Phase 11, which has a live preview.
+deferred to the Phase 11 GitHub Pages launch.
 
 ## Progress summary
 
-- **Current phase:** Phase 10 is complete; the production artifact passes clean-install, budget,
-  hygiene, local Chromium, and Lighthouse checks. Deployment-specific and WebKit checks are launch
-  actions.
+- **Current phase:** Phase 11 is in progress. The manually authorized GitHub Pages workflow and
+  owner launch runbook are ready; repository settings and the first deployment remain owner actions.
 - **Completed:** Phases 1 through 10.
-- **Next phase:** Phase 11 — deployment and launch readiness.
+- **Next milestone:** merge the reviewed Phase 11 changes, enable GitHub Actions as the Pages source,
+  run the manual deployment, verify it, then configure the production domain.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -327,18 +327,29 @@ Evidence of completion:
 
 ## Phase 11 — Deployment and launch readiness
 
-**Status:** Not started
+**Status:** In progress
 
-Prepare and verify Vercel deployment, domain behavior, release documentation, rollback, and post-launch checks.
+Prepare and verify GitHub Pages deployment, domain behavior, release documentation, rollback, and
+post-launch checks.
 
 Acceptance criteria:
 
-- preview deployment is reviewed before production
-- environment and domain configuration are documented
-- production URL, redirects, metadata, CV download, and contact paths work
-- rollback path is documented
-- launch checklist passes
-- no deployment occurs without explicit owner authorization
+- [x] local production output and pull-request quality gates provide the pre-deployment review;
+      GitHub Pages does not provide a separate native preview environment
+- [x] environment and domain configuration are documented
+- [ ] production URL, redirects, metadata, CV download, and contact paths work
+- [x] rollback path is documented
+- [ ] launch checklist passes
+- [x] no deployment occurs without explicit owner authorization
+
+Evidence in progress:
+
+- Manually dispatched `.github/workflows/pages.yml` builds, revalidates, uploads, and deploys the
+  site using immutable pins for GitHub's official Pages actions
+- `public/CNAME` carries the approved apex domain in the generated artifact
+- [GitHub Pages setup, domain, launch-verification, and rollback runbook](deployment.md)
+- Current-state check confirmed that the production domain does not yet return public A or CNAME
+  records; repository settings and DNS remain owner actions
 
 ## Post-launch backlog
 
@@ -434,3 +445,8 @@ Potential work only after launch evidence justifies it:
   Lighthouse desktop runs on the homepage and logistics case study scored 100 for Performance,
   Accessibility, Best Practices, and SEO. Updated Phase 10 records to distinguish this local lab
   evidence from the remaining deployed, WebKit, live-link, and field-performance checks.
+- **17 September 2026 — Phase 11 started:** created `feat/phase-11-deployment-launch` from current
+  `main`; added a manually authorized GitHub Pages workflow, custom-domain artifact, and
+  deployment/domain/rollback runbook. Confirmed that no environment variables or repository secrets
+  are required and the approved domain has no public A or CNAME response yet. Repository settings,
+  the first deployment, DNS, and HTTPS remain explicit owner actions.

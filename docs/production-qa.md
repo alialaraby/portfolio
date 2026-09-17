@@ -17,7 +17,7 @@ deployed production environment or WebKit.
   JavaScript. Versions are exact and locked with a committed `package-lock.json`.
 - `npm audit` reports no known vulnerabilities; `npm ci` refuses unexpected lockfile drift.
 - No secrets, environment files, tokens, or private keys exist in the repository or the output.
-  Ignored: `node_modules`, `dist`, `.astro`, `.vercel`, coverage, logs, and env files.
+  Ignored: `node_modules`, `dist`, `.astro`, coverage, logs, and env files.
 - The only email in the output is the owner-approved `alisakralaraby@gmail.com`; no phone number is
   published. `tests/hygiene.test.ts` enforces this.
 
