@@ -1,5 +1,7 @@
 ---
 import { site } from '../config/site';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -20,17 +22,19 @@ const { title = site.title, description = site.description } = Astro.props;
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex/ibm-plex-sans-var-latin1.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <title>{title}</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header>
-      <nav aria-label="Primary">
-        <a href="/">Ali Alaraby</a>
-        <a href="/#selected-work">Selected work</a>
-      </nav>
-    </header>
-    <main id="main-content"><slot /></main>
-    <footer><p>Temporary Phase 4 application shell.</p></footer>
+    <SiteHeader />
+    <main id="main-content" class="shell"><slot /></main>
+    <SiteFooter />
   </body>
 </html>

@@ -1,8 +1,8 @@
 # Ali Alaraby Portfolio
 
-A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phase 4 establishes
-the static application architecture, typed content model, validation, and CI foundation. It does
-not implement the final visual system or complete public pages.
+A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–5
+establish the static application architecture, typed content model, editorial visual system, and
+responsive page shell. Complete public-page composition remains deferred.
 
 ## Prerequisites
 
@@ -41,6 +41,7 @@ For local work, run `npm run dev` and use the URL Astro reports. Before review, 
 - `src/content/case-studies/` — approved case-study sources and validated route metadata
 - `src/pages/` — minimal static route shell
 - `src/layouts/` and `src/components/` — small semantic application boundaries
+- `public/fonts/` — self-hosted IBM Plex webfonts and license
 - `tests/` — content and configuration foundation tests
 - `docs/` — product, evidence, content, architecture, and decision records
 - `.github/workflows/quality.yml` — clean-install validation; no deployment
@@ -50,7 +51,7 @@ remain in `docs/` and must not be imported into the public application.
 
 ## Current non-goals
 
-Phase 4 excludes final visual design, complete homepage and case-study rendering, client-side
-interactivity, analytics, forms, CMS/backend infrastructure, final SEO assets, deployment, and
-production performance claims. See [technical architecture](docs/technical-architecture.md) and
-the [roadmap](docs/roadmap.md).
+Phase 5 excludes complete homepage and case-study rendering, dark mode, client-side interactivity,
+analytics, forms, CMS/backend infrastructure, final SEO assets, deployment, and production
+performance claims. See the [visual system](docs/visual-system.md),
+[technical architecture](docs/technical-architecture.md), and [roadmap](docs/roadmap.md).

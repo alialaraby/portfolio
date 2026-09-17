@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import CaseStudyList from '../components/CaseStudyList.astro';
+import ActionLink from '../components/ActionLink.astro';
+import SectionShell from '../components/SectionShell.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const caseStudies = (await getCollection('caseStudies')).sort(
@@ -17,13 +19,19 @@ for (const requiredPage of requiredPages) {
 ---
 
 <BaseLayout>
-  <h1>Ali Alaraby — Senior Backend Engineer</h1>
-  <p>
-    This temporary Phase 4 shell proves static routing and typed content loading. Approved homepage
-    copy will be composed in a later implementation phase.
-  </p>
-  <section id="selected-work" aria-labelledby="selected-work-heading">
-    <h2 id="selected-work-heading">Selected work routes</h2>
-    <CaseStudyList entries={caseStudies} />
+  <section class="hero-shell" aria-labelledby="page-title">
+    <p class="eyebrow">Phase 5 · Visual system preview</p>
+    <h1 id="page-title">A clear shell for evidence-led engineering work.</h1>
+    <p class="hero-shell__lede">
+      This page demonstrates the portfolio’s typography, spacing, responsive structure, and
+      interaction states. Approved homepage composition remains intentionally deferred to Phase 6.
+    </p>
+    <div class="action-group">
+      <ActionLink href="#selected-work" variant="primary">View selected work</ActionLink>
+      <ActionLink href="mailto:alisakralaraby@gmail.com" variant="secondary">Contact Ali</ActionLink>
+    </div>
   </section>
+  <SectionShell id="selected-work" eyebrow="Content-driven routes" title="Selected work">
+    <CaseStudyList entries={caseStudies} />
+  </SectionShell>
 </BaseLayout>

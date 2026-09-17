@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
+import ActionLink from '../../components/ActionLink.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -19,13 +20,17 @@ const { entry } = Astro.props;
 ---
 
 <BaseLayout title={`${entry.data.title} — Ali Alaraby`} description={entry.data.description}>
-  <article>
-    <p><a href="/#selected-work">Back to selected work</a></p>
+  <article class="case-shell">
+    <ActionLink href="/#selected-work">← Back to selected work</ActionLink>
+    <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Phase 5 route preview</p>
     <h1>{entry.data.title}</h1>
-    <p>{entry.data.description}</p>
-    <p>
-      This temporary Phase 4 route validates content-driven static generation. The approved case
-      study presentation is deferred to Phase 7.
-    </p>
+    <p class="case-shell__lede">{entry.data.description}</p>
+    <div class="notice-panel">
+      <p class="eyebrow">Presentation status</p>
+      <p>
+        This route demonstrates the responsive reading shell. The complete approved case study and
+        technical storytelling remain deferred to Phase 7.
+      </p>
+    </div>
   </article>
 </BaseLayout>

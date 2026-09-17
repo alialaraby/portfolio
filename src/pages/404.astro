@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ActionLink from '../components/ActionLink.astro';
 ---
 
 <BaseLayout title="Page not found — Ali Alaraby" description="The requested page could not be found.">
-  <h1>Page not found</h1>
-  <p>The requested page does not exist. <a href="/">Return to the homepage</a>.</p>
+  <section class="error-shell">
+    <p class="eyebrow">Error 404</p>
+    <h1>Page not found</h1>
+    <p>The requested page does not exist or may have moved.</p>
+    <ActionLink href="/" variant="primary">Return to the homepage</ActionLink>
+  </section>
 </BaseLayout>

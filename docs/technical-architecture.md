@@ -115,3 +115,12 @@ CMS/API/database infrastructure, final SEO artifacts, deployment, or performance
 Phase 5 owns the visual system and responsive shell; Phase 6 the full homepage; Phase 7 complete
 case studies; Phase 8 accessibility and interaction hardening; Phase 9 SEO and sharing; Phase 10
 production QA; and Phase 11 deployment and launch verification.
+
+## Phase 5 visual layer
+
+The shared layout now composes semantic header, main, and footer components around each static page.
+Small Astro primitives provide action-link, surface-card, and section-shell behavior without a UI
+library or browser runtime. Global CSS owns documented design tokens, self-hosted font declarations,
+responsive grids, focus states, and reduced-motion behavior. The generated pages contain no authored
+client JavaScript; later phases should preserve that baseline unless a concrete interaction requires
+progressive enhancement.
