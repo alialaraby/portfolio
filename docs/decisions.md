@@ -103,7 +103,7 @@
 
 - **Context:** The approved product is a content-led homepage plus three case-study routes. It needs
   strict TypeScript, Markdown authoring, static output, minimal browser JavaScript, SEO preparation,
-  Vercel compatibility, and owner-friendly maintenance. It does not require request-time data, API
+  static-host compatibility, and owner-friendly maintenance. It does not require request-time data, API
   routes, authentication, a database, or a CMS.
 - **Selected framework and rendering:** Astro 7.3.3 with static output. Astro content collections
   validate route metadata during development and build, and `.astro` templates render HTML without
@@ -118,8 +118,8 @@
   invariants, invalid representative metadata, and importable configuration; a production build
   proves route generation. Browser, accessibility, visual, and end-to-end testing belong to later
   phases once the real experience exists.
-- **Deployment assumptions:** Static `dist/` output is compatible with Vercel's Astro support, but
-  no adapter or deployment workflow is needed and no deployment was attempted.
+- **Deployment assumptions:** Static `dist/` output is compatible with conventional static hosts;
+  no adapter is needed. GitHub Pages was later selected in Phase 11.
 - **Alternative — React with Vite:** Rejected because it requires choosing and maintaining routing
   and Markdown/content plumbing and normally ships a client runtime for pages that need no browser
   state. It can meet the requirements, but with more application decisions and JavaScript cost.
@@ -136,7 +136,7 @@
   rendered.
 - **Future implications:** Phase 5 may build the visual system on the existing layout and CSS entry
   point. Phases 6–7 compose approved Markdown into complete pages. Phases 8–10 add browser,
-  accessibility, SEO, visual, and performance verification. Phase 11 owns Vercel configuration and
+  accessibility, SEO, visual, and performance verification. Phase 11 owns GitHub Pages configuration and
   deployment review.
 
 ## D010 — Editorial-technical visual system
@@ -251,3 +251,20 @@
   leakage now fail CI. A later local Chromium review measured Lighthouse 100 in every category on the
   homepage and a representative case study without adding a dependency. Deployment behavior,
   WebKit, and field Core Web Vitals remain launch checks rather than automated claims.
+
+## D016 — Manually authorized GitHub Pages deployment
+
+- **Context:** Phase 11 needs a reproducible, explicitly authorized, and recoverable deployment path.
+  The owner selected GitHub Pages instead of Vercel. The site is fully static and needs no runtime
+  adapter, functions, environment variables, personal access token, or repository secret.
+- **Selected:** Use a dedicated, manually dispatched GitHub Actions workflow that can run only from
+  `main` with an affirmative production input. It repeats all quality checks, builds `dist`, and uses
+  immutable commits of GitHub's official configure, artifact, and deploy actions. Commit the approved
+  apex domain as `public/CNAME`; keep Pages settings, deployment, DNS, and HTTPS as owner steps.
+- **Alternatives:** Branch-based publishing was rejected because it needs generated output committed
+  to the repository; automatic deployment on every push was rejected because production requires an
+  explicit owner action; Vercel was started but abandoned before authentication or external changes.
+- **Consequences:** Deployment intent is reviewable and no long-lived credential is required. GitHub
+  Pages offers no separate native preview URL for this repository, so green pull-request CI and the
+  locally reviewed production artifact are the pre-deployment gate. Pages settings, the first manual
+  run, DNS, HTTPS, WebKit, and live endpoint checks remain owner-controlled external steps.
