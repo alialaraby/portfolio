@@ -172,3 +172,22 @@
 - **Consequences:** Homepage content is structured and validated in `home.md`; case-study metadata
   now begins with “I”; detailed stories continue to distinguish personal contribution from team
   outcomes. Evidence scope and approved quantitative wording are unchanged.
+
+## D012 — Case-study presentation and diagram standard
+
+- **Context:** Phase 7 must present the three approved case studies as complete, linkable pages with
+  technical storytelling while keeping private implementation detail out of the output and avoiding
+  unnecessary dependencies after Astro 7 introduced its new default Markdown processor.
+- **Selected:** Render the validated case-study bodies through Astro's content renderer inside the
+  existing prose reading shell. Add validated frontmatter metadata (`project`, `role`, `timeline`)
+  and one content-driven flow diagram per study built strictly from approved copy. Provide
+  previous/next navigation ordered by `order`. Keep internal review notes in a validated but
+  non-rendered `internalReview` frontmatter field.
+- **Alternatives:** HTML review comments are emitted verbatim by the current Markdown processor and
+  would leak into the static output; the legacy `@astrojs/markdown-remark` rehype path would add a
+  dependency the foundation deliberately avoids; screenshots, proprietary code, and decorative
+  diagrams risked exposing or implying unapproved system detail.
+- **Consequences:** `caseStudySchema` requires `project`, `role`, a diagram of at least three steps,
+  and `internalReview`. Diagrams stay abstract and evidence-bounded, no code or screenshots are
+  published, and `astro.config.ts` remains dependency-free. Phase 8 owns accessibility verification
+  and Phase 9 owns final SEO metadata.

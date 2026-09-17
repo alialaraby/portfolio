@@ -1,10 +1,13 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ActionLink from '../../components/ActionLink.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('caseStudies');
+  const entries = (await getCollection('caseStudies')).sort(
+    (left, right) => left.data.order - right.data.order,
+  );
 
   return entries.map((entry) => ({
     params: { slug: entry.id },
@@ -17,20 +20,91 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+
+const sorted = (await getCollection('caseStudies')).sort(
+  (left, right) => left.data.order - right.data.order,
+);
+const currentIndex = sorted.findIndex((candidate) => candidate.id === entry.id);
+const previous = currentIndex > 0 ? sorted[currentIndex - 1] : undefined;
+const next = currentIndex >= 0 && currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : undefined;
+
+const { Content: CaseStudyContent } = await render(entry);
+
+const hasLinks = Boolean(entry.data.repository || entry.data.package);
 ---
 
 <BaseLayout title={`${entry.data.title} — Ali Alaraby`} description={entry.data.description}>
   <article class="case-shell">
     <ActionLink href="/#selected-work">← Back to selected work</ActionLink>
-    <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Case study preview</p>
-    <h1>{entry.data.title}</h1>
-    <p class="case-shell__lede">{entry.data.description}</p>
-    <div class="notice-panel">
-      <p class="eyebrow">Presentation status</p>
-      <p>
-        This route demonstrates the responsive reading shell. The complete approved case study and
-        technical storytelling remain deferred to Phase 7.
-      </p>
+
+    <header class="case-shell__header">
+      <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Case study</p>
+      <h1>{entry.data.title}</h1>
+      <p class="case-shell__lede">{entry.data.description}</p>
+    </header>
+
+    <dl class="case-meta">
+      <div class="case-meta__item">
+        <dt>Classification</dt>
+        <dd>{entry.data.classification.replace('-', ' ')}</dd>
+      </div>
+      <div class="case-meta__item">
+        <dt>Project</dt>
+        <dd>{entry.data.project}</dd>
+      </div>
+      <div class="case-meta__item">
+        <dt>Role</dt>
+        <dd>{entry.data.role}</dd>
+      </div>
+      {entry.data.timeline && (
+        <div class="case-meta__item">
+          <dt>Timeline</dt>
+          <dd>{entry.data.timeline}</dd>
+        </div>
+      )}
+    </dl>
+
+    <div class="prose case-prose">
+      <CaseStudyContent />
     </div>
+
+    <section class="case-diagram" aria-labelledby="case-diagram-title">
+      <p class="eyebrow">How the work flowed</p>
+      <h2 id="case-diagram-title">{entry.data.diagram.label}</h2>
+      <FlowDiagram steps={entry.data.diagram.steps} ariaLabel={`${entry.data.diagram.label}, numbered steps`} />
+    </section>
+
+    {hasLinks && (
+      <section class="case-links" aria-labelledby="case-links-title">
+        <h2 id="case-links-title">Source and package</h2>
+        <div class="action-group">
+          {entry.data.repository && (
+            <ActionLink href={entry.data.repository} variant="secondary" external>
+              GitHub repository
+            </ActionLink>
+          )}
+          {entry.data.package && (
+            <ActionLink href={entry.data.package} variant="secondary" external>
+              npm package
+            </ActionLink>
+          )}
+        </div>
+      </section>
+    )}
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      {previous && (
+        <a class="case-nav__link case-nav__link--previous" href={previous.data.route}>
+          <span class="eyebrow">Previous</span>
+          <strong>{previous.data.title}</strong>
+        </a>
+      )}
+      {next && (
+        <a class="case-nav__link case-nav__link--next" href={next.data.route}>
+          <span class="eyebrow">Next</span>
+          <strong>{next.data.title}</strong>
+        </a>
+      )}
+    </nav>
   </article>
 </BaseLayout>

@@ -56,15 +56,17 @@ automated and assistive-technology verification.
 - Action links have primary, secondary, and text treatments while remaining native anchors.
 - Surface cards accept semantic slotted content and retain the same information without hover.
 - Section shells provide consistent label, heading, and content alignment.
-- The footer provides approved professional links and clearly labels this as a Phase 5 preview.
+- The footer provides approved professional links and location context.
 - All interactive targets are at least 2.75rem high. Focus uses a persistent orange outline with
   offset, and the skip link becomes visible on focus.
 - Motion is limited to short color and underline transitions. Smooth scrolling and transitions are
   effectively disabled when `prefers-reduced-motion: reduce` is active.
+- Case-study pages reuse the reading shell with a metadata panel, an evidence-bounded numbered flow
+  diagram, public-link actions, and previous/next navigation.
 
 ## Boundaries
 
-Phase 5 demonstrates the shell using approved project titles and descriptions plus explicit preview
-copy. Phase 6 will compose the approved homepage. Phase 7 will render complete case studies. Dark
+Phase 5 established the shell using approved project titles and descriptions. Phase 6 composed the
+approved homepage. Phase 7 renders complete case studies with validated metadata and diagrams. Dark
 mode, final SEO artwork, advanced browser testing, visual regression, and measured performance stay
 deferred.

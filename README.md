@@ -1,8 +1,8 @@
 # Ali Alaraby Portfolio
 
-A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–6
-established the static architecture, visual system, and content-driven core portfolio experience,
-including the approved downloadable CV.
+A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–7
+established the static architecture, visual system, content-driven homepage, and complete case-study
+experience, including the approved downloadable CV.
 
 ## Prerequisites
 
@@ -38,10 +38,11 @@ For local work, run `npm run dev` and use the URL Astro reports. Before review, 
 ## Structure
 
 - `src/content/pages/` — approved homepage, experience, capability, open-source, and metadata copy
-- `src/content/case-studies/` — approved case-study sources and validated route metadata
-- `src/pages/` — minimal static route shell
+- `src/content/case-studies/` — approved case-study sources, route metadata, and diagram steps
+- `src/pages/` — static route shell, including full case-study pages
 - `src/layouts/` and `src/components/` — small semantic application boundaries
 - `public/fonts/` — self-hosted IBM Plex webfonts and license
+- `public/cv/` — approved downloadable CV asset
 - `tests/` — content and configuration foundation tests
 - `docs/` — product, evidence, content, architecture, and decision records
 - `.github/workflows/quality.yml` — clean-install validation; no deployment
@@ -51,7 +52,7 @@ remain in `docs/` and must not be imported into the public application.
 
 ## Current non-goals
 
-Phase 6 excludes complete case-study rendering, dark mode, analytics, forms, CMS/backend
-infrastructure, final SEO assets, deployment, and production performance claims. See the
+Phase 8 excludes dark mode, analytics, forms, CMS/backend infrastructure, final SEO assets,
+deployment, and production performance claims. See the
 [visual system](docs/visual-system.md),
 [technical architecture](docs/technical-architecture.md), and [roadmap](docs/roadmap.md).

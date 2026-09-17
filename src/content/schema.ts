@@ -6,8 +6,23 @@ export const caseStudySchema = z.object({
   classification: z.enum(["professional-system", "open-source"]),
   route: z.string().regex(/^\/work\/[a-z0-9-]+$/),
   order: z.number().int().positive(),
+  project: z.string().min(1),
+  role: z.string().min(1),
+  timeline: z.string().min(1).optional(),
+  diagram: z.object({
+    label: z.string().min(1),
+    steps: z
+      .array(
+        z.object({
+          label: z.string().min(1),
+          detail: z.string().min(1).optional(),
+        }),
+      )
+      .min(3),
+  }),
   repository: z.url().optional(),
   package: z.url().optional(),
+  internalReview: z.string().min(1),
 });
 
 export const homepageSchema = z.object({

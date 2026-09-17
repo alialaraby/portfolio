@@ -4,9 +4,30 @@ description: "I shaped DebtBox's backend from technical feasibility through soft
 classification: professional-system
 route: /work/fintech-product
 order: 2
+project: DebtBox
+role: Founding Backend Engineer
+timeline: August 2025–present
+diagram:
+  label: From feasibility to production readiness
+  steps:
+    - label: Test feasibility
+      detail: Product and provider constraints assessed before architecture was committed
+    - label: Lay the modular-monolith foundation
+      detail: Domain-oriented boundaries inside a single deployable backend
+    - label: Design correctness-sensitive workflows
+      detail: Pricing, debt lifecycle, payments, settlement, and trust flows
+    - label: Isolate provider adapters
+      detail: Payment, identity, messaging, and government-service boundaries
+    - label: Ship the KSA-hosted MVP
+      detail: Docker, PostgreSQL, Redis, Nginx, and automated TLS environment
+internalReview: |
+  Evidence: C012-C018; supporting public contribution evidence C019-C021; CV-01. Approved 17 Sep 2026.
+  Disclosure: DebtBox, Founding Backend Engineer, Nafath, Nafith, KSA hosting, and the listed stack are
+  approved. Private source, APIs, credentials, contracts, topology, identifiers, and commercial
+  arrangements are excluded. No adoption, production-scale, certification, or regulatory claim.
+  Implementation distinction: Nafath is described as integrated; Nafith is described as technical
+  workflow collaboration. Public product repositories are not linked or reused.
 ---
-
-# DebtBox: Building a Fintech Backend from Feasibility to Production Readiness
 
 ## Summary
 
@@ -158,12 +179,3 @@ responsibilities without publishing private payloads, contracts, credentials, to
 PostgreSQL and Redis supported application state, while Docker, Nginx, and automated TLS supported
 the MVP environment. Their value came from the workflow boundaries, consistency decisions, and
 delivery constraints they served.
-
-<!-- INTERNAL REVIEW — DO NOT RENDER
-Evidence: C012-C018; supporting public contribution evidence C019-C021; CV-01. Approved 17 Sep 2026.
-Disclosure: DebtBox, Founding Backend Engineer, Nafath, Nafith, KSA hosting, and the listed stack are
-approved. Private source, APIs, credentials, contracts, topology, identifiers, and commercial
-arrangements are excluded. No adoption, production-scale, certification, or regulatory claim.
-Implementation distinction: Nafath is described as integrated; Nafith is described as technical
-workflow collaboration. Public product repositories are not linked or reused.
--->
