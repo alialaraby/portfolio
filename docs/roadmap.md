@@ -14,13 +14,15 @@ Only change a phase to `Complete` after its acceptance criteria pass. Each imple
 | Phase 3 — Case-study and page copy              | Complete    |
 | Phase 4 — Technical architecture and foundation | Complete    |
 | Phase 5 — Visual system and responsive shell    | Complete    |
-| Phases 6–11                                     | Not started |
+| Phase 6 — Core portfolio experience             | Complete    |
+| Phases 7–11                                     | Not started |
 
 ## Progress summary
 
-- **Current phase:** Phase 5 completed; work stops before Phase 6.
-- **Completed:** Phases 1, 2, 3, 4, and 5.
-- **Next phase:** Phase 6 — Core portfolio experience.
+- **Current phase:** Phase 6 is complete; the core homepage, case-study metadata, and the approved
+  downloadable CV are implemented.
+- **Completed:** Phases 1, 2, 3, 4, 5, and 6.
+- **Next phase:** Phase 7 — case studies and technical storytelling.
 - **Governance note:** `AGENTS.md` is not present in the repository; Phase 0 remains unchanged.
 
 ## Phase 0 — Repository bootstrap
@@ -180,19 +182,30 @@ Evidence of completion:
 
 ## Phase 6 — Core portfolio experience
 
-**Status:** Not started
+**Status:** Complete
 
 Implement the approved home/about, experience, capabilities, selected work, open-source, and contact content.
 
 Acceptance criteria:
 
-- approved content is implemented without placeholders
-- hierarchy supports fast recruiter scanning and deeper technical reading
-- CV and external links work
-- projects clearly distinguish role, decisions, and evidence
-- the site presents production ownership, performance work, integrations, data systems, observability, and infrastructure in context rather than as keyword lists
-- location, availability, contact details, and downloadable CV match the latest approved information
-- primary responsive and interaction tests pass
+- [x] approved content is implemented without placeholders
+- [x] hierarchy supports fast recruiter scanning and deeper technical reading
+- [x] CV and external links work — approved external links and the versioned CV download are linked
+      from the hero, experience, contact, and footer
+- [x] projects clearly distinguish role, decisions, and evidence
+- [x] the site presents production ownership, performance work, integrations, data systems, observability, and infrastructure in context rather than as keyword lists
+- [x] location, availability, contact details, and downloadable CV match the latest approved information
+- [x] primary responsive and interaction checks pass
+
+Evidence of completion:
+
+- Content-driven homepage implementation in `src/pages/index.astro`
+- Validated first-person homepage content, including the `cv` asset path, in `src/content/pages/home.md`
+- [First-person voice decision D011](decisions.md#d011--direct-first-person-portfolio-voice)
+- [Phase 6 content review](content-review.md#phase-6-voice-and-implementation-review)
+- Approved downloadable CV at `/cv/ali-alaraby-senior-backend-engineer-2026.pdf`; its link is verified
+  in the generated production output
+- Responsive mobile and desktop visual inspection; five-route static production build
 
 ## Phase 7 — Case studies and technical storytelling
 
@@ -307,3 +320,13 @@ Potential work only after launch evidence justifies it:
   documented tokens and component conventions, accessible focus/reduced-motion foundations, and
   mobile/tablet/desktop review artifacts. Full homepage and case-study composition remain deferred;
   Phase 6 is next.
+- **17 September 2026 — Phase 6 implementation in progress:** replaced the visual preview with the
+  content-driven homepage, revised public summaries into a direct first-person voice, and implemented
+  proof, about, work, capabilities, experience, open-source, and contact sections. Responsive review
+  passed. Phase 6 remains open only because the approved downloadable CV has not been supplied.
+- **17 September 2026 — Phase 6 completed:** the approved versioned CV
+  (`/cv/ali-alaraby-senior-backend-engineer-2026.pdf`) was supplied and wired into the validated
+  homepage `cv` field. Download actions now appear in the hero, experience note, contact panel, and
+  footer. The pending-note placeholder was removed, metadata and roadmap records were updated, and
+  format, lint, strict typecheck, tests, and the five-route production build passed. Phase 6 is
+  `Complete`; Phase 7 is next.

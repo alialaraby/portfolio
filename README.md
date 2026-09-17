@@ -1,8 +1,8 @@
 # Ali Alaraby Portfolio
 
-A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–5
-establish the static application architecture, typed content model, editorial visual system, and
-responsive page shell. Complete public-page composition remains deferred.
+A content-led professional portfolio for Ali Alaraby, a Senior Backend Engineer. Phases 4–6
+established the static architecture, visual system, and content-driven core portfolio experience,
+including the approved downloadable CV.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ remain in `docs/` and must not be imported into the public application.
 
 ## Current non-goals
 
-Phase 5 excludes complete homepage and case-study rendering, dark mode, client-side interactivity,
-analytics, forms, CMS/backend infrastructure, final SEO assets, deployment, and production
-performance claims. See the [visual system](docs/visual-system.md),
+Phase 6 excludes complete case-study rendering, dark mode, analytics, forms, CMS/backend
+infrastructure, final SEO assets, deployment, and production performance claims. See the
+[visual system](docs/visual-system.md),
 [technical architecture](docs/technical-architecture.md), and [roadmap](docs/roadmap.md).

@@ -158,3 +158,17 @@
 - **Constraints and implications:** Phase 5 previews only approved titles and descriptions. Phase 6
   composes the homepage, Phase 7 completes case studies, and Phase 8 performs deeper accessibility
   and browser verification. Tokens and component variants should expand only for demonstrated needs.
+
+## D011 — Direct first-person portfolio voice
+
+- **Context:** Third-person metadata such as “How Ali improved…” sounded like commentary about Ali
+  rather than a confident account of his own work. Phase 6 needs a credible personal voice without
+  overstating sole ownership of team-built systems.
+- **Selected:** Use direct first-person language for positioning, project summaries, decisions, and
+  calls to action. Lead with the constraint and contribution, keep measurable claims scoped, and
+  state team context inside each professional story.
+- **Alternatives:** Third-person editorial copy created distance; generic capability-first copy lost
+  the evidence; stronger leadership language risked exceeding the approved attribution.
+- **Consequences:** Homepage content is structured and validated in `home.md`; case-study metadata
+  now begins with “I”; detailed stories continue to distinguish personal contribution from team
+  outcomes. Evidence scope and approved quantitative wording are unchanged.

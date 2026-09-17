@@ -1,6 +1,6 @@
 ---
 title: "Madar: Improving Performance and Workflows in a Growing Logistics Platform"
-description: "How Ali improved PostgreSQL workloads, export capacity, SLA processing, and integration boundaries as part of the team behind a growing logistics platform."
+description: "I improved PostgreSQL workloads, export capacity, SLA processing, and integration boundaries as part of the team behind a growing logistics platform."
 classification: professional-system
 route: /work/logistics-platform
 order: 1

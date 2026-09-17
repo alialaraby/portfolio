@@ -2,13 +2,11 @@
 kind: experience
 ---
 
-# Experience
-
 My experience spans more than six years of professional software delivery. The recent focus is
 backend architecture and production systems; earlier full-stack work provides useful context when
 working across product and engineering teams.
 
-## Obeikan Digital Solutions — Madar
+### Obeikan Digital Solutions — Madar
 
 **Senior Backend Engineer · October 2024–present**
 
@@ -24,7 +22,7 @@ the production work around them.
 - Contribute to fleet onboarding, technical evaluation, deployment, monitoring, incident
   investigation, and targeted production data correction alongside the wider team.
 
-## DebtBox
+### DebtBox
 
 **Founding Backend Engineer, freelance · August 2025–present**
 
@@ -40,7 +38,7 @@ CEO and product team on technical feasibility and delivery decisions.
 - Designed and deployed KSA-hosted MVP infrastructure with Docker, PostgreSQL, Redis, Nginx, and
   automated TLS, without exposing provider or infrastructure internals.
 
-## ArabDT
+### ArabDT
 
 **Senior Software Engineer · January 2023–October 2024**
 
@@ -56,7 +54,7 @@ delivery and working across product surfaces.
 Detailed client, architecture, and outcome claims remain outside the portfolio until separately
 approved.
 
-## Independent client work
+### Independent client work
 
 **Freelance Full Stack Developer · August 2022–December 2023**
 
@@ -70,7 +68,7 @@ as additional years of experience.
 Client names, repositories, and production outcomes are excluded pending publication and security
 review.
 
-## RPAEgypt
+### RPAEgypt
 
 **Full Stack Developer · July 2019–July 2021**
 
@@ -79,7 +77,7 @@ My first professional role established the full-stack foundation behind my later
 - Worked in a full-stack role before choosing backend engineering as my primary specialization.
 - Built the application-side perspective that now helps me collaborate with API consumers.
 
-## Career focus
+### Career focus
 
 Across these roles, the consistent thread is ownership beyond implementation: understanding the
 constraint, making a practical technical decision, shipping the change, and learning from how it
