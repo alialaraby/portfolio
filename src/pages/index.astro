@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
+import portraitImage from '../assets/ali-alaraby-portrait.png';
 import ActionLink from '../components/ActionLink.astro';
 import CaseStudyList from '../components/CaseStudyList.astro';
 import ExperienceTimeline from '../components/ExperienceTimeline.astro';
@@ -64,7 +65,13 @@ const structuredData = [
         <ActionLink href={cv} variant="secondary">Download CV</ActionLink>
       </div>
     </div>
-    <Portrait />
+    <Portrait
+      src={portraitImage}
+      alt="Illustrated portrait of Ali Alaraby"
+      width={800}
+      height={1000}
+      focalPosition="50% 42%"
+    />
   </section>
 
   <section class="proof-strip" aria-label="Selected evidence">

@@ -34,10 +34,11 @@ deployed production environment or WebKit.
 | Web fonts       | 3     | 103,968 B    | n/a        | `woff2`, `font-display: swap`, 1 preload |
 | CV PDF          | 1     | 188,124 B    | n/a        | Served only on download                  |
 | OG card (PNG)   | 1     | 69,392 B     | n/a        | Referenced from meta, not loaded on page |
+| Hero portrait   | 1     | ~38 KB       | n/a        | Build-optimized WebP, homepage only      |
 
-Worst-case homepage transfer (HTML + CSS + all fonts) is ~113.5 KB gzip. There are no on-page
-content images yet; the portrait placeholder is CSS-rendered. `tests/performance.test.ts` fails if a
-future `<img>` is added without intrinsic `width` and `height`.
+The homepage also loads the build-optimized hero portrait after its critical HTML, CSS, and font
+resources. `tests/performance.test.ts` verifies the intentional WebP asset inventory and fails if an
+`<img>` is added without intrinsic `width` and `height`.
 
 ### Enforced budgets
 
@@ -47,7 +48,7 @@ regress:
 | Budget                     | Limit        | Actual (worst)   |
 | -------------------------- | ------------ | ---------------- |
 | JS files / source maps     | 0            | 0                |
-| CSS raw / gzip             | 20 KB / 6 KB | 18.2 KB / 4.5 KB |
+| CSS raw / gzip             | 21 KB / 6 KB | 20.2 KB / 4.5 KB |
 | HTML raw / gzip (per page) | 28 KB / 9 KB | 25.3 KB / 7.8 KB |
 | Font (per file)            | 80 KB        | 69.0 KB          |
 | Page weight gzip           | 140 KB       | 113.5 KB         |

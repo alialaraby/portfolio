@@ -25,7 +25,8 @@ All five generated routes (`/`, `/404`, and the three `/work/*` case studies) pa
 - exactly one `<main>` and one `<h1>` per page;
 - a skip link whose `#main-content` target is that `<main>`.
 - an accessible theme button with a name, pressed state, and native button semantics;
-- a decorative portrait placeholder that is excluded from the accessibility tree.
+- an owner-supplied illustrated portrait with concise meaningful alternative text and intrinsic
+  dimensions.
 
 The two `color-contrast` rules are disabled because jsdom has no layout engine and can only return
 false inconclusive results; contrast is verified from the ratios below.

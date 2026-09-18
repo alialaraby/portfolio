@@ -95,15 +95,18 @@ describe.skipIf(!buildExists())("built accessibility", () => {
     }
   });
 
-  it("uses a decorative monogram until a real portrait is supplied", () => {
+  it("publishes the supplied portrait with meaningful alternative text", () => {
     const document = new JSDOM(
       readFileSync(join(distDir, "index.html"), "utf8"),
     ).window.document;
-    const placeholder = document.querySelector(".portrait__placeholder");
+    const portrait = document.querySelector(".portrait img");
 
-    expect(placeholder).not.toBeNull();
-    expect(placeholder?.getAttribute("aria-hidden")).toBe("true");
-    expect(document.querySelector(".portrait img")).toBeNull();
+    expect(portrait?.getAttribute("alt")).toBe(
+      "Illustrated portrait of Ali Alaraby",
+    );
+    expect(portrait?.getAttribute("width")).toBe("800");
+    expect(portrait?.getAttribute("height")).toBe("1000");
+    expect(document.querySelector(".portrait__placeholder")).toBeNull();
   });
 
   it("presents experience as an ordered history and keeps contact actions consistent", () => {
