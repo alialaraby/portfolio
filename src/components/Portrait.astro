@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { withBasePath } from '../config/site';
 
 type Props =
   | {
-      src: string;
+      src: string | ImageMetadata;
       alt: string;
       width: number;
       height: number;
@@ -18,12 +20,25 @@ type Props =
     };
 
 const { src, alt, width = 720, height = 880, focalPosition = '50% 35%' } = Astro.props;
-const imageSrc = src?.startsWith('/') ? withBasePath(src) : src;
+const imageSrc = typeof src === 'string' && src.startsWith('/') ? withBasePath(src) : src;
 ---
 
-<figure class="portrait">
+<figure class:list={['portrait', imageSrc && 'portrait--image']}>
   {
-    imageSrc ? (
+    imageSrc && typeof imageSrc !== 'string' ? (
+      <Image
+        src={imageSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        format="webp"
+        quality={85}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        style={`object-position: ${focalPosition}`}
+      />
+    ) : imageSrc ? (
       <img
         src={imageSrc}
         alt={alt}

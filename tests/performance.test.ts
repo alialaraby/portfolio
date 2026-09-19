@@ -9,7 +9,7 @@ const distDir = resolve("dist");
 
 const MAX_HTML_BYTES = 28 * 1024;
 const MAX_HTML_GZIP_BYTES = 9 * 1024;
-const MAX_CSS_BYTES = 20 * 1024;
+const MAX_CSS_BYTES = 21 * 1024;
 const MAX_CSS_GZIP_BYTES = 6 * 1024;
 const MAX_FONT_BYTES = 80 * 1024;
 const MAX_PAGE_GZIP_BYTES = 140 * 1024;
@@ -134,6 +134,7 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
       /^404\.html$/,
       /^work\/[a-z0-9-]+\/index\.html$/,
       /^_astro\/[A-Za-z]+\.\w+\.css$/,
+      /^_astro\/ali-alaraby-portrait\.[\w-]+\.webp$/,
       /^fonts\/ibm-plex\/[\w.-]+\.woff2$/,
       /^fonts\/ibm-plex\/LICENSE\.txt$/,
       /^cv\/[\w.-]+\.pdf$/,
@@ -153,6 +154,7 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
     expect(html).toHaveLength(5);
     expect(byExt(".pdf")).toHaveLength(1);
     expect(byExt(".png")).toHaveLength(1);
+    expect(byExt(".webp")).toHaveLength(1);
     expect(statSync(join(distDir, "robots.txt")).isFile()).toBe(true);
     expect(statSync(join(distDir, "sitemap.xml")).isFile()).toBe(true);
   });

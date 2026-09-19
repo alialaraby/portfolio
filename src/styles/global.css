@@ -72,7 +72,7 @@
   --space-7: 3rem;
   --space-8: clamp(4rem, 8vw, 7.5rem);
 
-  --width-shell: 76rem;
+  --width-shell: 88rem;
   --width-reading: 47rem;
   --radius-sm: 0.25rem;
   --radius-md: 0.75rem;
@@ -345,6 +345,25 @@ nav a {
 nav a:hover {
   color: var(--color-accent-strong);
   text-decoration-color: currentColor;
+}
+
+.site-header nav {
+  gap: var(--space-2) var(--space-3);
+}
+
+.site-header nav a {
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
 }
 
 .site-header__actions {
@@ -801,7 +820,7 @@ main {
 
 .portrait {
   position: relative;
-  width: min(100%, 25rem);
+  width: min(100%, 30rem);
   margin: var(--space-7) 0 0;
   justify-self: center;
   filter: drop-shadow(0 1.5rem 2rem rgb(21 32 41 / 14%));
@@ -817,6 +836,10 @@ main {
   border-radius: 45% 45% var(--radius-md) var(--radius-md);
   content: "";
   opacity: 0.4;
+}
+
+.portrait--image::before {
+  display: none;
 }
 
 .portrait:hover {
@@ -837,6 +860,11 @@ main {
 .portrait img {
   height: auto;
   object-fit: cover;
+}
+
+.portrait--image img {
+  border: 0;
+  border-radius: var(--radius-md);
 }
 
 .portrait__placeholder {
@@ -1118,9 +1146,12 @@ main {
     gap: var(--space-4);
   }
 
-  .site-header__actions,
+  .site-header__actions {
+    gap: var(--space-2) var(--space-4);
+  }
+
   .site-header__actions nav {
-    gap: var(--space-2) var(--space-3);
+    gap: var(--space-2) var(--space-4);
   }
 
   .card-grid {
@@ -1146,9 +1177,13 @@ main {
 }
 
 @media (min-width: 68rem) {
+  .site-header__actions nav {
+    gap: var(--space-2) var(--space-3);
+  }
+
   .hero-shell {
-    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.48fr);
-    gap: clamp(var(--space-7), 7vw, 7rem);
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.6fr);
+    gap: clamp(var(--space-7), 6vw, 6rem);
     align-items: center;
   }
 

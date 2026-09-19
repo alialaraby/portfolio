@@ -457,5 +457,6 @@ Potential work only after launch evidence justifies it:
   with a remembered override, sticky compact header, base-path-safe monogram favicon, intentional
   hero portrait placeholder, subtle ambient background, and progressive section/card reveals. The
   enhancement uses one defensive inline script and no runtime dependency or emitted bundle; reduced
-  motion leaves all content visible and stationary. Updated accessibility and performance guards;
-  the real portrait and live GitHub Pages verification remain pending.
+  motion leaves all content visible and stationary. Replaced the temporary monogram with the
+  owner-supplied illustrated portrait and build-time WebP optimization. Updated accessibility and
+  performance guards; live GitHub Pages verification remains pending.

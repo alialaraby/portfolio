@@ -287,4 +287,5 @@
 - **Consequences:** The performance test now permits exactly one recognized inline enhancement while
   preserving zero script files and source maps. Content remains visible without JavaScript, system
   theming remains available, and reduced motion removes animation and transforms. The portrait API
-  is ready for an owner-supplied image with meaningful alt text and intrinsic dimensions.
+  accepts the owner-supplied illustrated portrait with meaningful alt text and intrinsic dimensions;
+  Astro converts the source artwork to a compact WebP during the production build.

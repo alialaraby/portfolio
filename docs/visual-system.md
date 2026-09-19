@@ -72,9 +72,9 @@ only reaches 3.00:1 on ink; `#f4a259` reaches 8.00:1.
 - Motion is limited to a slow ambient background drift, one-time progressive reveals, and short
   hover/focus transforms of at most 12px. Content is visible before JavaScript initializes.
   `prefers-reduced-motion: reduce` disables animation, smooth scrolling, reveals, and transforms.
-- The homepage hero pairs its copy with a decorative `AA` monogram portrait. The portrait component
-  can later accept a real source, required meaningful alt text, intrinsic dimensions, and focal
-  position without changing the layout.
+- The homepage hero pairs its copy with Ali's supplied illustrated portrait. The portrait component
+  requires meaningful alt text and intrinsic dimensions, preserves a configurable focal position,
+  and retains its decorative monogram fallback for missing sources.
 - Case-study pages reuse the reading shell with a metadata panel, an evidence-bounded numbered flow
   diagram, public-link actions, and previous/next navigation.
 
@@ -82,5 +82,5 @@ only reaches 3.00:1 on ink; `#f4a259` reaches 8.00:1.
 
 Phase 5 established the shell, Phases 6–7 completed its content, and Phases 8–10 hardened and
 measured it. The Phase 11 visual refresh adds the two-theme system, portrait slot, favicon, sticky
-header, and restrained motion. A real portrait, automated visual regression, and field performance
-measurement remain deferred.
+header, restrained motion, and a build-optimized owner-supplied portrait. Automated visual
+regression and field performance measurement remain deferred.
