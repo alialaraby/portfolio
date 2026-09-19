@@ -17,7 +17,7 @@ Implementation and technical validation belong to Phase 9. These entries supply 
 - **Social-card message:** Senior backend engineering, from technical decisions to production.
 - **Canonical path:** `/`
 
-## `/work/logistics-platform`
+## `/work/madar`
 
 - **Browser title:** Madar Logistics Platform Case Study — Ali Alaraby
 - **Meta description:** I improved PostgreSQL workloads, export capacity, SLA processing, and
@@ -27,9 +27,9 @@ Implementation and technical validation belong to Phase 9. These entries supply 
   latency on critical workloads and 10× more supported export capacity.
 - **Social-card message:** PostgreSQL performance, background exports, and production ownership in
   logistics.
-- **Canonical path:** `/work/logistics-platform`
+- **Canonical path:** `/work/madar`
 
-## `/work/fintech-product`
+## `/work/debtbox`
 
 - **Browser title:** DebtBox Backend Case Study — Ali Alaraby
 - **Meta description:** I shaped DebtBox's backend from technical feasibility through soft launch
@@ -38,7 +38,7 @@ Implementation and technical validation belong to Phase 9. These entries supply 
 - **Open Graph description:** A fintech backend case study covering modular-monolith design,
   correctness-sensitive workflows, provider adapters, and MVP infrastructure.
 - **Social-card message:** A pragmatic fintech backend from feasibility to production readiness.
-- **Canonical path:** `/work/fintech-product`
+- **Canonical path:** `/work/debtbox`
 
 ## `/work/saudi-utils`
 

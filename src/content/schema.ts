@@ -7,6 +7,10 @@ export const caseStudySchema = z.object({
   route: z.string().regex(/^\/work\/[a-z0-9-]+$/),
   order: z.number().int().positive(),
   project: z.string().min(1),
+  cardContext: z.string().min(1),
+  cardProblem: z.string().min(1),
+  highlights: z.array(z.string().min(1)).min(2).max(3),
+  technologies: z.array(z.string().min(1)).min(1),
   role: z.string().min(1),
   timeline: z.string().min(1).optional(),
   diagram: z.object({
@@ -39,7 +43,6 @@ export const homepageSchema = z.object({
       }),
     )
     .min(3),
-  about: z.array(z.string().min(1)).min(1),
   selectedWorkIntroduction: z.string().min(1),
   contact: z.array(z.string().min(1)).min(1),
   email: z.email(),
@@ -69,6 +72,4 @@ export const experienceSchema = z.object({
       }),
     )
     .min(1),
-  closingTitle: z.string().min(1),
-  closing: z.string().min(1),
 });

@@ -5,6 +5,13 @@ classification: open-source
 route: /work/saudi-utils
 order: 3
 project: saudi-utils
+cardContext: Open-source TypeScript package
+cardProblem: Giving Saudi applications dependable, typed utilities for common local data formats.
+highlights:
+  - Ships with zero runtime dependencies and a compact typed API.
+  - Backed by more than 1,500 automated tests and strong coverage.
+  - Published on npm through a guarded automated release path.
+technologies: [TypeScript, Vitest, GitHub Actions, npm]
 role: Creator and publisher
 timeline: Published 17 September 2026
 diagram:
