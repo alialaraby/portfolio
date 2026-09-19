@@ -2,7 +2,7 @@ export const site = {
   name: "Ali Alaraby",
   title: "Ali Alaraby — Senior Backend Engineer",
   description:
-    "Senior Backend Engineer with 6+ years of experience building and improving Node.js and TypeScript systems across performance, integrations, and production operations.",
+    "Senior Backend Engineer building Node.js, NestJS, TypeScript, and PostgreSQL systems for performance, scalability, integrations, and production reliability.",
   origin: "https://alialaraby.github.io",
   basePath: "/portfolio",
   url: "https://alialaraby.github.io/portfolio/",

@@ -15,18 +15,18 @@ technologies: [Node.js, NestJS, TypeScript, PostgreSQL, Redis, Docker]
 role: Founding Backend Engineer
 timeline: August 2025–present
 diagram:
-  label: From feasibility to production readiness
+  label: Conceptual fintech backend and provider boundaries
   steps:
-    - label: Test feasibility
-      detail: Product and provider constraints assessed before architecture was committed
-    - label: Lay the modular-monolith foundation
-      detail: Domain-oriented boundaries inside a single deployable backend
-    - label: Design correctness-sensitive workflows
-      detail: Pricing, debt lifecycle, payments, settlement, and trust flows
-    - label: Isolate provider adapters
-      detail: Payment, identity, messaging, and government-service boundaries
-    - label: Ship the KSA-hosted MVP
-      detail: Docker, PostgreSQL, Redis, Nginx, and automated TLS environment
+    - label: Merchant and customer workflows
+      detail: Product actions enter through explicit backend contracts
+    - label: DebtBox backend
+      detail: A modular monolith containing debt, pricing, payment, settlement, and trust workflows
+    - label: PostgreSQL and Redis
+      detail: Application state and supporting runtime concerns
+    - label: Background work and provider adapters
+      detail: External contracts remain separate from the core domain model
+    - label: Identity, note, payment, and messaging providers
+      detail: Includes integrated Nafath identity verification and technical workflows involving Nafith
 internalReview: |
   Evidence: C012-C018; supporting public contribution evidence C019-C021; CV-01. Approved 17 Sep 2026.
   Disclosure: DebtBox, Founding Backend Engineer, Nafath, Nafith, KSA hosting, and the listed stack are

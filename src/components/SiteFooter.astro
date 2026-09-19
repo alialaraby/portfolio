@@ -5,6 +5,7 @@ import { withBasePath } from '../config/site';
 
 const home = await getEntry('pages', 'home');
 const cv = home?.data.kind === 'homepage' ? home.data.cv : undefined;
+const location = home?.data.kind === 'homepage' ? home.data.location : undefined;
 ---
 
 <footer class="site-footer">
@@ -19,6 +20,6 @@ const cv = home?.data.kind === 'homepage' ? home.data.cv : undefined;
       <ActionLink href="https://github.com/alialaraby" external>GitHub</ActionLink>
       {cv && <ActionLink href={withBasePath(cv)}>CV</ActionLink>}
     </nav>
-    <p class="site-footer__note">Based in Egypt and open to relocation opportunities in Saudi Arabia.</p>
+    {location && <p class="site-footer__note">{location}</p>}
   </div>
 </footer>

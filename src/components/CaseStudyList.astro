@@ -18,6 +18,7 @@ const { entries } = Astro.props;
           <p class="work-card__context">{entry.data.cardContext}</p>
           <h3>{entry.data.project}</h3>
           <p class="work-card__problem">{entry.data.cardProblem}</p>
+          {entry.data.highlightLabel && <p class="eyebrow">{entry.data.highlightLabel}</p>}
           <ul class="work-card__highlights">
             {entry.data.highlights.map((highlight) => <li>{highlight}</li>)}
           </ul>

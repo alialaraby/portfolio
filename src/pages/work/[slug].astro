@@ -39,7 +39,7 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: entry.data.title,
+    headline: entry.data.headerTitle ?? entry.data.title,
     description: entry.data.description,
     url: canonical,
     mainEntityOfPage: canonical,
@@ -93,7 +93,9 @@ const structuredData = [
 
     <header class="case-shell__header">
       <p class="eyebrow">{entry.data.classification.replace('-', ' ')} · Case study</p>
-      <h1>{entry.data.title}</h1>
+      <h1>{entry.data.headerTitle ?? entry.data.title}</h1>
+      {entry.data.caseContext && <p class="work-card__context">{entry.data.caseContext}</p>}
+      {entry.data.caseLocation && <p class="location-line">{entry.data.caseLocation}</p>}
       <p class="case-shell__lede">{entry.data.description}</p>
     </header>
 
@@ -118,15 +120,38 @@ const structuredData = [
       )}
     </dl>
 
+    <section class="case-evidence case-diagram" aria-labelledby="case-results-title">
+      <div>
+        <p class="eyebrow">Key evidence</p>
+        <h2 id="case-results-title">Results at a glance</h2>
+        <ul class="work-card__highlights">
+          {entry.data.highlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Technology</p>
+        <ul class="chip-list" aria-label={`${entry.data.project} technologies`}>
+          {entry.data.technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-diagram" aria-labelledby="case-diagram-title">
+      <p class="eyebrow">
+        {entry.data.classification === 'open-source' ? 'Package flow' : 'Simplified conceptual view'}
+      </p>
+      <h2 id="case-diagram-title">{entry.data.diagram.label}</h2>
+      <FlowDiagram steps={entry.data.diagram.steps} ariaLabel={`${entry.data.diagram.label}, numbered steps`} />
+      {entry.data.classification === 'professional-system' && (
+        <p class="case-diagram__note">
+          This intentionally high-level view communicates the relevant boundaries without representing the complete production architecture.
+        </p>
+      )}
+    </section>
+
     <div class="prose case-prose">
       <CaseStudyContent />
     </div>
-
-    <section class="case-diagram" aria-labelledby="case-diagram-title">
-      <p class="eyebrow">How the work flowed</p>
-      <h2 id="case-diagram-title">{entry.data.diagram.label}</h2>
-      <FlowDiagram steps={entry.data.diagram.steps} ariaLabel={`${entry.data.diagram.label}, numbered steps`} />
-    </section>
 
     {hasLinks && (
       <section class="case-links" aria-labelledby="case-links-title">

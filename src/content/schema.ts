@@ -9,6 +9,10 @@ export const caseStudySchema = z.object({
   project: z.string().min(1),
   cardContext: z.string().min(1),
   cardProblem: z.string().min(1),
+  highlightLabel: z.string().min(1).optional(),
+  headerTitle: z.string().min(1).optional(),
+  caseContext: z.string().min(1).optional(),
+  caseLocation: z.string().min(1).optional(),
   highlights: z.array(z.string().min(1)).min(2).max(3),
   technologies: z.array(z.string().min(1)).min(1),
   role: z.string().min(1),
@@ -39,6 +43,7 @@ export const homepageSchema = z.object({
     .array(
       z.object({
         value: z.string().min(1),
+        emphasis: z.string().min(1).optional(),
         label: z.string().min(1),
       }),
     )

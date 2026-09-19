@@ -74,13 +74,13 @@ const structuredData = [
     />
   </section>
 
-  <section class="proof-strip" aria-label="Selected evidence">
+  <section class="proof-strip" aria-label="How I operate as a senior backend engineer">
     <ul role="list">
       {
         home.data.proof.map((item) => (
           <li>
             <strong>{item.value}</strong>
-            <span>{item.label}</span>
+            <span>{item.emphasis && <b>{item.emphasis}. </b>}{item.label}</span>
           </li>
         ))
       }

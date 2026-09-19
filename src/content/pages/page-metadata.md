@@ -9,8 +9,8 @@ Implementation and technical validation belong to Phase 9. These entries supply 
 ## `/`
 
 - **Browser title:** Ali Alaraby — Senior Backend Engineer
-- **Meta description:** Senior Backend Engineer with 6+ years of experience building and improving
-  Node.js and TypeScript systems across performance, integrations, and production operations.
+- **Meta description:** Senior Backend Engineer building Node.js, NestJS, TypeScript, and PostgreSQL
+  systems for performance, scalability, integrations, and production reliability.
 - **Open Graph title:** Ali Alaraby — Senior Backend Engineer
 - **Open Graph description:** Backend architecture, data performance, integrations, and production
   ownership, with selected work in logistics, fintech, and open-source TypeScript.
