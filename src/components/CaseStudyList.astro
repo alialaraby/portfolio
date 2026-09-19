@@ -15,8 +15,15 @@ const { entries } = Astro.props;
     entries.map((entry) => (
       <li>
         <SurfaceCard href={withBasePath(entry.data.route)} label={entry.data.classification.replace('-', ' ')}>
-          <h3>{entry.data.title}</h3>
-          <p>{entry.data.description}</p>
+          <p class="work-card__context">{entry.data.cardContext}</p>
+          <h3>{entry.data.project}</h3>
+          <p class="work-card__problem">{entry.data.cardProblem}</p>
+          <ul class="work-card__highlights">
+            {entry.data.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+          <ul class="chip-list" aria-label={`${entry.data.project} technologies`}>
+            {entry.data.technologies.map((technology) => <li>{technology}</li>)}
+          </ul>
         </SurfaceCard>
       </li>
     ))

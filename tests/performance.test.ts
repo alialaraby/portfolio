@@ -133,7 +133,7 @@ describe.skipIf(!buildExists())("built performance and artifacts", () => {
       /^index\.html$/,
       /^404\.html$/,
       /^work\/[a-z0-9-]+\/index\.html$/,
-      /^_astro\/[A-Za-z]+\.\w+\.css$/,
+      /^_astro\/[A-Za-z]+\.[\w-]+\.css$/,
       /^_astro\/ali-alaraby-portrait\.[\w-]+\.webp$/,
       /^fonts\/ibm-plex\/[\w.-]+\.woff2$/,
       /^fonts\/ibm-plex\/LICENSE\.txt$/,

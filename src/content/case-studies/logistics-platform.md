@@ -2,9 +2,16 @@
 title: "Madar: Improving Performance and Workflows in a Growing Logistics Platform"
 description: "I improved PostgreSQL workloads, export capacity, SLA processing, and integration boundaries as part of the team behind a growing logistics platform."
 classification: professional-system
-route: /work/logistics-platform
+route: /work/madar
 order: 1
 project: Madar
+cardContext: Production logistics platform
+cardProblem: Scaling critical operational workflows as shipment volume and integration complexity grew.
+highlights:
+  - Reduced latency by more than 90% on critical PostgreSQL workloads.
+  - Increased supported export capacity by 10× with queued, streaming, and chunked processing.
+  - Improved integration boundaries, asynchronous workflows, and operational reliability.
+technologies: [Node.js, NestJS, TypeScript, PostgreSQL, RabbitMQ]
 role: Senior Backend Engineer
 timeline: October 2024–present
 diagram:

@@ -2,9 +2,16 @@
 title: "DebtBox: Building a Fintech Backend from Feasibility to Production Readiness"
 description: "I shaped DebtBox's backend from technical feasibility through soft launch and production readiness using pragmatic architecture and explicit provider boundaries."
 classification: professional-system
-route: /work/fintech-product
+route: /work/debtbox
 order: 2
 project: DebtBox
+cardContext: Saudi fintech product
+cardProblem: Establishing a production-ready backend while product and provider requirements evolved.
+highlights:
+  - Designed the modular backend foundation and correctness-sensitive debt and payment workflows.
+  - Integrated Nafath and shaped technical workflows involving Nafith and other providers.
+  - Deployed the KSA-hosted MVP infrastructure and delivery foundation.
+technologies: [Node.js, NestJS, TypeScript, PostgreSQL, Redis, Docker]
 role: Founding Backend Engineer
 timeline: August 2025–present
 diagram:

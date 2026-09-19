@@ -11,7 +11,7 @@ export async function getStaticPaths() {
   );
 
   return entries.map((entry) => ({
-    params: { slug: entry.id },
+    params: { slug: entry.data.route.split('/').at(-1) },
     props: { entry },
   }));
 }

@@ -7,11 +7,9 @@ type Experience = z.infer<typeof experienceSchema>;
 interface Props {
   introduction: Experience['introduction'];
   roles: Experience['roles'];
-  closingTitle: Experience['closingTitle'];
-  closing: Experience['closing'];
 }
 
-const { introduction, roles, closingTitle, closing } = Astro.props;
+const { introduction, roles } = Astro.props;
 ---
 
 <div class="experience">
@@ -36,14 +34,9 @@ const { introduction, roles, closingTitle, closing } = Astro.props;
             <ul>
               {role.highlights.map((highlight) => <li>{highlight}</li>)}
             </ul>
-            {role.note && <p class="timeline__note">{role.note}</p>}
           </article>
         </li>
       ))
     }
   </ol>
-  <div class="experience__closing">
-    <h3>{closingTitle}</h3>
-    <p>{closing}</p>
-  </div>
 </div>

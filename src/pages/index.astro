@@ -60,9 +60,9 @@ const structuredData = [
       </div>
       <p class="location-line">{home.data.location}</p>
       <div class="action-group">
-        <ActionLink href="#selected-work" variant="primary">View selected work</ActionLink>
-        <ActionLink href={`mailto:${home.data.email}`} variant="secondary">Contact me</ActionLink>
+        <ActionLink href="#selected-work" variant="primary">View work</ActionLink>
         <ActionLink href={cv} variant="secondary">Download CV</ActionLink>
+        <ActionLink href={home.data.linkedin} variant="secondary" external>LinkedIn</ActionLink>
       </div>
     </div>
     <Portrait
@@ -87,13 +87,7 @@ const structuredData = [
     </ul>
   </section>
 
-  <SectionShell id="about" eyebrow="How I work" title="I stay close to the real constraint.">
-    <div class="prose prose--lead">
-      {home.data.about.map((paragraph) => <p>{paragraph}</p>)}
-    </div>
-  </SectionShell>
-
-  <SectionShell id="selected-work" eyebrow="Evidence in context" title="Selected work">
+  <SectionShell id="selected-work" eyebrow="Evidence" title="Selected work">
     <p class="section-introduction">{home.data.selectedWorkIntroduction}</p>
     <CaseStudyList entries={caseStudies} />
   </SectionShell>
@@ -108,8 +102,6 @@ const structuredData = [
         <ExperienceTimeline
           introduction={experience.data.introduction}
           roles={experience.data.roles}
-          closingTitle={experience.data.closingTitle}
-          closing={experience.data.closing}
         />
       )
     }
@@ -122,10 +114,21 @@ const structuredData = [
   </SectionShell>
 
   <SectionShell id="open-source" eyebrow="Inspectable engineering" title="Open source">
-    <div class="prose feature-panel"><OpenSourceContent /></div>
+    <div class="prose feature-panel contact-panel">
+      <OpenSourceContent />
+      <div class="action-group">
+        <ActionLink href="https://github.com/alialaraby/saudi-utils" variant="secondary" external>
+          GitHub
+        </ActionLink>
+        <ActionLink href="https://www.npmjs.com/package/saudi-utils" variant="secondary" external>
+          npm
+        </ActionLink>
+        <ActionLink href={withBasePath('/work/saudi-utils')} variant="secondary">Case study</ActionLink>
+      </div>
+    </div>
   </SectionShell>
 
-  <SectionShell id="contact" eyebrow="Start a conversation" title="Let’s talk about the system.">
+  <SectionShell id="contact" eyebrow="Get in touch" title="Let’s build something reliable.">
     <div class="contact-panel">
       <div class="prose prose--lead">
         {home.data.contact.map((paragraph) => <p>{paragraph}</p>)}
